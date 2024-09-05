@@ -1,23 +1,23 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
-public class Usuario {
+public final class Usuario {
 
+    //atributos
     private String nome;
     private String cpf;
     private String email;
     private String senha;
 
-    public Usuario(String nome) {
-        setNome(nome);
-    }
-
-    public Usuario(String nome, String email ){
+    //construtores
+    public Usuario(String nome, String cpf, String email, String senha){
         this.nome = nome;
+        this.cpf = cpf;
         this.email = email;
+        this.senha = senha;
     }
 
     //setters
-    private void setNome(String nome) {
+    public void setNome(String nome) {
         if (nome != null && !nome.isEmpty()) {
             this.nome = nome;
         } else {

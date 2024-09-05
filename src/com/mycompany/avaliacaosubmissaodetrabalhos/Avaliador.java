@@ -6,25 +6,17 @@ import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.UsuarioInvalidoExcep
 public class Avaliador {
 
     private Trabalho trabalhoAvaliado;
-    private Usuario usuario;
+    private Professor professor;
     private String nome;
     private String email;
 
     
-    public Avaliador(Usuario usuario) throws UsuarioInvalidoException{
-        setUsuario(usuario);
-        this.nome = usuario.getNome();
-        this.email = usuario.getEmail();
+    public Avaliador(Professor professor) throws UsuarioInvalidoException{
+        this.professor = professor;
+        this.nome = professor.getNome();
+        this.email = professor.getEmail();
     }
     //setters
-    private void setUsuario(Usuario usuario) throws UsuarioInvalidoException {
-        if (usuario != null && usuario instanceof Usuario) {
-            this.usuario = usuario;
-        } else {
-            throw new UsuarioInvalidoException();
-        }
-    }
-
     public void setTrabalho(Trabalho trabalho) throws SemTrabalhoDefinidoException {
         if (trabalho != null && trabalho instanceof Trabalho) {
             this.trabalhoAvaliado = trabalho;
@@ -34,8 +26,8 @@ public class Avaliador {
     }
 
     //getters
-    public Usuario getUsuario() {
-        return usuario;
+    public Professor getProfessor() {
+        return professor;
     }
     
     public Trabalho getTrabalhoAvaliado(){
@@ -45,4 +37,9 @@ public class Avaliador {
     public String getNome(){
         return nome;
     }
+
+    public String getEmail() {
+        return email;
+    }
+    
 }

@@ -2,18 +2,21 @@ package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.AlunoInvalidoException;
 
-public class Orientador {
-
+public class Orientador{
+    //atributos
     private Aluno alunoOrientado;
     private Professor professor;
     private String nome;
     private String email;
 
+    //construtor
     public Orientador(Professor professor) {
         this.professor = professor;
         this.nome = professor.getNome();
         this.email = professor.getEmail();
     }
+
+    //get e set
 
     public void setAlunoOrientado(Aluno alunoOrientado) throws AlunoInvalidoException {
         if (alunoOrientado != null && alunoOrientado instanceof Aluno) {

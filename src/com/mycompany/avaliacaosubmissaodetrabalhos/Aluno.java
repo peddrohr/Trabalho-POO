@@ -1,21 +1,17 @@
 
-
-
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 
 public class Aluno {
     //atributos
-    private String nome;
     private int matriculaSigaa;
     private Trabalho trabalho;
     private Evento evento;
     private Usuario usuario;
 
     //construtores
-    public Aluno(String nome, String email, int matriculasigaa) {
-        this.usuario = new Usuario(nome, email);
-        this.nome = nome;
+    public Aluno(String nome,String cpf, String email, int matriculaSigaa, String senha ) {
+        this.usuario = new Usuario(nome,cpf, email, senha);
         this.matriculaSigaa = matriculaSigaa <0 ? matriculaSigaa : 0; 
     }
     
@@ -24,27 +20,21 @@ public class Aluno {
             throw new IllegalArgumentException("Usuário não pode ser nulo");
         }
         this.usuario = usuario;
-        this.nome = usuario.getNome();
         this.matriculaSigaa = matriculasigaa != 0 ? matriculasigaa : 0; 
     }
 
     public Aluno() {
-        this.usuario = new Usuario("", "");
-        this.nome = "";
+        this.usuario = new Usuario("", "", "", "");
         this.matriculaSigaa = 0;
     }
 
-    //get e set
+    //getters
     public Usuario getUsuario() {
         return usuario;
     }
 
     public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+        return usuario.getNome();
     }
 
     public Evento getEvento() {
@@ -59,10 +49,16 @@ public class Aluno {
         return trabalho;
     }
 
+    public String getEmail(){
+        return usuario.getEmail();
+    }   
+    
+    //setters
+
     public void setEvento(Evento evento) {
         this.evento = evento;
     }
-
+    
     public void setMatriculaSigaa(int matriculaSigaa) {
         this.matriculaSigaa = matriculaSigaa;
     }
@@ -73,6 +69,22 @@ public class Aluno {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public void setEmail(String email) {
+        this.usuario.setEmail(email);
+    }
+
+    public void setSenha(String senha){
+        usuario.setSenha(senha);
+    }
+
+    public void setNome(String nome){
+        usuario.setNome(nome);
+    }
+
+    public void setCpf(String cpf){
+        usuario.setCpf(cpf);
     }
 
 }

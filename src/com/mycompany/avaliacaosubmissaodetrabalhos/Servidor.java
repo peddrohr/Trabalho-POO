@@ -1,55 +1,72 @@
-
 package com.mycompany.avaliacaosubmissaodetrabalhos;
-
 
 public final class Servidor{
     
     //atributos
+
     private String matricula;
     private Usuario usuario;
-    private String nome;
 
     //construtores
-    public Servidor(String nome, String email, String matricula) {
-        this.usuario = new Usuario(nome, email);
-        this.nome = nome;
+    public Servidor(String nome,String cpf, String email, String matricula, String senha ) {
+        this.usuario = new Usuario(nome,cpf, email, senha);
         this.matricula = matricula != null ? matricula : ""; 
     }
     
     public Servidor(Usuario usuario, String matricula) {
+        if (usuario == null) {
+            throw new IllegalArgumentException("Usuário não pode ser nulo");
+        }
         this.usuario = usuario;
-        this.nome = usuario.getNome();
         this.matricula = matricula; 
     }
 
     public Servidor() {
-        this.usuario = new Usuario("", "");
-        this.nome = "";
+        this.usuario = new Usuario("", "", "", "");
         this.matricula = "";
     }
     //get e set
-    
-    public void setNome(String nome){
-        this.nome = nome;
-    }
-
-    public String getNomeServidor() {
-        return nome;
-    }
 
     public void setUsuario(Usuario usuario) {
+        if (usuario == null) {
+            throw new IllegalArgumentException("Usuário não pode ser nulo");
+        }
         this.usuario = usuario;
     }
     
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
 
+    public void setEmail(String email) {
+        this.usuario.setEmail(email);
+    }
+
+    public void setSenha(String senha){
+        usuario.setSenha(senha);
+    }
+
+    public void setNome(String nome){
+        usuario.setNome(nome);
+    }
+
+    public void setCpf(String cpf){
+        usuario.setCpf(cpf);
+    }
+
+    //getters  
+    public String getNome() {
+        return usuario.getNome();
+    }
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
     public String getMatricula() {
         return matricula;
+    }
+    
+    public String getEmail() {
+        return usuario.getEmail();
     }
 }

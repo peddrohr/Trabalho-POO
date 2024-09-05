@@ -11,6 +11,11 @@ public class Usuario {
         setNome(nome);
     }
 
+    public Usuario(String nome, String email ){
+        this.nome = nome;
+        this.email = email;
+    }
+
     //setters
     private void setNome(String nome) {
         if (nome != null && !nome.isEmpty()) {

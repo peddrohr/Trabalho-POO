@@ -1,6 +1,7 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
-import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.*;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.SemTrabalhoDefinidoException;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.UsuarioInvalidoException;
 
 public class Avaliador {
 

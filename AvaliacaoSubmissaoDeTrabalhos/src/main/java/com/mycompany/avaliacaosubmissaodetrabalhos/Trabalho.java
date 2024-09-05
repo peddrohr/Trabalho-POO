@@ -1,7 +1,9 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
-import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.*;
-import java.util.*;
+import java.util.ArrayList;
+
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.ModalidadeInvalidaException;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.TrilhaInvalidaException;
 
 public class Trabalho {
 

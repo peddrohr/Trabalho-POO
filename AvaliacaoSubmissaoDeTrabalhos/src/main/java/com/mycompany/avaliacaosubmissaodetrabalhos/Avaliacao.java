@@ -1,7 +1,10 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
-import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.*;
-import java.util.*;
+import java.util.ArrayList;
+
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.AvaliadorInvalidoException;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.NotaInvalidaException;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.SemTrabalhoDefinidoException;
 
 public class Avaliacao {
 

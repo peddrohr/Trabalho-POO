@@ -1,33 +1,18 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
-import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.*;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.AlunoInvalidoException;
 
 public class Orientador {
 
     private Aluno alunoOrientado;
-    private Usuario usuario;
+    private Professor professor;
     private String nome;
     private String email;
 
-    public Orientador(Usuario usuario) {
-        setNome(usuario.getNome());
-        setEmail(usuario.getEmail());
-    }
-
-    private void setNome(String nome) {
-        if (nome != null && !nome.isEmpty()) {
-            this.nome = nome;
-        } else {
-            throw new ExceptionInInitializerError("O nome não pode ser vazio");
-        }
-    }
-
-    private void setEmail(String email) {
-        if (email != null && !email.isEmpty()) {
-            this.email = email;
-        } else {
-            throw new ExceptionInInitializerError("O email não pode ser vazio");
-        }
+    public Orientador(Professor professor) {
+        this.professor = professor;
+        this.nome = professor.getNome();
+        this.email = professor.getEmail();
     }
 
     public void setAlunoOrientado(Aluno alunoOrientado) throws AlunoInvalidoException {
@@ -49,5 +34,4 @@ public class Orientador {
     public Aluno getAlunoOrientado() {
         return alunoOrientado;
     }
-
 }

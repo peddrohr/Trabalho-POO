@@ -1,13 +1,43 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
-/**
- *
- * @author Cauan Halison
- */
+
 public class Professor {
+    //atributos
+
+    private String siape;
+    private Usuario usuario;
+
     
+
+    //construtores
+    public Professor(Usuario usuario){
+        this.usuario = usuario;
+    }
+
+    public Professor(){
+
+    }
+
+    //get e set
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public String getSiape() {
+        return siape;
+    }
+
+    public void setSiape(String siape) {
+        if (siape != null && !siape.isEmpty()) {
+            this.siape = siape;
+        } else {
+            throw new ExceptionInInitializerError("O email não pode ser vazio");
+        }
+    }
 }

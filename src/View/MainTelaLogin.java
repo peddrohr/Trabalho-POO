@@ -1,5 +1,7 @@
 package View;
 
+import com.mycompany.avaliacaosubmissaodetrabalhos.Dados;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Model;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +14,8 @@ import java.util.Objects;
 public class MainTelaLogin extends Application {
 
     public static void main(String[] args) {
+        Dados dados = new Dados();
+        dados.darCarga();
         launch(args);
     }
 

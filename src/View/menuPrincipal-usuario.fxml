@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="717.0" prefWidth="1092.0" style="-fx-background-color: #C0C0C0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.menuPrincipalUserController">
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="749.0" layoutX="-4.0" layoutY="-15.0" stroke="WHITE" strokeType="INSIDE" width="234.0" />
+      <ToggleButton layoutX="41.0" layoutY="245.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="145.0" text="Meus Trabalhos">
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="41.0" layoutY="349.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="145.0" text="Eventos">
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </ToggleButton>
+      <ToggleButton layoutX="41.0" layoutY="153.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="145.0" text="Perfil">
+         <font>
+            <Font name="Segoe UI" size="14.0" />
+         </font>
+      </ToggleButton>
+   </children>
+</AnchorPane>

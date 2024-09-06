@@ -18,6 +18,8 @@ public class TelaLoginController {
 
     @FXML
     void validarEntrada(ActionEvent event) {
+
+
         String login = fieldLogin.getText();
         String senha = fieldSenha.getText();
 

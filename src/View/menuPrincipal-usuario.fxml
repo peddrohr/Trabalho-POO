@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="717.0" prefWidth="1092.0" style="-fx-background-color: #C0C0C0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.menuPrincipalUserController">
    <cursor>
@@ -28,5 +28,6 @@
             <Font name="Segoe UI" size="14.0" />
          </font>
       </ToggleButton>
+      <Label fx:id="labelText" layoutX="360.0" layoutY="121.0" prefHeight="18.0" prefWidth="251.0" text="Label" />
    </children>
 </AnchorPane>

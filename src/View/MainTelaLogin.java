@@ -12,16 +12,19 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class MainTelaLogin extends Application {
-
+    public static Model model = new Model();
     public static void main(String[] args) {
         Dados dados = new Dados();
         dados.darCarga();
+        System.out.println(model);
+        TelaLoginController viewController = new TelaLoginController();
+        System.out.println(viewController.model);
         launch(args);
     }
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("TelaLogin_1.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("TelaLogin.fxml")));
 
         Scene scene = new Scene(root);
 

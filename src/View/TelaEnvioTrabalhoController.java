@@ -111,7 +111,13 @@ public class TelaEnvioTrabalhoController implements Initializable {
     }
 
     @Override
+    public String toString() {
+        return ObsTrilhas.get(0).getNome();
+    }
+
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        carregarTrilha();
     }
 }
 

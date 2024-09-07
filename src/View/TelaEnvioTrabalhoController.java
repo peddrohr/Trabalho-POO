@@ -26,10 +26,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class TelaEnvioTrabalhoController implements Initializable {
-    private ObservableList<Trilha> ObsTrilhas;
+    private ObservableList<String> ObsTrilhasIndex; 
 
     @FXML
-    private ComboBox<Trilha> boxTrilha;
+    private ComboBox<String> boxTrilha;
 
     private List<Trilha> trilhas = new ArrayList<>();
 
@@ -95,6 +95,16 @@ public class TelaEnvioTrabalhoController implements Initializable {
         }
     }
 
+    private ObservableList<String> getIndexList(List<Trilha> trilhas)
+    {
+        List<String> comboBoxList = new ArrayList<String>();
+
+        for(Trilha trilha : trilhas)
+            comboBoxList.add(trilha.getNome());
+
+        return FXCollections.observableArrayList(comboBoxList);
+    }
+
     public void carregarTrilha(){
         Trilha trilha1 = new Trilha();
         trilha1.setNome("Poster");
@@ -104,15 +114,9 @@ public class TelaEnvioTrabalhoController implements Initializable {
         trilhas.add(trilha1);
         trilhas.add(trilha2);
 
-        ObsTrilhas = FXCollections.observableArrayList(trilhas);
+        ObsTrilhasIndex = getIndexList(trilhas);
 
-
-        boxTrilha.setItems(ObsTrilhas);
-    }
-
-    @Override
-    public String toString() {
-        return ObsTrilhas.get(0).getNome();
+        boxTrilha.setItems(ObsTrilhasIndex);
     }
 
     @Override

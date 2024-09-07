@@ -16,13 +16,13 @@ public class Modalidade {
         criteriosAvaliacao = new ArrayList();
     }
 
-    private CriterioAvaliacao CriarCriterioAvaliacao(String nome, String descricao, float pontuacaoMaxima) throws CriterioAvaliacaoInvalidoException {
+    public CriterioAvaliacao CriarCriterioAvaliacao(String nome, String descricao, float pontuacaoMaxima) throws CriterioAvaliacaoInvalidoException {
         CriterioAvaliacao criterio = new CriterioAvaliacao(nome, descricao, pontuacaoMaxima);
         criteriosAvaliacao.add(criterio);
         return criterio;
     }
 
-    private void removerCriterioAvaliacao(CriterioAvaliacao criterioAvaliacao) throws CriterioAvaliacaoInvalidoException {
+    public void removerCriterioAvaliacao(CriterioAvaliacao criterioAvaliacao) throws CriterioAvaliacaoInvalidoException {
         if (criterioAvaliacao != null && criteriosAvaliacao.contains(criterioAvaliacao) && criterioAvaliacao instanceof CriterioAvaliacao) {
             int indice = criteriosAvaliacao.indexOf(criterioAvaliacao);
             criteriosAvaliacao.remove(indice);
@@ -61,6 +61,7 @@ public class Modalidade {
         return new ArrayList<>(criteriosAvaliacao);
     }
     
+    //faz uma busca na lista de criterios atraves do nome.
     public CriterioAvaliacao buscarCriterioPorNome(String nome) {
         for (CriterioAvaliacao criterio : criteriosAvaliacao) {
             if (criterio.getNome().equalsIgnoreCase(nome)) {

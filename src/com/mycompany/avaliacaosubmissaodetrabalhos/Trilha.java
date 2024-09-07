@@ -24,7 +24,7 @@ public class Trilha {
         }
     }
 
-    private void setDescricao(String descricao) {
+    public void setDescricao(String descricao) {
         if (descricao != null && !descricao.isEmpty()) {
             this.descricao = descricao;
         } else {

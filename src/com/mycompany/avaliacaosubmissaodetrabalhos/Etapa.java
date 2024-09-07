@@ -11,6 +11,14 @@ public class Etapa {
         setNomeEtapa(nomeEtapa);
     }
 
+    public Etapa(String nomeEtapa, String dataInicio, String dataFim, String descricao ){
+        this.nomeEtapa = nomeEtapa;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.descricao = descricao;
+    }
+
+    
     //setters
     private void setNomeEtapa(String nomeEtapa) {
         if (nomeEtapa != null && !nomeEtapa.isEmpty()) {

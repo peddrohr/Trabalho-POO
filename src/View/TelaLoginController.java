@@ -50,7 +50,7 @@ public class TelaLoginController implements Initializable {
     }
 
     void novaTela() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("menuPrincipal-usuario.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaInicial.fxml")));
 
         Stage stage = new Stage();
         Scene scene = new Scene(root);

@@ -14,7 +14,7 @@
             <Font name="System Bold" size="38.0" />
          </font>
       </Text>
-      <TextField fx:id="fieldLogin" layoutX="224.0" layoutY="188.0" promptText="Login" />
-      <TextField fx:id="fieldSenha" layoutX="224.0" layoutY="223.0" promptText="Senha" />
+      <TextField fx:id="fieldLogin" layoutX="224.0" layoutY="188.0" onAction="#validarEntrada" promptText="Login" />
+      <TextField fx:id="fieldSenha" layoutX="224.0" layoutY="223.0" onAction="#validarEntrada" promptText="Senha" />
    </children>
 </AnchorPane>

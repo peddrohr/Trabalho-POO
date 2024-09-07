@@ -1,7 +1,6 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 import static com.mycompany.avaliacaosubmissaodetrabalhos.Dados.usuariosCadastrados;
-import View.*;
 
 public class Model {
     public boolean AutenticarUsuario(String login, String senha){

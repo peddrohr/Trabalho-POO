@@ -17,6 +17,21 @@ public class Trabalho {
     private Modalidade modalidade;
     private Trilha trilha;
 
+    public Trabalho() {
+    }
+
+    public Trabalho(String nomeAutor, String nomeOrientador, String titulo, String resumo, String palavrasChave, Modalidade modalidade, Trilha trilha) {
+        this.nomeAutor = nomeAutor;
+        this.nomeOrientador = nomeOrientador;
+        this.titulo = titulo;
+        this.resumo = resumo;
+        this.palavrasChave = palavrasChave;
+        this.modalidade = modalidade;
+        this.trilha = trilha;
+    }
+
+    
+
     //setters
     public void setNomeAutor(String nomeAutor) {
         if (nomeAutor != null && !nomeAutor.isEmpty()) {
@@ -29,6 +44,7 @@ public class Trabalho {
     public void setQntCoAutores(int qntCoAutores) {
         if (qntCoAutores > 0 && qntCoAutores < 5) {
             this.qntCoAutores = qntCoAutores;
+            this.nomeCoAutores = new ArrayList<>(qntCoAutores);
         } else {
             throw new IllegalArgumentException("O valor de co-autores deve estar entre 0 e 5");
         }

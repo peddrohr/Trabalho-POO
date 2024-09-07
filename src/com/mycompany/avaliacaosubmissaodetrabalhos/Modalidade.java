@@ -15,15 +15,13 @@ public class Modalidade {
         criteriosAvaliacao = new ArrayList();
     }
 
-    public void adicionarCriterioAvaliacao(CriterioAvaliacao criterioAvaliacao) throws CriterioAvaliacaoInvalidoException {
-        if (criterioAvaliacao != null && criterioAvaliacao instanceof CriterioAvaliacao) {
-            criteriosAvaliacao.add(criterioAvaliacao);
-        } else {
-            throw new CriterioAvaliacaoInvalidoException();
-        }
+    private CriterioAvaliacao CriarCriterioAvaliacao(String nome, String descricao, float pontuacaoMaxima) throws CriterioAvaliacaoInvalidoException {
+        CriterioAvaliacao criterio = new CriterioAvaliacao(nome, descricao, pontuacaoMaxima);
+        criteriosAvaliacao.add(criterio);
+        return criterio;
     }
 
-    public void removerCriterioAvaliacao(CriterioAvaliacao criterioAvaliacao) throws CriterioAvaliacaoInvalidoException {
+    private void removerCriterioAvaliacao(CriterioAvaliacao criterioAvaliacao) throws CriterioAvaliacaoInvalidoException {
         if (criterioAvaliacao != null && criteriosAvaliacao.contains(criterioAvaliacao) && criterioAvaliacao instanceof CriterioAvaliacao) {
             int indice = criteriosAvaliacao.indexOf(criterioAvaliacao);
             criteriosAvaliacao.remove(indice);
@@ -58,7 +56,17 @@ public class Modalidade {
         return descricao;
     }
 
-    public ArrayList getCriteriosAvaliacao() {
-        return criteriosAvaliacao;
+    public ArrayList<CriterioAvaliacao> getCriteriosAvaliacao() {
+        return new ArrayList<>(criteriosAvaliacao);
     }
+    
+    public CriterioAvaliacao buscarCriterioPorNome(String nome) {
+        for (CriterioAvaliacao criterio : criteriosAvaliacao) {
+            if (criterio.getNome().equalsIgnoreCase(nome)) {
+                return criterio;
+            }
+        }
+        return null; 
+    }
+  
 }

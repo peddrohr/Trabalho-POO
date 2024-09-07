@@ -2,11 +2,21 @@ package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 public class Trilha {
 
+    //atributos
     private String nome;
     private String descricao;
 
+    //construtores
+    public Trilha(String nome, String descricao){
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
+    public Trilha(){
+    }
+
     //setters
-    public void setNome(String nome) {
+    private void setNome(String nome) {
         if (nome != null && !nome.isEmpty()) {
             this.nome = nome;
         } else {
@@ -14,7 +24,7 @@ public class Trilha {
         }
     }
 
-    public void setDescricao(String descricao) {
+    private void setDescricao(String descricao) {
         if (descricao != null && !descricao.isEmpty()) {
             this.descricao = descricao;
         } else {

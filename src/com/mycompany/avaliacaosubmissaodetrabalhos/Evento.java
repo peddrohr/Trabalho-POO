@@ -10,15 +10,19 @@ public class Evento {
     private ArrayList<Etapa> etapas;
 
     public Evento(String nome, String dataInicio, String dataFim) {
-        setNome(nome);
-        setDataInicio(dataInicio);
-        setDataFim(dataFim);
+        this.nome = nome;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
 
         etapas = new ArrayList();
     }
 
+    public Evento(){
+        etapas = new ArrayList<>();
+    }
+
     //setters
-    private void setNome(String nome) {
+    public void setNome(String nome) {
         if (nome != null && !nome.isEmpty()) {
             this.nome = nome;
         } else {
@@ -26,7 +30,7 @@ public class Evento {
         }
     }
 
-    private void setDataInicio(String dataInicio) {
+    public void setDataInicio(String dataInicio) {
         if (dataInicio != null && !dataInicio.isEmpty() && dataInicio.length() == 8) {
             this.dataInicio = dataInicio;
         } else {
@@ -34,7 +38,7 @@ public class Evento {
         }
     }
 
-    private void setDataFim(String dataFim) {
+    public void setDataFim(String dataFim) {
         if (dataFim != null && !dataFim.isEmpty() && dataFim.length() == 8) {
             this.dataFim = dataFim;
         } else {
@@ -46,9 +50,16 @@ public class Evento {
     public void cadastrarEtapa(Etapa etapa) {
         if (etapa != null && etapa instanceof Etapa) {
             etapas.add(etapa);
+        }else{
+            throw new IllegalArgumentException();
         }
     }
 
+    public void CriarNovaEtapa(String nome, String dataInicio, String dataFim, String descricao){
+        Etapa etapa = new Etapa(nome, dataInicio, dataFim, descricao);
+        this.etapas.add(etapa);
+    }
+    
     //getters
     public String getNome() {
         return nome;

@@ -80,7 +80,7 @@ public class TelaEnvioTrabalhoController implements Initializable {
     }
 
     void adicionarTextoLabel(){
-        Evento evento = new Evento("Encontros", "26/02/25", "29/02/25");
+        Evento evento = new Evento("Encontros", "26/02/2025", "29/02/2025");
         nomeEvento.setText("Evento: " + evento.getNome());
         dataDeAbertura.setText("Inicio: " + evento.getDataInicio());
         dataDeVencimento.setText("Vencimento: " + evento.getDataFim());

@@ -16,7 +16,7 @@ public class AvaliacaoSubmissaoDeTrabalhos extends Application {
     public static Model model = new Model();
     public static void main(String[] args) {
         Dados dados = new Dados();
-        dados.darCarga();
+        dados.carregarUsuarios();
         System.out.println(model);
         TelaLoginController viewController = new TelaLoginController();
         System.out.println(viewController.model);

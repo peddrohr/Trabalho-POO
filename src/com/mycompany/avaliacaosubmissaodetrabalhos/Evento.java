@@ -27,7 +27,7 @@ public class Evento {
     }
 
     private void setDataInicio(String dataInicio) {
-        if (dataInicio != null && !dataInicio.isEmpty() && dataInicio.length() == 8) {
+        if (dataInicio != null && !dataInicio.isEmpty() && dataInicio.length() == 10) {
             this.dataInicio = dataInicio;
         } else {
             throw new ExceptionInInitializerError("Data de inicio do evento não pode ser vazia");
@@ -35,7 +35,7 @@ public class Evento {
     }
 
     private void setDataFim(String dataFim) {
-        if (dataFim != null && !dataFim.isEmpty() && dataFim.length() == 8) {
+        if (dataFim != null && !dataFim.isEmpty() && dataFim.length() == 10) {
             this.dataFim = dataFim;
         } else {
             throw new ExceptionInInitializerError("Data de fim do evento não pode ser vazia");
@@ -62,5 +62,10 @@ public class Evento {
 
     public ArrayList getEtapa() {
         return etapas;
+    }
+
+    @Override
+    public String toString(){
+        return getNome();
     }
 }

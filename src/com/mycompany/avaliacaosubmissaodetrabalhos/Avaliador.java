@@ -36,7 +36,7 @@ public class Avaliador {
             throw new SemTrabalhoDefinidoException();
         }
         this.trabalhosAvaliados.remove(trabalhoAvalido);
-}
+    }
 
     //getters
     //retorna uma cópia do arrayList com todos os trabalhos para serem avaliados.

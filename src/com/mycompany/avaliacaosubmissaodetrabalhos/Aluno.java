@@ -29,6 +29,10 @@ public class Aluno {
     }
 
     //getters
+    public String getTitulo(){
+        return trabalho.getTitulo();
+    }
+
     public Usuario getUsuario() {
         return usuario;
     }

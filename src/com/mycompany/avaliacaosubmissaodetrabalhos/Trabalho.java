@@ -30,7 +30,9 @@ public class Trabalho {
         this.trilha = trilha;
     }
 
-    
+    public Trabalho(String nome){
+        this.nomeAutor = nome;
+    }
 
     //setters
     public void setNomeAutor(String nomeAutor) {

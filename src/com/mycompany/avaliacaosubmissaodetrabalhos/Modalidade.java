@@ -10,8 +10,9 @@ public class Modalidade {
     private String descricao;
     private ArrayList<CriterioAvaliacao> criteriosAvaliacao;
 
-    public Modalidade(String nome) {
+    public Modalidade(String nome, String descricao) {
         this.setNome(nome);
+        this.descricao = descricao;
         criteriosAvaliacao = new ArrayList();
     }
 

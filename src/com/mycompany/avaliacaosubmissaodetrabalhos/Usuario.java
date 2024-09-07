@@ -21,7 +21,7 @@ public final class Usuario {
         if (nome != null && !nome.isEmpty()) {
             this.nome = nome;
         } else {
-            throw new ExceptionInInitializerError("O nome do ususario não pode ser vazio");
+            throw new ExceptionInInitializerError("O nome do usuario nao pode ser vazio");
         }
     }
 
@@ -37,7 +37,7 @@ public final class Usuario {
         if (email != null && !email.isEmpty()) {
             this.email = email;
         } else {
-            throw new ExceptionInInitializerError("Por favor preencha o campo de email");
+            throw new ExceptionInInitializerError("O email nao pode ser vazio");
         }
     }
 
@@ -45,7 +45,7 @@ public final class Usuario {
         if (senha != null && !senha.isEmpty()) {
             this.senha = senha;
         } else {
-            throw new ExceptionInInitializerError("Por favor preencha o campo de email");
+            throw new ExceptionInInitializerError("A senha nao pode ser vazia");
         }
     }
 

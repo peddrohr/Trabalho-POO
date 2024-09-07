@@ -13,15 +13,29 @@ public class CriterioAvaliacao {
         this.pontuacaoMaxima = pontuacaoMaxima;
     }
     //setters
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescricao(String descricaoo) {
+        if (descricao != null && !descricao.isEmpty()) {
+            this.descricao = descricao;
+        } else {
+            throw new ExceptionInInitializerError("A descricao nao pode ser vazia");
+        }
+
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (nome != null && !nome.isEmpty()) {
+            this.nome = nome;
+        } else {
+            throw new ExceptionInInitializerError("O nome do criterio nao pode ser vazio");
+        }
     }
+
     public void setPontuacaoMaxima(float pontuacaoMaxima) {
-        this.pontuacaoMaxima = pontuacaoMaxima;
+        if (Float.isFinite(pontuacaoMaxima) && pontuacaoMaxima > 0) {
+            this.pontuacaoMaxima = pontuacaoMaxima;
+        } else {
+            throw new IllegalArgumentException("A pontuacao deve ser finita e maior que zero");
+        }
     }
 
     //getters

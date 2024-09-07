@@ -64,18 +64,26 @@ public class TelaEnvioTrabalhoController implements Initializable {
     private Label dataDeVencimento;
 
     @FXML
+    private Label labelEnvio;
+
+    @FXML
     void enviarTrabalho(ActionEvent event) {
-        /**trabalho.setTitulo (fieldTitulo.getText());
-        trabalho.setNomeOrientador(fieldOrientador.getText());
-        trabalho.setPalavrasChave(fieldPalavrasChave.getText());
-        trabalho.setResumo(fieldResumo.getText());
-        trabalho.setNomeCoAutores(fieldCoAutores.getText());**/
+        Trabalho trabalho1 = new Trabalho();
+        trabalho1.setQntCoAutores(1);
+        trabalho1.setTitulo (fieldTitulo.getText());
+        trabalho1.setNomeOrientador(fieldOrientador.getText());
+        trabalho1.setPalavrasChave(fieldPalavrasChave.getText());
+        trabalho1.setResumo(fieldResumo.getText());
+        trabalho1.setNomeCoAutores(fieldCoAutores.getText());
+        labelEnvio.setText("Trabalho enviado com sucesso!");
+
     }
 
-    void adicionarTextoLabel(Evento evento){
-        nomeEvento.setText(evento.getNome());
-        dataDeAbertura.setText(evento.getDataInicio());
-        dataDeVencimento.setText(evento.getDataFim());
+    void adicionarTextoLabel(){
+        Evento evento = new Evento("Encontros", "26/02/25", "29/02/25");
+        nomeEvento.setText("Evento: " + evento.getNome());
+        dataDeAbertura.setText("Inicio: " + evento.getDataInicio());
+        dataDeVencimento.setText("Vencimento: " + evento.getDataFim());
     }
 
     @FXML
@@ -122,6 +130,7 @@ public class TelaEnvioTrabalhoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         carregarTrilha();
+        adicionarTextoLabel();
     }
 }
 

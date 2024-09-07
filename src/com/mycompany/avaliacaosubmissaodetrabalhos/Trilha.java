@@ -16,7 +16,7 @@ public class Trilha {
     }
 
     //setters
-    private void setNome(String nome) {
+    public void setNome(String nome) {
         if (nome != null && !nome.isEmpty()) {
             this.nome = nome;
         } else {

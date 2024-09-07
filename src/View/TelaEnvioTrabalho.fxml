@@ -23,7 +23,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button fx:id="buttonEnviarTrab" layoutX="496.0" layoutY="513.0" mnemonicParsing="false" onAction="#enviarTrabalho" prefHeight="40.0" prefWidth="101.0" text="Enviar">
+      <Button fx:id="buttonEnviarTrab" layoutX="496.0" layoutY="601.0" mnemonicParsing="false" onAction="#enviarTrabalho" prefHeight="40.0" prefWidth="101.0" text="Enviar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -31,7 +31,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextArea fx:id="fieldResumo" layoutX="260.0" layoutY="352.0" prefHeight="145.0" prefWidth="573.0" promptText="Escreva seu resumo aqui . . . " style="-fx-border-color: grey; -fx-border-width: 1px; -fx-border-radius: 2px;" />
+      <TextArea fx:id="fieldResumo" layoutX="260.0" layoutY="352.0" prefHeight="240.0" prefWidth="573.0" promptText="Escreva seu resumo aqui . . . " style="-fx-border-color: grey; -fx-border-width: 1px; -fx-border-radius: 2px;" />
       <TextField id="barra" fx:id="fieldPalavrasChave" layoutX="260.0" layoutY="317.0" prefHeight="29.0" prefWidth="286.0" promptText="DIgite as Palavras Chave" style="-fx-border-radius: 2px; -fx-border-width: 1px; -fx-border-color: grey;" styleClass="textField">
          <cursor>
             <Cursor fx:constant="TEXT" />
@@ -55,13 +55,18 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <Label fx:id="nomeEvento" layoutX="499.0" layoutY="44.0" prefHeight="40.0" prefWidth="95.0" text="Evento:">
+      <Label fx:id="nomeEvento" alignment="CENTER" contentDisplay="CENTER" layoutX="292.0" layoutY="56.0" prefHeight="40.0" prefWidth="509.0" text="Evento">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label fx:id="dataDeAbertura" layoutX="260.0" layoutY="126.0" prefHeight="29.0" prefWidth="170.0" text="Abertura:" />
-      <Label fx:id="dataDeVencimento" layoutX="260.0" layoutY="155.0" prefHeight="23.0" prefWidth="170.0" text="Vencimento:" />
+      <Label fx:id="dataDeAbertura" layoutX="260.0" layoutY="118.0" prefHeight="29.0" prefWidth="170.0" text="Abertura" />
+      <Label fx:id="dataDeVencimento" layoutX="260.0" layoutY="147.0" prefHeight="23.0" prefWidth="170.0" text="Vencimento" />
       <ComboBox fx:id="boxTrilha" layoutX="260.0" layoutY="178.0" prefHeight="25.0" prefWidth="170.0" promptText="Selecione uma trilha" />
+      <Label fx:id="labelEnvio" alignment="CENTER" layoutX="391.0" layoutY="650.0" prefHeight="27.0" prefWidth="311.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

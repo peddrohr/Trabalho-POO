@@ -42,12 +42,14 @@ public class Evento {
         }
     }
 
+    //cadastra uma nova etapa
     public void cadastrarEtapa(Etapa etapa) {
         if (etapa != null && etapa instanceof Etapa) {
             etapas.add(etapa);
         }
     }
 
+    //getters
     public String getNome() {
         return nome;
     }

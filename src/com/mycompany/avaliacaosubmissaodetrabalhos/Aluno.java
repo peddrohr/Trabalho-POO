@@ -90,5 +90,4 @@ public class Aluno {
     public void setCpf(String cpf){
         usuario.setCpf(cpf);
     }
-
 }

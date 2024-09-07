@@ -57,7 +57,7 @@ public class Trabalho {
         }
     }
 
-    public void setComentario(String resumo) {
+    public void setResumo(String resumo) {
         if (resumo != null && !resumo.isEmpty()) {
             this.resumo = resumo;
         } else {

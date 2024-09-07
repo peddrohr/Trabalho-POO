@@ -46,6 +46,12 @@ public class TelaInicialController {
     }
 
     @FXML
+    void abrirTelaPerfil() throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("TelaPerfil.fxml"));
+        anchorPane.getChildren().setAll(a);
+    }
+
+    @FXML
     void abrirTelaInicial(){
         anchorPane.getChildren().clear();
     }

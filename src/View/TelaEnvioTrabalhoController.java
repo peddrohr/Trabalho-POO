@@ -1,7 +1,12 @@
 package View;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.Evento;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Model;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Trabalho;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Trilha;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -10,13 +15,23 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.ComboBox;
+
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.EventObject;
 import javafx.stage.FileChooser;
 import java.io.File;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class TelaEnvioTrabalhoController {
+public class TelaEnvioTrabalhoController implements Initializable {
+    private ObservableList<Trilha> ObsTrilhas;
 
+    @FXML
+    private ComboBox<Trilha> boxTrilha;
 
+    private List<Trilha> trilhas = new ArrayList<>();
 
     @FXML
     private Button buttonEnviarTrab;
@@ -50,17 +65,17 @@ public class TelaEnvioTrabalhoController {
 
     @FXML
     void enviarTrabalho(ActionEvent event) {
-        String titulo = fieldTitulo.getText();
-        String orientador = fieldOrientador.getText();
-        String palavras = fieldPalavrasChave.getText();
-        String resumo = fieldResumo.getText();
-        String coAutores = fieldCoAutores.getText();
+        /**trabalho.setTitulo (fieldTitulo.getText());
+        trabalho.setNomeOrientador(fieldOrientador.getText());
+        trabalho.setPalavrasChave(fieldPalavrasChave.getText());
+        trabalho.setResumo(fieldResumo.getText());
+        trabalho.setNomeCoAutores(fieldCoAutores.getText());**/
     }
 
     void adicionarTextoLabel(Evento evento){
-        nomeEvento.setText("Evento: " + evento.getNome());
-        dataDeAbertura.setText("Abertura: " + evento.getDataInicio());
-        dataDeVencimento.setText("Vencimento: " + evento.getDataFim());
+        nomeEvento.setText(evento.getNome());
+        dataDeAbertura.setText(evento.getDataInicio());
+        dataDeVencimento.setText(evento.getDataFim());
     }
 
     @FXML
@@ -78,6 +93,25 @@ public class TelaEnvioTrabalhoController {
         } else {
             System.out.println("Nenhum arquivo selecionado.");
         }
+    }
+
+    public void carregarTrilha(){
+        Trilha trilha1 = new Trilha();
+        trilha1.setNome("Poster");
+        Trilha trilha2 = new Trilha();
+        trilha2.setNome("Pitch");
+
+        trilhas.add(trilha1);
+        trilhas.add(trilha2);
+
+        ObsTrilhas = FXCollections.observableArrayList(trilhas);
+
+
+        boxTrilha.setItems(ObsTrilhas);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 }
 

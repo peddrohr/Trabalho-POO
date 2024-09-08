@@ -6,15 +6,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.ComboBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -85,6 +81,12 @@ public class TelaEnvioTrabalhoController implements Initializable {
         anchorPane.getChildren().setAll(a);
         anchorPane.setVisible(true);
         anchorPane.setDisable(false);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Envio");
+        alert.setHeaderText("Trabalho enviado com sucesso");
+        alert.setContentText("Acompanhe o resumo e outras informações no sistema");
+        alert.show();
 
     }
 

@@ -1,40 +1,43 @@
 package View;
 
-import com.mycompany.avaliacaosubmissaodetrabalhos.Evento;
-import com.mycompany.avaliacaosubmissaodetrabalhos.Usuario;
-import javafx.event.ActionEvent;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import com.mycompany.avaliacaosubmissaodetrabalhos.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.shape.Circle;
 
 public class TelaPerfilController {
+    Model model = MainTelaLogin.model;
 
     @FXML
-    private Button buttonAlterarSenha;
+    private ResourceBundle resources;
 
     @FXML
-    private Label emailPerfil;
+    private URL location;
 
     @FXML
-    private Circle fotoPerfil;
+    private Label labelCpf;
 
     @FXML
-    private Label cpfPerfil;
+    private Label labelEmail;
 
     @FXML
-    private Label nomePerfil;
+    private Label labelNome;
 
+    @FXML
+    private Label labelTipoUsuario;
 
-    void adicionarTextoLabel(Usuario usuario) {
-        nomePerfil.setText("Evento: " + usuario.getNome());
-        emailPerfil.setText("Abertura: " + usuario.getEmail());
-        cpfPerfil.setText("Matricula: " + usuario.getCpf());
+    @FXML
+    void carregarDados(){
+        labelNome.setText(((Usuario)model.getUsuarioLogado()).getNome());
+        labelEmail.setText(((Usuario)model.getUsuarioLogado()).getEmail());
+        labelCpf.setText(((Usuario)model.getUsuarioLogado()).getCpf());
     }
 
     @FXML
-    void alterarSenha(ActionEvent event) {
-
+    void initialize() {
+        carregarDados();
     }
 
 }

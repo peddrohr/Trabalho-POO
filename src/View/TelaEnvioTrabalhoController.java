@@ -77,7 +77,7 @@ public class TelaEnvioTrabalhoController implements Initializable {
         trabalho1.setEvento(model.getEventoSelecionado());
         model.addTrabalho(trabalho1);
         labelEnvio.setText("Trabalho enviado por: "+trabalho1.getNomeAutor());
-        AnchorPane a = FXMLLoader.load(getClass().getResource("TelaEventos.fxml"));
+        AnchorPane a = FXMLLoader.load(getClass().getResource("LayoutInicial.fxml"));
         anchorPane.getChildren().setAll(a);
         anchorPane.setVisible(true);
         anchorPane.setDisable(false);

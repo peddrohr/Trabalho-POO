@@ -59,8 +59,9 @@ public class TelaInicialController implements Initializable {
     }
 
     @FXML
-    void abrirTelaInicial(){
-        anchorPane.getChildren().clear();
+    void abrirTelaInicial() throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("LayoutInicial.fxml"));
+        anchorPane.getChildren().setAll(a);
     }
 
     @Override
@@ -68,6 +69,11 @@ public class TelaInicialController implements Initializable {
         if(model.getTipoUsuarioLogado().equals("Professor") && ((Professor)model.getUsuarioLogadoTipado()).getAvaliador()){
             menuAvaliarTrabalho.setDisable(false);
             menuAvaliarTrabalho.setVisible(true);
+        }
+        try {
+            abrirTelaInicial();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Model;
@@ -46,6 +47,11 @@ public class TelaLoginController implements Initializable {
             }
         } else {
             System.out.println("login ou senha invalidos");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Alerta");
+            alert.setHeaderText("Falha na autenticacao");
+            alert.setContentText("Login ou senha invalidos");
+            alert.show();
         }
     }
 

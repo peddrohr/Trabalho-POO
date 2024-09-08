@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="691.0" prefWidth="1092.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaAvaliacaoController">
+    <children>
+        <Label fx:id="nomeEvento" alignment="CENTER" contentDisplay="CENTER" layoutX="283.0" layoutY="36.0" prefHeight="40.0" prefWidth="509.0" text="Evento:">
+            <font>
+                <Font size="26.0" />
+            </font>
+        </Label>
+        <Button fx:id="buttonEnviarAval" layoutX="489.0" layoutY="610.0" mnemonicParsing="false" onAction="#enviarAvaliacao" prefHeight="40.0" prefWidth="101.0" text="Enviar">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Accordion layoutX="351.0" layoutY="76.0" />
+        <Text layoutX="14.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="191.0">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </Text>
+        <Label fx:id="dataDeAbertura" layoutX="14.0" layoutY="118.0" prefHeight="29.0" prefWidth="170.0" text="Abertura: " />
+        <Label fx:id="dataDeVencimento" layoutX="14.0" layoutY="139.0" prefHeight="23.0" prefWidth="170.0" text="Vencimento: " />
+        <Label fx:id="labelEnvio" alignment="CENTER" layoutX="391.0" layoutY="650.0" prefHeight="27.0" prefWidth="311.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+      <Label fx:id="labelTrilha" layoutX="14.0" layoutY="323.0" prefHeight="23.0" prefWidth="170.0" text="Trilha: " />
+      <Label fx:id="labelAutor" layoutX="14.0" layoutY="346.0" prefHeight="27.0" prefWidth="170.0" text="Nome do autor:" />
+      <Label alignment="CENTER" layoutX="726.0" layoutY="94.0" prefHeight="36.0" prefWidth="170.0" text="Criterios:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelOrientador" layoutX="14.0" layoutY="370.0" prefHeight="27.0" prefWidth="170.0" text="Nome do orientador:" />
+      <Label fx:id="labelChave" layoutX="14.0" layoutY="257.0" prefHeight="27.0" prefWidth="170.0" text="Palavras chave: " />
+      <Label fx:id="labelResumo" alignment="TOP_LEFT" layoutX="38.0" layoutY="397.0" prefHeight="145.0" prefWidth="463.0" style="-fx-border-color: grey; -fx-border-radius: 2px; -fx-border-width: 1px;" text="Resumo: " textAlignment="JUSTIFY" />
+      <Separator layoutX="544.0" layoutY="97.0" orientation="VERTICAL" prefHeight="452.0" prefWidth="2.0" />
+      <Label fx:id="labelCriterio1" alignment="TOP_LEFT" layoutX="609.0" layoutY="140.0" prefHeight="36.0" prefWidth="405.0" style="-fx-border-color: grey; -fx-border-width: 1px;" text="Criterio 1" />
+      <RadioButton fx:id="c1b1" layoutX="729.0" layoutY="180.0" mnemonicParsing="false" text="1">
+         <toggleGroup>
+            <ToggleGroup fx:id="nota1" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="c1b2" layoutX="763.0" layoutY="180.0" mnemonicParsing="false" text="2" toggleGroup="$nota1" />
+      <RadioButton fx:id="c1b3" layoutX="797.0" layoutY="180.0" mnemonicParsing="false" text="3" toggleGroup="$nota1" />
+      <RadioButton fx:id="c1b4" layoutX="831.0" layoutY="180.0" mnemonicParsing="false" text="4" toggleGroup="$nota1" />
+      <RadioButton fx:id="c1b5" layoutX="865.0" layoutY="180.0" mnemonicParsing="false" text="5" toggleGroup="$nota1" />
+      <Label fx:id="labelCriterio2" alignment="TOP_LEFT" layoutX="609.0" layoutY="205.0" prefHeight="36.0" prefWidth="405.0" style="-fx-border-color: grey; -fx-border-width: 1px;" text="Criterio 2" />
+      <RadioButton fx:id="c2b1" layoutX="729.0" layoutY="246.0" mnemonicParsing="false" text="1">
+         <toggleGroup>
+            <ToggleGroup fx:id="nota2" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="c2b2" layoutX="763.0" layoutY="246.0" mnemonicParsing="false" text="2" toggleGroup="$nota2" />
+      <RadioButton fx:id="c2b3" layoutX="797.0" layoutY="246.0" mnemonicParsing="false" text="3" toggleGroup="$nota2" />
+      <RadioButton fx:id="c2b4" layoutX="831.0" layoutY="246.0" mnemonicParsing="false" text="4" toggleGroup="$nota2" />
+      <RadioButton fx:id="c2b5" layoutX="865.0" layoutY="246.0" mnemonicParsing="false" text="5" toggleGroup="$nota2" />
+      <Label fx:id="labelCriterio3" alignment="TOP_LEFT" layoutX="609.0" layoutY="270.0" prefHeight="36.0" prefWidth="405.0" style="-fx-border-color: grey; -fx-border-width: 1px;" text="Criterio 3" />
+      <RadioButton fx:id="c4b1" layoutX="729.0" layoutY="380.0" mnemonicParsing="false" text="1">
+         <toggleGroup>
+            <ToggleGroup fx:id="nota4" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="c4b2" layoutX="763.0" layoutY="380.0" mnemonicParsing="false" text="2" toggleGroup="$nota4" />
+      <RadioButton fx:id="c4b3" layoutX="797.0" layoutY="380.0" mnemonicParsing="false" text="3" toggleGroup="$nota4" />
+      <RadioButton fx:id="c4b4" layoutX="831.0" layoutY="380.0" mnemonicParsing="false" text="4" toggleGroup="$nota4" />
+      <RadioButton fx:id="c4b5" layoutX="865.0" layoutY="380.0" mnemonicParsing="false" text="5" toggleGroup="$nota4" />
+      <Label fx:id="labelCriterio4" alignment="TOP_LEFT" layoutX="609.0" layoutY="338.0" prefHeight="36.0" prefWidth="405.0" style="-fx-border-color: grey; -fx-border-width: 1px;" text="Criterio 4" />
+      <RadioButton fx:id="c3b1" layoutX="729.0" layoutY="311.0" mnemonicParsing="false" text="1">
+         <toggleGroup>
+            <ToggleGroup fx:id="nota3" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="c3b2" layoutX="763.0" layoutY="311.0" mnemonicParsing="false" text="2" toggleGroup="$nota3" />
+      <RadioButton fx:id="c3b3" layoutX="797.0" layoutY="311.0" mnemonicParsing="false" text="3" toggleGroup="$nota3" />
+      <RadioButton fx:id="c3b4" layoutX="831.0" layoutY="311.0" mnemonicParsing="false" text="4" toggleGroup="$nota3" />
+      <RadioButton fx:id="c3b5" layoutX="865.0" layoutY="311.0" mnemonicParsing="false" text="5" toggleGroup="$nota3" />
+      <Label fx:id="labelTitulo" alignment="CENTER" layoutX="184.0" layoutY="210.0" prefHeight="36.0" prefWidth="170.0" text="Titulo:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="fieldComentario" layoutX="609.0" layoutY="404.0" prefHeight="145.0" prefWidth="405.0" promptText="Escreva seu comentario aqui . . . " style="-fx-border-color: grey; -fx-border-width: 1px; -fx-border-radius: 2px;" />
+    </children>
+</AnchorPane>

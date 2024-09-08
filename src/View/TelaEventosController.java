@@ -109,7 +109,7 @@ public class TelaEventosController {
 
     @FXML
     void carregarDadosTrabalho(){
-        if(model.getTrabalho() != null){
+        if(model.getTrabalho() != null && model.getTrabalho().getEvento() == model.getEventoSelecionado()){
             dadosTrabalho.setVisible(true);
             mensagemTrabalho.setVisible(true);
             labelResumo.setVisible(true);
@@ -121,6 +121,11 @@ public class TelaEventosController {
             labelCoAutores.setText(trabalho.getNomeCoautores());
             labelOrientador.setText(trabalho.getNomeOrientador());
             labelPalavrasChave.setText(trabalho.getPalavrasChave());
+        } else{
+            dadosTrabalho.setVisible(false);
+            mensagemTrabalho.setVisible(false);
+            labelResumo.setVisible(false);
+            buttonEnviarTrabalho.setDisable(false);
         }
     }
 

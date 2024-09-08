@@ -48,7 +48,7 @@ public class TelaInicialController implements Initializable {
 
     @FXML
     void abrirTelaEnvioTrabalho() throws IOException {
-        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("TelaEnvioTrabalho.fxml"));
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("TelaAvaliacao.fxml"));
         anchorPane.getChildren().setAll(a);
     }
 
@@ -65,6 +65,7 @@ public class TelaInicialController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         if(model.getTipoUsuarioLogado().equals("Professor") && ((Professor)model.getUsuarioLogadoTipado()).getAvaliador()){
             menuAvaliarTrabalho.setDisable(false);
             menuAvaliarTrabalho.setVisible(true);

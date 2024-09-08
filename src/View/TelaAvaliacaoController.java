@@ -1,84 +1,42 @@
 package View;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.*;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.NotaInvalidaException;
+import com.sun.tools.javac.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TelaAvaliacaoController implements Initializable {
 
+    Model model = MainTelaLogin.model;
 
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private Button buttonEnviarAval;
 
     @FXML
-    private RadioButton c1b1;
+    private RadioButton b1;
 
     @FXML
-    private RadioButton c1b2;
+    private RadioButton b2;
 
     @FXML
-    private RadioButton c1b3;
+    private RadioButton b3;
 
     @FXML
-    private RadioButton c1b4;
+    private RadioButton b4;
 
     @FXML
-    private RadioButton c1b5;
-
-    @FXML
-    private RadioButton c2b1;
-
-    @FXML
-    private RadioButton c2b2;
-
-    @FXML
-    private RadioButton c2b3;
-
-    @FXML
-    private RadioButton c2b4;
-
-    @FXML
-    private RadioButton c2b5;
-
-    @FXML
-    private RadioButton c3b1;
-
-    @FXML
-    private RadioButton c3b2;
-
-    @FXML
-    private RadioButton c3b3;
-
-    @FXML
-    private RadioButton c3b4;
-
-    @FXML
-    private RadioButton c3b5;
-
-    @FXML
-    private RadioButton c4b1;
-
-    @FXML
-    private RadioButton c4b2;
-
-    @FXML
-    private RadioButton c4b3;
-
-    @FXML
-    private RadioButton c4b4;
-
-    @FXML
-    private RadioButton c4b5;
+    private RadioButton b5;
 
     @FXML
     private Label dataDeAbertura;
@@ -151,12 +109,49 @@ public class TelaAvaliacaoController implements Initializable {
         labelTrilha.setText("Trilha: " +trabalho.getTrilha().getNome());
         labelResumo.setText("Resumo: " +trabalho.getResumo());
         labelChave.setText("Palavras chave: " +trabalho.getPalavrasChave());
+        labelCriterio1.setText(Dados.criterios.get(0).getNome()+" "+Dados.criterios.get(0).getDescricao());
+        labelCriterio2.setText(Dados.criterios.get(1).getNome()+" "+Dados.criterios.get(1).getDescricao());
+        labelCriterio3.setText(Dados.criterios.get(2).getNome()+" "+Dados.criterios.get(2).getDescricao());
+        labelCriterio4.setText(Dados.criterios.get(3).getNome()+" "+Dados.criterios.get(3).getDescricao());
     }
 
     @FXML
-    void enviarAvaliacao(ActionEvent event) {
+    void enviarAvaliacao(ActionEvent event) throws NotaInvalidaException {
 
+        Avaliacao avaliacao = new Avaliacao(model.getTrabalho());
+
+        RadioButton selectedRadioButtonCriterio1 = (RadioButton) nota1.getSelectedToggle();
+        String Snota1 = selectedRadioButtonCriterio1.getText();
+        float nota1 = Float.parseFloat(Snota1);
+
+
+        RadioButton selectedRadioButtonCriterio2 = (RadioButton) nota2.getSelectedToggle();
+        String Snota2 = selectedRadioButtonCriterio2.getText();
+        float nota2 = Float.parseFloat(Snota2);
+
+
+        RadioButton selectedRadioButtonCriterio3 = (RadioButton) nota3.getSelectedToggle();
+        String Snota3 = selectedRadioButtonCriterio3.getText();
+        float nota3 = Float.parseFloat(Snota3);
+
+
+        RadioButton selectedRadioButtonCriterio4 = (RadioButton) nota4.getSelectedToggle();
+        String Snota4 = selectedRadioButtonCriterio4.getText();
+        float nota4 = Float.parseFloat(Snota4);
+
+
+
+
+
+        avaliacao.setComentario(fieldComentario.getText());
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Envio");
+        alert.setHeaderText("Trabalho avaliado com sucesso");
+        alert.setContentText(Dados.criterios.get(0).toString());
+        alert.show();
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

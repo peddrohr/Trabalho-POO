@@ -123,7 +123,7 @@ public class TelaAvaliacaoController implements Initializable {
         RadioButton selectedRadioButtonCriterio1 = (RadioButton) nota1.getSelectedToggle();
         String Snota1 = selectedRadioButtonCriterio1.getText();
         float nota1 = Float.parseFloat(Snota1);
-        avaliacao.avaliarCriterio(Dados.criterios.get(0), nota1);
+        avaliacao.avaliarCriterio(Dados.criterios.getFirst(), nota1);
 
         RadioButton selectedRadioButtonCriterio2 = (RadioButton) nota2.getSelectedToggle();
         String Snota2 = selectedRadioButtonCriterio2.getText();

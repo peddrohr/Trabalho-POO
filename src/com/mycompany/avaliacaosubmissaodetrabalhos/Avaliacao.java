@@ -1,6 +1,7 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.NotaInvalidaException;
@@ -12,7 +13,7 @@ public class Avaliacao {
     private String comentario;
     private ArrayList<CriterioAvaliacao> criteriosAvaliacao;
     private Modalidade modalidade;
-    private Map<CriterioAvaliacao, Float> notasPorCriterio;
+    private Map<CriterioAvaliacao, Float> notasPorCriterio = new HashMap<>();
     private float nota;
 
     public Avaliacao(Trabalho trabalho, float nota, String comentario){

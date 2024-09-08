@@ -1,6 +1,8 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.ModalidadeInvalidaException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.TrilhaInvalidaException;
@@ -17,6 +19,8 @@ public class Trabalho {
     private Modalidade modalidade;
     private Trilha trilha;
     private Evento evento;
+    private Map<Professor, Avaliacao> avaliacoes;
+    private float nota;
 
     public Trabalho() {
     }
@@ -50,6 +54,7 @@ public class Trabalho {
         }
     }
 
+    
     public void setQntCoAutores(int qntCoAutores) {
         if (qntCoAutores > 0 && qntCoAutores < 5) {
             this.qntCoAutores = qntCoAutores;
@@ -157,5 +162,30 @@ public class Trabalho {
 
     public Trilha getTrilha() {
         return trilha;
+    }
+
+    public Map<Professor, Avaliacao> getAvaliacoes() {
+        return new HashMap<>(avaliacoes);
+    }
+
+     //adiciona uma avaliacao feita por um avaliador sobre o trabalho em um hashMap, passando o professor e a avaliacao feitas
+    //por paramentro do metodo, vai ajudar a calcular a media final.
+    public void AdicionarAvaliacao(Professor avaliador, Avaliacao avaliacao){
+        if(avaliacoes.containsKey(avaliador)){
+            throw new IllegalArgumentException();
+        }
+        if(avaliacoes.size()>=2){
+            throw new IllegalArgumentException();
+        }
+        avaliacoes.put(avaliador, avaliacao);
+    }
+
+    public float NotaFinal(){
+        if(avaliacoes.size()== 2){
+            
+        }
+    }
+    public float getNota(){
+        return nota;
     }
 }

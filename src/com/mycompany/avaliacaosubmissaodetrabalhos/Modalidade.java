@@ -16,8 +16,8 @@ public class Modalidade {
         criteriosAvaliacao = new ArrayList();
     }
 
-    public CriterioAvaliacao CriarCriterioAvaliacao(String nome, String descricao, float pontuacaoMaxima) throws CriterioAvaliacaoInvalidoException {
-        CriterioAvaliacao criterio = new CriterioAvaliacao(nome, descricao, pontuacaoMaxima);
+    public CriterioAvaliacao CriarCriterioAvaliacao(String nome, String descricao) throws CriterioAvaliacaoInvalidoException {
+        CriterioAvaliacao criterio = new CriterioAvaliacao(nome, descricao);
         criteriosAvaliacao.add(criterio);
         return criterio;
     }

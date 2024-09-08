@@ -7,10 +7,9 @@ public class CriterioAvaliacao {
     private float pontuacaoMaxima;
 
     //construtores
-    public CriterioAvaliacao(String nome, String descricao, float pontuacaoMaxima){
+    public CriterioAvaliacao(String nome, String descricao){
         this.nome = nome;
         this.descricao = descricao;
-        this.pontuacaoMaxima = pontuacaoMaxima;
     }
     //setters
     public void setDescricao(String descricaoo) {
@@ -30,14 +29,6 @@ public class CriterioAvaliacao {
         }
     }
 
-    public void setPontuacaoMaxima(float pontuacaoMaxima) {
-        if (Float.isFinite(pontuacaoMaxima) && pontuacaoMaxima > 0) {
-            this.pontuacaoMaxima = pontuacaoMaxima;
-        } else {
-            throw new IllegalArgumentException("A pontuacao deve ser finita e maior que zero");
-        }
-    }
-
     //getters
     public String getDescricao() {
         return descricao;
@@ -47,7 +38,7 @@ public class CriterioAvaliacao {
     }
 
     public float getPontuacaoMaxima() {
-        return pontuacaoMaxima;
+        return 5;
     }
     
 }

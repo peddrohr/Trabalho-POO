@@ -13,8 +13,8 @@ public class CriarCriterioAvaliacao{
     }
 
     // Metodo para criar e adicionar um criterio de avaliacao
-    public CriterioAvaliacao criarCriterioAvaliacao(String nome, String descricao, float pontuacaoMaxima) {
-        CriterioAvaliacao criterio = new CriterioAvaliacao( nome,  descricao, pontuacaoMaxima);
+    public CriterioAvaliacao criarCriterioAvaliacao(String nome, String descricao) {
+        CriterioAvaliacao criterio = new CriterioAvaliacao( nome,  descricao);
         criterios.add(criterio);
         return criterio;
     }

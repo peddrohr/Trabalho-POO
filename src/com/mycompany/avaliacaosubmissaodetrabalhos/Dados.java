@@ -30,6 +30,12 @@ public class Dados {
         Servidor servidor1 = new Servidor(servidor, "110000");
         usuariosCadastrados.add(servidor);
         usuarios.add(servidor1);
+
+        Usuario avaliador = new Usuario("Avaliador teste", "132115131", "avaliadorteste@teste.com", "avaliador123");
+        Professor avaliador1 = new Professor(avaliador, "151131");
+        avaliador1.serAvaliador();
+        usuariosCadastrados.add(avaliador);
+        usuarios.add(avaliador1);
     }
 
     public void carregarEventos(){

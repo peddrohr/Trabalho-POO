@@ -9,6 +9,7 @@ import static com.mycompany.avaliacaosubmissaodetrabalhos.Dados.usuariosCadastra
 public class Model {
     private Evento eventoSelecionado;
     private Object usuarioLogado;
+    private Object usuarioLogadoTipado;
     private String tipoUsuarioLogado;
     private ArrayList<Trabalho> trabalhos;
 
@@ -53,6 +54,10 @@ public class Model {
         return usuarioLogado;
     }
 
+    public Object getUsuarioLogadoTipado(){
+        return usuarioLogadoTipado;
+    }
+
     public String getTipoUsuarioLogado(){
         return tipoUsuarioLogado;
     }
@@ -69,16 +74,19 @@ public class Model {
                     if(Aluno.class == user.getClass()){
                         if(Objects.equals(((Aluno) user).getUsuario().getNome(), usuariosCadastrado.getNome())){
                             tipoUsuarioLogado = "Aluno";
+                            usuarioLogadoTipado = (Aluno)user;
                             break;
                         }
                     } else if(Servidor.class == user.getClass()){
                         if(Objects.equals(((Servidor) user).getUsuario().getNome(), usuariosCadastrado.getNome())){
                             tipoUsuarioLogado = "Servidor";
+                            usuarioLogadoTipado = (Servidor)user;
                             break;
                         }
                     } else if(Professor.class == user.getClass()){
                         if(Objects.equals(((Professor) user).getUsuario().getNome(), usuariosCadastrado.getNome())){
                             tipoUsuarioLogado = "Professor";
+                            usuarioLogadoTipado = (Professor)user;
                             break;
                         }
                     }

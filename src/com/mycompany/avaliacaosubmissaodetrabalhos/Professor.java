@@ -85,6 +85,8 @@ public class Professor{
     public String getSiape() {
         return siape;
     }
+
+    public boolean getAvaliador(){ return avaliador; }
    
     //Metodos
     public void serOrientador(){

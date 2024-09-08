@@ -138,7 +138,7 @@ public class TelaAvaliacaoController implements Initializable {
     private ToggleGroup nota4;
 
     void adicionarTextoLabel(){
-        Evento evento = new Evento("Encontros", "26/02/25", "29/02/25");
+        Evento evento = new Evento("Encontros", "26/02/2025", "29/02/2025");
         Modalidade modalidade = new Modalidade("Pitch", "Descricao Pitch");
         Trilha trilha = new Trilha("BIA", "Descricao BIA");
         Trabalho trabalho = new Trabalho("Victor Carvalho", "Marcos Vinicius", "POO", "Resumo", "Programacao, Orientado a Objeto", modalidade, trilha);

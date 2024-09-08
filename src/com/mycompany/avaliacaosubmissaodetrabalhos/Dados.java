@@ -7,11 +7,13 @@ public class Dados {
     public static ArrayList<Object> usuarios= new ArrayList<>();
     public static ArrayList<Evento> eventosCadastrados = new ArrayList<>();
     public static ArrayList<Trilha> trilhas = new ArrayList<>();
+    public static ArrayList<CriterioAvaliacao> criterios = new ArrayList<>();
 
     public Dados(){
         carregarUsuarios();
         carregarEventos();
         carregarTrilha();
+        carregarCriterios();
     }
 
     public void carregarUsuarios(){
@@ -57,5 +59,17 @@ public class Dados {
         trilhas.add(trilha1);
         trilhas.add(trilha2);
         trilhas.add(trilha3);
+    }
+
+    public void carregarCriterios(){
+        CriterioAvaliacao criterio1 = new CriterioAvaliacao("Criterio1", "Descricao1");
+        CriterioAvaliacao criterio2 = new CriterioAvaliacao("Criterio2", "Descricao2");
+        CriterioAvaliacao criterio3 = new CriterioAvaliacao("Criterio3", "Descricao3");
+        CriterioAvaliacao criterio4 = new CriterioAvaliacao("Criterio4", "Descricao4");
+
+        criterios.add(criterio1);
+        criterios.add(criterio2);
+        criterios.add(criterio3);
+        criterios.add(criterio4);
     }
 }

@@ -1,6 +1,6 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
-public final class Servidor{
+public class Servidor{
     
     //atributos
 

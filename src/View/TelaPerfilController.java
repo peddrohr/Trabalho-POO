@@ -33,6 +33,7 @@ public class TelaPerfilController {
         labelNome.setText(((Usuario)model.getUsuarioLogado()).getNome());
         labelEmail.setText(((Usuario)model.getUsuarioLogado()).getEmail());
         labelCpf.setText(((Usuario)model.getUsuarioLogado()).getCpf());
+        labelTipoUsuario.setText(model.getTipoUsuarioLogado());
     }
 
     @FXML

@@ -1,12 +1,15 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
+import static com.mycompany.avaliacaosubmissaodetrabalhos.Dados.usuarios;
 import static com.mycompany.avaliacaosubmissaodetrabalhos.Dados.usuariosCadastrados;
 
 public class Model {
     private Evento eventoSelecionado;
     private Object usuarioLogado;
+    private String tipoUsuarioLogado;
     private ArrayList<Trabalho> trabalhos;
 
     public Model(){
@@ -50,15 +53,36 @@ public class Model {
         return usuarioLogado;
     }
 
+    public String getTipoUsuarioLogado(){
+        return tipoUsuarioLogado;
+    }
+
     public boolean AutenticarUsuario(String login, String senha){
         boolean usuarioValido = false;
 
-        for (Object usuariosCadastrado : usuariosCadastrados) {
-            Usuario usuario = (Usuario)usuariosCadastrado;
-            if (login.equals(usuario.getNome()) && senha.equals(usuario.getSenha())) {
+        for (Usuario usuariosCadastrado : usuariosCadastrados) {
+            if (login.equals(usuariosCadastrado.getNome()) && senha.equals(usuariosCadastrado.getSenha())) {
                 System.out.println("usuario existe, pode entrar");
                 usuarioValido = true;
                 usuarioLogado = usuariosCadastrado;
+                for(Object user: usuarios){
+                    if(Aluno.class == user.getClass()){
+                        if(Objects.equals(((Aluno) user).getUsuario().getNome(), usuariosCadastrado.getNome())){
+                            tipoUsuarioLogado = "Aluno";
+                            break;
+                        }
+                    } else if(Servidor.class == user.getClass()){
+                        if(Objects.equals(((Servidor) user).getUsuario().getNome(), usuariosCadastrado.getNome())){
+                            tipoUsuarioLogado = "Servidor";
+                            break;
+                        }
+                    } else if(Professor.class == user.getClass()){
+                        if(Objects.equals(((Professor) user).getUsuario().getNome(), usuariosCadastrado.getNome())){
+                            tipoUsuarioLogado = "Professor";
+                            break;
+                        }
+                    }
+                }
             }
         }
 

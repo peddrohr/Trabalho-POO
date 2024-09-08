@@ -1,9 +1,11 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Dados {
-    public static ArrayList<Object> usuariosCadastrados = new ArrayList<>();
+    public static ArrayList<Usuario> usuariosCadastrados = new ArrayList<>();
+    public static ArrayList<Object> usuarios= new ArrayList<>();
     public static ArrayList<Evento> eventosCadastrados = new ArrayList<>();
     public static ArrayList<Trilha> trilhas = new ArrayList<>();
 
@@ -18,14 +20,17 @@ public class Dados {
         Usuario aluno = new Usuario("aluno teste", "123456789", "alunoteste@email.com","aluno123");
         Aluno aluno1 = new Aluno(aluno, 100000);
         usuariosCadastrados.add(aluno);
+        usuarios.add(aluno1);
 
-        Usuario professor = new Usuario("Professor teste", "123123123", "professorteste@gmail.com", "professor123");
-        Professor professor1 = new Professor(professor, "000001");
+        Usuario professor = new Usuario("professor teste", "123123123", "professorteste@gmail.com", "professor123");
+        Professor professor1 = new Professor(professor, "0000010");
         usuariosCadastrados.add(professor);
+        usuarios.add(professor1);
 
-        Usuario servidor = new Usuario("Servidor teste", "789789789", "servidorteste@gmail.com", "servidor123");
+        Usuario servidor = new Usuario("servidor teste", "789789789", "servidorteste@gmail.com", "servidor123");
         Servidor servidor1 = new Servidor(servidor, "110000");
         usuariosCadastrados.add(servidor);
+        usuarios.add(servidor1);
     }
 
     public void carregarEventos(){

@@ -123,22 +123,22 @@ public class TelaAvaliacaoController implements Initializable {
         RadioButton selectedRadioButtonCriterio1 = (RadioButton) nota1.getSelectedToggle();
         String Snota1 = selectedRadioButtonCriterio1.getText();
         float nota1 = Float.parseFloat(Snota1);
-
+        avaliacao.avaliarCriterio(Dados.criterios.get(0), nota1);
 
         RadioButton selectedRadioButtonCriterio2 = (RadioButton) nota2.getSelectedToggle();
         String Snota2 = selectedRadioButtonCriterio2.getText();
         float nota2 = Float.parseFloat(Snota2);
-
+        avaliacao.avaliarCriterio(Dados.criterios.get(1), nota2);
 
         RadioButton selectedRadioButtonCriterio3 = (RadioButton) nota3.getSelectedToggle();
         String Snota3 = selectedRadioButtonCriterio3.getText();
         float nota3 = Float.parseFloat(Snota3);
-
+        avaliacao.avaliarCriterio(Dados.criterios.get(2), nota3);
 
         RadioButton selectedRadioButtonCriterio4 = (RadioButton) nota4.getSelectedToggle();
         String Snota4 = selectedRadioButtonCriterio4.getText();
         float nota4 = Float.parseFloat(Snota4);
-
+        avaliacao.avaliarCriterio(Dados.criterios.get(3), nota4);
 
 
 
@@ -148,7 +148,7 @@ public class TelaAvaliacaoController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Envio");
         alert.setHeaderText("Trabalho avaliado com sucesso");
-        alert.setContentText(Dados.criterios.get(0).toString());
+        alert.setContentText(""+avaliacao.calcularNotaFinal());
         alert.show();
     }
 

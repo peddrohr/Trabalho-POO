@@ -1,14 +1,13 @@
 package View;
 
-import com.mycompany.avaliacaosubmissaodetrabalhos.Evento;
-import com.mycompany.avaliacaosubmissaodetrabalhos.Model;
-import com.mycompany.avaliacaosubmissaodetrabalhos.Trabalho;
-import com.mycompany.avaliacaosubmissaodetrabalhos.Trilha;
+import com.mycompany.avaliacaosubmissaodetrabalhos.*;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ComboBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.EventObject;
@@ -26,12 +26,14 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class TelaEnvioTrabalhoController implements Initializable {
-    private ObservableList<String> ObsTrilhasIndex; 
+    private ObservableList<String> ObsTrilhasIndex;
+    private Model model = MainTelaLogin.model;
 
     @FXML
     private ComboBox<String> boxTrilha;
 
-    private List<Trilha> trilhas = new ArrayList<>();
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private Button buttonEnviarTrab;
@@ -67,7 +69,7 @@ public class TelaEnvioTrabalhoController implements Initializable {
     private Label labelEnvio;
 
     @FXML
-    void enviarTrabalho(ActionEvent event) {
+    void enviarTrabalho(ActionEvent event) throws IOException {
         Trabalho trabalho1 = new Trabalho();
         trabalho1.setQntCoAutores(1);
         trabalho1.setTitulo (fieldTitulo.getText());
@@ -75,12 +77,19 @@ public class TelaEnvioTrabalhoController implements Initializable {
         trabalho1.setPalavrasChave(fieldPalavrasChave.getText());
         trabalho1.setResumo(fieldResumo.getText());
         trabalho1.setNomeCoAutores(fieldCoAutores.getText());
-        labelEnvio.setText("Trabalho enviado com sucesso!");
+        trabalho1.setNomeAutor(((Usuario)model.getUsuarioLogado()).getNome());
+        trabalho1.setEvento(model.getEventoSelecionado());
+        model.addTrabalho(trabalho1);
+        labelEnvio.setText("Trabalho enviado por: "+trabalho1.getNomeAutor());
+        AnchorPane a = FXMLLoader.load(getClass().getResource("TelaEventos.fxml"));
+        anchorPane.getChildren().setAll(a);
+        anchorPane.setVisible(true);
+        anchorPane.setDisable(false);
 
     }
 
     void adicionarTextoLabel(){
-        Evento evento = new Evento("Encontros", "26/02/2025", "29/02/2025");
+        Evento evento = model.getEventoSelecionado();
         nomeEvento.setText("Evento: " + evento.getNome());
         dataDeAbertura.setText("Inicio: " + evento.getDataInicio());
         dataDeVencimento.setText("Vencimento: " + evento.getDataFim());
@@ -114,15 +123,7 @@ public class TelaEnvioTrabalhoController implements Initializable {
     }
 
     public void carregarTrilha(){
-        Trilha trilha1 = new Trilha();
-        trilha1.setNome("Poster");
-        Trilha trilha2 = new Trilha();
-        trilha2.setNome("Pitch");
-
-        trilhas.add(trilha1);
-        trilhas.add(trilha2);
-
-        ObsTrilhasIndex = getIndexList(trilhas);
+        ObsTrilhasIndex = getIndexList(Dados.trilhas);
 
         boxTrilha.setItems(ObsTrilhasIndex);
     }

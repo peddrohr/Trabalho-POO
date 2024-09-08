@@ -1,5 +1,7 @@
 package View;
 
+import com.mycompany.avaliacaosubmissaodetrabalhos.Model;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Trabalho;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -18,9 +20,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class TelaEventosController {
+    private Model model = MainTelaLogin.model;
 
     @FXML
     private ResourceBundle resources;
@@ -38,9 +42,6 @@ public class TelaEventosController {
     private Label labelDataFim;
 
     @FXML
-    private Button enviarTrabalho;
-
-    @FXML
     private Label labelDatainicio;
 
     @FXML
@@ -49,6 +50,30 @@ public class TelaEventosController {
     @FXML
     private Label labelNomeEvento;
 
+    @FXML
+    private Label labelCoAutores;
+
+    @FXML
+    private Button buttonEnviarTrabalho;
+
+    @FXML
+    private GridPane dadosTrabalho;
+
+    @FXML
+    private Label labelOrientador;
+
+    @FXML
+    private Label labelPalavrasChave;
+
+    @FXML
+    private Label labelResumo;
+
+    @FXML
+    private Label labelTituloTrabalho;
+
+    @FXML
+    private Label mensagemTrabalho;
+
     void carregarEventos(){
         ObservableList<Evento> eventos = FXCollections.observableList(Dados.eventosCadastrados);
         comboboxEventos.setItems(eventos);
@@ -56,28 +81,53 @@ public class TelaEventosController {
 
     @FXML
     void carregarDadosEvento(){
-        enviarTrabalho.setDisable(false);
-        Evento eventoSelecionado = comboboxEventos.getSelectionModel().getSelectedItem();
+        buttonEnviarTrabalho.setDisable(false);
+        model.setEventoSelecionado(comboboxEventos.getSelectionModel().getSelectedItem());
+        Evento eventoSelecionado = model.getEventoSelecionado();
 
         labelNomeEvento.setText(eventoSelecionado.getNome());
         labelDatainicio.setText(eventoSelecionado.getDataInicio());
         labelDataFim.setText(eventoSelecionado.getDataFim());
         labelEtapas.setText("Etapas");
+        carregarDadosTrabalho();
+
     }
 
     @FXML
     void enviarTrabalho(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("TelaEnvioTrabalho.fxml"));
+        AnchorPane a = FXMLLoader.load(getClass().getResource("TelaEnvioTrabalho.fxml"));
+        anchorPane.getChildren().setAll(a);
+        anchorPane.setVisible(true);
+        anchorPane.setDisable(false);
+        /*Parent root = FXMLLoader.load(getClass().getResource("TelaEnvioTrabalho.fxml"));
         Scene scene = new Scene(root);
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.show();
+        stage.show();*/
+    }
+
+    @FXML
+    void carregarDadosTrabalho(){
+        if(model.getTrabalho() != null){
+            dadosTrabalho.setVisible(true);
+            mensagemTrabalho.setVisible(true);
+            labelResumo.setVisible(true);
+            buttonEnviarTrabalho.setDisable(true);
+
+            Trabalho trabalho = model.getTrabalho();
+
+            labelTituloTrabalho.setText(trabalho.getTitulo());
+            labelCoAutores.setText(trabalho.getNomeCoautores());
+            labelOrientador.setText(trabalho.getNomeOrientador());
+            labelPalavrasChave.setText(trabalho.getPalavrasChave());
+        }
     }
 
     @FXML
     void initialize() {
         carregarEventos();
+        carregarDadosTrabalho();
     }
 
 }

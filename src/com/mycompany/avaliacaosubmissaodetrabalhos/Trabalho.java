@@ -16,6 +16,7 @@ public class Trabalho {
     private String palavrasChave;
     private Modalidade modalidade;
     private Trilha trilha;
+    private Evento evento;
 
     public Trabalho() {
     }
@@ -35,6 +36,12 @@ public class Trabalho {
     }
 
     //setters
+    public void setEvento(Evento evento){
+        if(evento != null){
+            this.evento = evento;
+        }
+    }
+
     public void setNomeAutor(String nomeAutor) {
         if (nomeAutor != null && !nomeAutor.isEmpty()) {
             this.nomeAutor = nomeAutor;
@@ -108,6 +115,10 @@ public class Trabalho {
     }
 
     //getters
+    public Evento getEvento() {
+        return evento;
+    }
+
     public String getNomeAutor() {
         return nomeAutor;
     }
@@ -116,8 +127,12 @@ public class Trabalho {
         return qntCoAutores;
     }
 
-    public ArrayList getNomeCoautores() {
-        return nomeCoAutores;
+    public String getNomeCoautores() {
+        String coAutores = "";
+        for(String nomeCoAutor: nomeCoAutores){
+            coAutores = coAutores + nomeCoAutor;
+        }
+        return coAutores;
     }
 
     public String getNomeOrientador() {

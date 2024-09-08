@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.AlunoInvalidoException;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.NotaInvalidaException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.SemTrabalhoDefinidoException;
 
 public class Professor{
@@ -13,6 +14,7 @@ public class Professor{
     private boolean orientador;
     private List<Aluno> alunosOrientados = new ArrayList<>();
     private List<Trabalho> trabalhosAvaliados = new ArrayList<>();
+    private Avaliacao avaliacao;
 
     //construtores
     public Professor(String nome,String cpf, String email,String senha, String siape) {
@@ -165,4 +167,35 @@ public class Professor{
         
     }
 
+    public void avaliarTrabalho(Trabalho trabalho){
+        Avaliacao avaliacao = new Avaliacao(trabalho);
+        this.avaliacao = avaliacao;
+    }
+
+    public void avaliarCriterio(CriterioAvaliacao criterio, float nota) throws NotaInvalidaException{
+        avaliacao.avaliarCriterio(criterio, nota);
+    }
+
+    public Avaliacao adicionarNota(Trabalho trabalho, float nota, String comentario){
+        if(avaliador){
+            if(trabalhosAvaliados.contains(trabalho)){
+                if(trabalho.getAvaliacoes().size()<2){
+                    Avaliacao avaliar = new Avaliacao(trabalho, nota, comentario);
+                    trabalhosAvaliados.remove(trabalho);
+                    if(trabalho.getAvaliacoes().size()<2){
+                        trabalho.AdicionarAvaliacao(this, avaliacao);
+                    }else{
+                        throw new IllegalArgumentException();
+                    }
+                    return avaliar;
+                }else{
+                    throw new IllegalArgumentException();
+                }
+            }else{
+                throw new IllegalArgumentException();
+            }
+        }else{
+            throw new IllegalArgumentException();
+        }
+    }
 }

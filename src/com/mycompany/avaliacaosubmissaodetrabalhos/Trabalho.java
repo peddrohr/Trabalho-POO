@@ -182,9 +182,17 @@ public class Trabalho {
 
     public float NotaFinal(){
         if(avaliacoes.size()== 2){
-            
+            float somaNotas = 0;
+            for(Avaliacao avaliacao: avaliacoes.values()){
+                somaNotas += avaliacao.calcularNotaFinal();
+            }
+            this.nota = somaNotas/ 2;
+            return this.nota;
+        }else{
+            throw new IllegalArgumentException();
         }
     }
+
     public float getNota(){
         return nota;
     }

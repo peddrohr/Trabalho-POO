@@ -8,6 +8,7 @@ public class Aluno {
     private Trabalho trabalho;
     private Evento evento;
     private Usuario usuario;
+    private float notaTrabalho;
 
     //construtores
     public Aluno(String nome,String cpf, String email, int matriculaSigaa, String senha ) {
@@ -90,4 +91,11 @@ public class Aluno {
     public void setCpf(String cpf){
         usuario.setCpf(cpf);
     }
+
+    public float getNotaTrabalho() {
+        return trabalho.getNota();
+    }
+
+    
+
 }

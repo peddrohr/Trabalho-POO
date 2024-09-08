@@ -1,27 +1,31 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 import java.util.ArrayList;
+import java.util.Map;
 
-import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.AvaliadorInvalidoException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.NotaInvalidaException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.SemTrabalhoDefinidoException;
 
 public class Avaliacao {
 
-    private float nota;
     private Trabalho trabalho;
     private String comentario;
-    private Avaliador avaliador;
     private ArrayList<CriterioAvaliacao> criteriosAvaliacao;
+    private Modalidade modalidade;
+    private Map<CriterioAvaliacao, Float> notasPorCriterio;
+    private float nota;
+
+    public Avaliacao(Trabalho trabalho, float nota, String comentario){
+        this.trabalho = trabalho;
+        this.nota = nota;
+        this.comentario = comentario;
+    }
+
+    public Avaliacao(Trabalho trabalho){
+        this.trabalho = trabalho;
+    }
 
     //setters  
-    public void setNota(float nota) throws NotaInvalidaException {
-        if (nota >= 0 && nota <= 10) {
-            this.nota = nota;
-        } else {
-            throw new NotaInvalidaException();
-        }
-    }
 
     public void setTrabalho(Trabalho trabalho) throws SemTrabalhoDefinidoException {
         if (trabalho != null && trabalho instanceof Trabalho) {
@@ -34,23 +38,6 @@ public class Avaliacao {
     public void setComentario(String comentario) {
         if (comentario != null) {
             this.comentario = comentario;
-        }
-    }
-
-    public void setAvaliador(Avaliador avaliador) throws AvaliadorInvalidoException {
-        if (avaliador != null && avaliador instanceof Avaliador) {
-            this.avaliador = avaliador;
-        } else {
-            throw new AvaliadorInvalidoException();
-        }
-    }
-
-    public void setCriteriosAvaliacao(Trabalho trabalho) throws SemTrabalhoDefinidoException {
-        if (trabalho != null && trabalho instanceof Trabalho) {
-            criteriosAvaliacao = new ArrayList();
-            //criteriosAvaliacao = trabalho.getModalidade().getCriteriosAvaliacao();
-        } else {
-            throw new SemTrabalhoDefinidoException();
         }
     }
 
@@ -67,11 +54,35 @@ public class Avaliacao {
         return comentario;
     }
 
-    public Avaliador getAvaliador() {
-        return avaliador;
+    public ArrayList getCriteriosAvaliacao() {
+        return new ArrayList<>(criteriosAvaliacao);
     }
 
-    public ArrayList getCriteriosAvaliacao() {
-        return criteriosAvaliacao;
+    public Map<CriterioAvaliacao, Float> getNotasPorCriterio() {
+        return notasPorCriterio;
+    }
+    
+    //adiciona uma nota para cada critério de avaliação
+    public void avaliarCriterio(CriterioAvaliacao criterio, float nota)throws NotaInvalidaException{
+        if(nota < 0 || nota > 5){
+            throw new NotaInvalidaException();
+        }
+        notasPorCriterio.put(criterio, nota);
+    }
+
+    //calcula a média das notas dada pelo avaliador em cada criterio
+    public float calcularNotaFinal() {
+        float notaFinal;
+        float somaNotas = 0;
+        for (Float nota : notasPorCriterio.values()) {
+            somaNotas += nota;
+        }
+        notaFinal = somaNotas/ notasPorCriterio.size();
+        setNota(notaFinal);
+        return nota; 
+    }
+
+    public void setNota(float nota) {
+        this.nota = nota;
     }
 }

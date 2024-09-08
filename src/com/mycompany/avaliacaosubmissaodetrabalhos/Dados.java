@@ -1,7 +1,6 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Dados {
     public static ArrayList<Usuario> usuariosCadastrados = new ArrayList<>();
@@ -46,8 +45,11 @@ public class Dados {
         trilha1.setNome("Poster");
         Trilha trilha2 = new Trilha();
         trilha2.setNome("Pitch");
+        Trilha trilha3 = new Trilha();
+        trilha3.setNome("Banner");
 
         trilhas.add(trilha1);
         trilhas.add(trilha2);
+        trilhas.add(trilha3);
     }
 }

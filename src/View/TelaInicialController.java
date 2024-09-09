@@ -36,32 +36,27 @@ public class TelaInicialController implements Initializable {
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
-        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("TelaAvaliacao.fxml"));
-        anchorPane.getChildren().setAll(a);
+        anchorPane.getChildren().setAll(model.AbrirTelaAvaliacao());
     }
 
     @FXML
     void abrirTelaEventos() throws IOException {
-        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("TelaEventos.fxml"));
-        anchorPane.getChildren().setAll(a);
+        anchorPane.getChildren().setAll(model.abrirTelaEventos());
     }
 
     @FXML
     void abrirTelaEnvioTrabalho() throws IOException {
-        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("TelaAvaliacao.fxml"));
-        anchorPane.getChildren().setAll(a);
+        anchorPane.getChildren().setAll(model.abrirTelaEnvioTrabalho());
     }
 
     @FXML
     void abrirTelaPerfil() throws IOException {
-        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("TelaPerfil.fxml"));
-        anchorPane.getChildren().setAll(a);
+        anchorPane.getChildren().setAll(model.abrirTelaPerfil());
     }
 
     @FXML
     void abrirTelaInicial() throws IOException {
-        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("LayoutInicial.fxml"));
-        anchorPane.getChildren().setAll(a);
+        anchorPane.getChildren().setAll(model.abrirTelaInicial());
     }
 
     @Override

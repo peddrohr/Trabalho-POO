@@ -1,5 +1,9 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -14,6 +18,26 @@ public class Model {
 
     public Model(){
         trabalhos = new ArrayList<>();
+    }
+
+    public AnchorPane AbrirTelaAvaliacao() throws IOException {
+        return (AnchorPane) FXMLLoader.load(getClass().getResource("/View/TelaAvaliacao.fxml"));
+    }
+
+    public AnchorPane abrirTelaEventos() throws IOException {
+        return (AnchorPane) FXMLLoader.load(getClass().getResource("/View/TelaEventos.fxml"));
+    }
+
+    public AnchorPane abrirTelaEnvioTrabalho() throws IOException {
+        return (AnchorPane) FXMLLoader.load(getClass().getResource("/View/TelaAvaliacao.fxml"));
+    }
+
+    public AnchorPane abrirTelaPerfil() throws IOException {
+        return (AnchorPane) FXMLLoader.load(getClass().getResource("/View/TelaPerfil.fxml"));
+    }
+
+    public AnchorPane abrirTelaInicial() throws IOException {
+        return (AnchorPane) FXMLLoader.load(getClass().getResource("/View/LayoutInicial.fxml"));
     }
 
     public void addTrabalho(Trabalho trabalho){

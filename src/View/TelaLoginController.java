@@ -26,6 +26,8 @@ public class TelaLoginController implements Observer {
     public Model model;
     public Stage view;
 
+    @FXML
+    private Button botaoFazercadastro;
 
     @FXML
     private Button butaoEntrar;
@@ -55,6 +57,12 @@ public class TelaLoginController implements Observer {
             alert.setContentText("Login ou senha invalidos");
             alert.show();
         }
+    }
+
+    @FXML
+    void abrirTelaCadastro(ActionEvent event) throws IOException {
+        TelaCadastroView novaTela = new TelaCadastroView();
+        novaTela.iniciarTela(model, view);
     }
 
     void novaTela() throws IOException {

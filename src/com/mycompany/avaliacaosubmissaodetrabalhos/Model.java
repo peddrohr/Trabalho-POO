@@ -125,6 +125,40 @@ public class Model {
         usuarioLogadoTipado = null;
     }
 
+    //View Tela Cadastro
+    public void cadastrarUsuario(String tipoUsuario, String nome, String cpf,  String email, String senha, String matricula){
+        Usuario usuario = new Usuario(nome, cpf, email, senha);
+        switch (tipoUsuario){
+            case "Professor":
+                Professor professor = new Professor(usuario, matricula);
+                usuariosCadastrados.add(usuario);
+                usuarios.add(professor);
+                usuarioLogado = usuario;
+                usuarioLogadoTipado = professor;
+                tipoUsuarioLogado = "Professor";
+                break;
+
+            case "Servidor":
+                Servidor servidor = new Servidor(usuario, matricula);
+                usuariosCadastrados.add(usuario);
+                usuarios.add(servidor);
+                usuarioLogado = usuario;
+                usuarioLogadoTipado = servidor;
+                tipoUsuarioLogado = "Servidor";
+                break;
+
+            case "Aluno":
+                Aluno aluno = new Aluno(usuario, Integer.parseInt(matricula));
+                usuariosCadastrados.add(usuario);
+                usuarios.add(aluno);
+                usuarioLogado = usuario;
+                usuarioLogadoTipado = aluno;
+                tipoUsuarioLogado = "Aluno";
+                break;
+
+        }
+    }
+
     public Trabalho getTrabalho(){
         if(trabalhos.size() != 0) {
             return trabalhos.getLast();

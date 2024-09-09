@@ -96,10 +96,9 @@ public class TelaAvaliacaoController implements Initializable {
     private ToggleGroup nota4;
 
     void adicionarTextoLabel(){
-        Evento evento = new Evento("Encontros", "26/02/2025", "29/02/2025");
-        Modalidade modalidade = new Modalidade("Pitch", "Descricao Pitch");
-        Trilha trilha = new Trilha("BIA", "Descricao BIA");
-        Trabalho trabalho = new Trabalho("Victor Carvalho", "Marcos Vinicius", "POO", "Resumo", "Programacao, Orientado a Objeto", modalidade, trilha);
+        Trabalho trabalho = model.getTrabalho();
+        Evento evento = model.getTrabalho().getEvento();
+
         nomeEvento.setText("Evento: " + evento.getNome());
         dataDeAbertura.setText("Inicio: " + evento.getDataInicio());
         dataDeVencimento.setText("Vencimento: " + evento.getDataFim());
@@ -118,37 +117,37 @@ public class TelaAvaliacaoController implements Initializable {
     @FXML
     void enviarAvaliacao(ActionEvent event) throws NotaInvalidaException {
 
-        Avaliacao avaliacao = new Avaliacao(model.getTrabalho());
+        Trabalho trabalhoAvaliado = model.getTrabalho();
+
+        Avaliacao avaliacao = new Avaliacao(trabalhoAvaliado);
 
         RadioButton selectedRadioButtonCriterio1 = (RadioButton) nota1.getSelectedToggle();
-        String Snota1 = selectedRadioButtonCriterio1.getText();
-        float nota1 = Float.parseFloat(Snota1);
+        float nota1 = Float.parseFloat(selectedRadioButtonCriterio1.getText());
         avaliacao.avaliarCriterio(Dados.criterios.getFirst(), nota1);
 
         RadioButton selectedRadioButtonCriterio2 = (RadioButton) nota2.getSelectedToggle();
-        String Snota2 = selectedRadioButtonCriterio2.getText();
-        float nota2 = Float.parseFloat(Snota2);
+        float nota2 = Float.parseFloat(selectedRadioButtonCriterio2.getText());
         avaliacao.avaliarCriterio(Dados.criterios.get(1), nota2);
 
         RadioButton selectedRadioButtonCriterio3 = (RadioButton) nota3.getSelectedToggle();
-        String Snota3 = selectedRadioButtonCriterio3.getText();
-        float nota3 = Float.parseFloat(Snota3);
+        float nota3 = Float.parseFloat(selectedRadioButtonCriterio3.getText());
         avaliacao.avaliarCriterio(Dados.criterios.get(2), nota3);
 
         RadioButton selectedRadioButtonCriterio4 = (RadioButton) nota4.getSelectedToggle();
-        String Snota4 = selectedRadioButtonCriterio4.getText();
-        float nota4 = Float.parseFloat(Snota4);
+        float nota4 = Float.parseFloat(selectedRadioButtonCriterio4.getText());
         avaliacao.avaliarCriterio(Dados.criterios.get(3), nota4);
 
+        float notaFinal = avaliacao.calcularNotaFinal();
 
-
+        trabalhoAvaliado.adicionarAvaliacao((Professor)model.getUsuarioLogadoTipado(), avaliacao);
+        trabalhoAvaliado.notaFinal();
 
         avaliacao.setComentario(fieldComentario.getText());
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Envio");
         alert.setHeaderText("Trabalho avaliado com sucesso");
-        alert.setContentText(""+avaliacao.calcularNotaFinal());
+        alert.setContentText("" + trabalhoAvaliado.getNota());
         alert.show();
     }
 

@@ -1,6 +1,7 @@
 package View;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.*;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.TrilhaInvalidaException;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -65,28 +66,39 @@ public class TelaEnvioTrabalhoController implements Initializable {
     private Label labelEnvio;
 
     @FXML
-    void enviarTrabalho(ActionEvent event) throws IOException {
+    void enviarTrabalho(ActionEvent event) throws IOException, TrilhaInvalidaException {
         Trabalho trabalho1 = new Trabalho();
         trabalho1.setQntCoAutores(1);
         trabalho1.setTitulo (fieldTitulo.getText());
-        trabalho1.setNomeOrientador(fieldOrientador.getText());
+        if(model.vericarOrientador(fieldOrientador.getText()) && boxTrilha.getSelectionModel().getSelectedItem() != null){
+            trabalho1.setNomeOrientador(fieldOrientador.getText());
+
+            labelEnvio.setText("Trabalho enviado por: "+trabalho1.getNomeAutor());
+            AnchorPane a = FXMLLoader.load(getClass().getResource("LayoutInicial.fxml"));
+            anchorPane.getChildren().setAll(a);
+            anchorPane.setVisible(true);
+            anchorPane.setDisable(false);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Envio");
+            alert.setHeaderText("Trabalho enviado com sucesso");
+            alert.setContentText("Acompanhe o resumo e outras informações no sistema");
+            alert.show();
+        } else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Orientador ou Trilha inválida");
+            alert.setHeaderText("Orientador ou Trilha informada inválida");
+            alert.setContentText("Digite um nome válido ou selecione uma trilha válida por favor");
+            alert.show();
+        }
         trabalho1.setPalavrasChave(fieldPalavrasChave.getText());
         trabalho1.setResumo(fieldResumo.getText());
         trabalho1.setNomeCoAutores(fieldCoAutores.getText());
         trabalho1.setNomeAutor(((Usuario)model.getUsuarioLogado()).getNome());
         trabalho1.setEvento(model.getEventoSelecionado());
-        model.addTrabalho(trabalho1);
-        labelEnvio.setText("Trabalho enviado por: "+trabalho1.getNomeAutor());
-        AnchorPane a = FXMLLoader.load(getClass().getResource("LayoutInicial.fxml"));
-        anchorPane.getChildren().setAll(a);
-        anchorPane.setVisible(true);
-        anchorPane.setDisable(false);
+        trabalho1.setTrilha(model.getTrilha(boxTrilha.getSelectionModel().getSelectedItem()));
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Envio");
-        alert.setHeaderText("Trabalho enviado com sucesso");
-        alert.setContentText("Acompanhe o resumo e outras informações no sistema");
-        alert.show();
+        model.addTrabalho(trabalho1);
 
     }
 

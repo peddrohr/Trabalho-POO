@@ -3,8 +3,7 @@ package com.mycompany.avaliacaosubmissaodetrabalhos;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static com.mycompany.avaliacaosubmissaodetrabalhos.Dados.usuarios;
-import static com.mycompany.avaliacaosubmissaodetrabalhos.Dados.usuariosCadastrados;
+import static com.mycompany.avaliacaosubmissaodetrabalhos.Dados.*;
 
 public class Model {
     private Evento eventoSelecionado;
@@ -95,6 +94,28 @@ public class Model {
         }
 
         return usuarioValido;
+    }
+
+    public Trilha getTrilha(String nomeTrilha){
+        Trilha trilhaSelecionada = new Trilha();
+        for(Trilha trilha : trilhas){
+            if(trilha.getNome() == nomeTrilha){
+                trilhaSelecionada = trilha;
+            }
+        }
+        return trilhaSelecionada;
+    }
+
+    public boolean vericarOrientador(String nomeOrinetador){
+        boolean orientadorValido = false;
+        for(Object usuario: usuarios){
+            if(Professor.class == usuario.getClass()){
+                if(((Professor) usuario).getNome().equals(nomeOrinetador)){
+                    orientadorValido = true;
+                }
+            }
+        }
+        return orientadorValido;
     }
 
 }

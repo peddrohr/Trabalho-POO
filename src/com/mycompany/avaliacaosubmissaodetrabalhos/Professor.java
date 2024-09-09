@@ -185,7 +185,7 @@ public class Professor{
                     Avaliacao avaliar = new Avaliacao(trabalho, nota, comentario);
                     trabalhosAvaliados.remove(trabalho);
                     if(trabalho.getAvaliacoes().size()<2){
-                        trabalho.AdicionarAvaliacao(this, avaliacao);
+                        trabalho.adicionarAvaliacao(this, avaliacao);
                     }else{
                         throw new IllegalArgumentException();
                     }

@@ -19,7 +19,7 @@ public class Trabalho {
     private Modalidade modalidade;
     private Trilha trilha;
     private Evento evento;
-    private Map<Professor, Avaliacao> avaliacoes;
+    private Map<Professor, Avaliacao> avaliacoes = new HashMap<>();
     private float nota;
 
     public Trabalho() {
@@ -170,7 +170,7 @@ public class Trabalho {
 
      //adiciona uma avaliacao feita por um avaliador sobre o trabalho em um hashMap, passando o professor e a avaliacao feitas
     //por paramentro do metodo, vai ajudar a calcular a media final.
-    public void AdicionarAvaliacao(Professor avaliador, Avaliacao avaliacao){
+    public void adicionarAvaliacao(Professor avaliador, Avaliacao avaliacao){
         if(avaliacoes.containsKey(avaliador)){
             throw new IllegalArgumentException();
         }
@@ -180,14 +180,13 @@ public class Trabalho {
         avaliacoes.put(avaliador, avaliacao);
     }
 
-    public float NotaFinal(){
-        if(avaliacoes.size()== 2){
+    public void notaFinal(){
+        if(avaliacoes.size() <= 2){
             float somaNotas = 0;
             for(Avaliacao avaliacao: avaliacoes.values()){
                 somaNotas += avaliacao.calcularNotaFinal();
             }
-            this.nota = somaNotas/ 2;
-            return this.nota;
+            nota = somaNotas/ avaliacoes.size();
         }else{
             throw new IllegalArgumentException();
         }

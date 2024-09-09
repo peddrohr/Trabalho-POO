@@ -50,29 +50,29 @@ public class Model {
                 System.out.println("usuario existe, pode entrar");
                 usuarioValido = true;
                 usuarioLogado = usuariosCadastrado;
-                for(Object user: usuarios){
-                    if(Aluno.class == user.getClass()){
-                        if(Objects.equals(((Aluno) user).getUsuario().getNome(), usuariosCadastrado.getNome())){
+                for (Object user : usuarios) {
+                    if (Aluno.class == user.getClass()) {
+                        if (Objects.equals(((Aluno) user).getUsuario().getNome(), usuariosCadastrado.getNome())) {
                             tipoUsuarioLogado = "Aluno";
-                            usuarioLogadoTipado = (Aluno)user;
+                            usuarioLogadoTipado = (Aluno) user;
                             break;
                         }
-                    } else if(Servidor.class == user.getClass()){
-                        if(Objects.equals(((Servidor) user).getUsuario().getNome(), usuariosCadastrado.getNome())){
+                    } else if (Servidor.class == user.getClass()) {
+                        if (Objects.equals(((Servidor) user).getUsuario().getNome(), usuariosCadastrado.getNome())) {
                             tipoUsuarioLogado = "Servidor";
-                            usuarioLogadoTipado = (Servidor)user;
+                            usuarioLogadoTipado = (Servidor) user;
                             break;
                         }
-                    } else if(Professor.class == user.getClass()){
-                        if(Objects.equals(((Professor) user).getUsuario().getNome(), usuariosCadastrado.getNome())){
+                    } else if (Professor.class == user.getClass()) {
+                        if (Objects.equals(((Professor) user).getUsuario().getNome(), usuariosCadastrado.getNome())) {
                             tipoUsuarioLogado = "Professor";
-                            usuarioLogadoTipado = (Professor)user;
+                            usuarioLogadoTipado = (Professor) user;
                             break;
                         }
                     }
                 }
+                break;
             }
-            break;
         }
 
         return usuarioValido;

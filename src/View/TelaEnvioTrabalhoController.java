@@ -67,9 +67,15 @@ public class TelaEnvioTrabalhoController implements Initializable {
 
     @FXML
     void enviarTrabalho(ActionEvent event) throws IOException, TrilhaInvalidaException {
-        String nomeOrientador = "";
         if(model.vericarOrientador(fieldOrientador.getText()) && boxTrilha.getSelectionModel().getSelectedItem() != null){
-             nomeOrientador = fieldOrientador.getText();
+            String nomeOrientador = fieldOrientador.getText();
+            String titulo = fieldTitulo.getText();
+            String palavrasChave = fieldPalavrasChave.getText();
+            String resumo = fieldResumo.getText();
+            String coAutores = fieldCoAutores.getText();
+            String trilha = boxTrilha.getSelectionModel().getSelectedItem();
+
+            model.enviarTrabalho(titulo, palavrasChave, resumo, coAutores, trilha, nomeOrientador);
 
             labelEnvio.setText("Trabalho enviado por: " + model.getTrabalho().getNomeAutor());
             AnchorPane a = FXMLLoader.load(getClass().getResource("LayoutInicial.fxml"));
@@ -89,14 +95,6 @@ public class TelaEnvioTrabalhoController implements Initializable {
             alert.setContentText("Digite um nome válido ou selecione uma trilha válida por favor");
             alert.show();
         }
-
-        String titulo = fieldTitulo.getText();
-        String palavrasChave = fieldPalavrasChave.getText();
-        String resumo = fieldResumo.getText();
-        String coAutores = fieldCoAutores.getText();
-        String trilha = boxTrilha.getSelectionModel().getSelectedItem();
-
-        model.enviarTrabalho(titulo, palavrasChave, resumo, coAutores, trilha, nomeOrientador);
 
     }
 

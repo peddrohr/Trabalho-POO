@@ -114,6 +114,12 @@ public class Model {
         return fileChooser;
     }
 
+    //View Tela Perfil
+    public void desconectarUsuario(){
+        usuarioLogado = null;
+        usuarioLogadoTipado = null;
+    }
+
     public Trabalho getTrabalho(){
         if(trabalhos.size() != 0) {
             return trabalhos.getLast();

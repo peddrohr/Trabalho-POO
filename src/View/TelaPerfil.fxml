@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -100,5 +101,10 @@
             </Menu>
          </menus>
       </MenuBar>
+      <Button fx:id="butaoSair" layoutX="73.0" layoutY="632.0" mnemonicParsing="false" onAction="#sair" prefHeight="45.0" prefWidth="292.0" style="-fx-background-color: RED;" text="SAIR / MUDAR USUARIO" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

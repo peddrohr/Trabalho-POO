@@ -6,10 +6,7 @@ import java.util.ResourceBundle;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class TelaPerfilController {
@@ -48,6 +45,17 @@ public class TelaPerfilController {
 
     @FXML
     private Menu menuTrabalhos;
+
+    @FXML
+    private Button butaoSair;
+
+    @FXML
+    public void sair() throws IOException {
+        model.desconectarUsuario();
+
+        TelaLoginView novaTela = new TelaLoginView();
+        novaTela.iniciarTela(model, view);
+    }
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {

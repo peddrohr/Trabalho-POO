@@ -96,6 +96,7 @@ public class Model {
         Trabalho trabalho = new Trabalho(((Usuario)usuarioLogado).getNome(), orientador, titulo, resumo, palavrasChave, trilhaTrabalho);
         trabalho.setEvento(getEventoSelecionado());
         trabalho.setNomeAutor(((Usuario)getUsuarioLogado()).getNome());
+        trabalho.setNomeCoAutores(coAutores);
         addTrabalho(trabalho);
     }
     public void addTrabalho(Trabalho trabalho){

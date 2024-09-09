@@ -1,14 +1,11 @@
 package View;
 
-import com.mycompany.avaliacaosubmissaodetrabalhos.Model;
-import com.mycompany.avaliacaosubmissaodetrabalhos.Trabalho;
+import com.mycompany.avaliacaosubmissaodetrabalhos.*;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.mycompany.avaliacaosubmissaodetrabalhos.Dados;
-import com.mycompany.avaliacaosubmissaodetrabalhos.Evento;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,27 +13,32 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class TelaEventosController {
-    private Model model = MainTelaLogin.model;
+public class TelaEventosController implements Observer {
+    private Model model;
+    private Stage view;
 
     @FXML
-    private ResourceBundle resources;
+    private AnchorPane anchorPanePai;
 
     @FXML
-    private URL location;
+    private MenuBar barraMenu;
 
     @FXML
-    private AnchorPane anchorPane;
+    private Button buttonEnviarTrabalho;
 
     @FXML
     private ComboBox<Evento> comboboxEventos;
+
+    @FXML
+    private GridPane dadosTrabalho;
+
+    @FXML
+    private Label labelCoAutores;
 
     @FXML
     private Label labelDataFim;
@@ -49,15 +51,6 @@ public class TelaEventosController {
 
     @FXML
     private Label labelNomeEvento;
-
-    @FXML
-    private Label labelCoAutores;
-
-    @FXML
-    private Button buttonEnviarTrabalho;
-
-    @FXML
-    private GridPane dadosTrabalho;
 
     @FXML
     private Label labelOrientador;
@@ -73,6 +66,54 @@ public class TelaEventosController {
 
     @FXML
     private Label mensagemTrabalho;
+
+    @FXML
+    private Menu menuAvaliarTrabalho;
+
+    @FXML
+    private Menu menuEventos;
+
+    @FXML
+    private Menu menuInicio;
+
+    @FXML
+    private Menu menuPerfil;
+
+    @FXML
+    private MenuItem menuTrabalho;
+
+    @FXML
+    private Menu menuTrabalhos;
+
+    @FXML
+    void AbrirTelaAvaliacao() throws IOException {
+        TelaAvaliacaoView novaTela = new TelaAvaliacaoView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaEventos() throws IOException {
+        TelaEventosView novaTela = new TelaEventosView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaEnvioTrabalho() throws IOException {
+        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaPerfil() throws IOException {
+        TelaPerfilView novaTela = new TelaPerfilView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaInicial() throws IOException {
+        TelaInicialView novaTela = new TelaInicialView();
+        novaTela.iniciarTela(model, view);
+    }
 
     void carregarEventos(){
         ObservableList<Evento> eventos = FXCollections.observableList(Dados.eventosCadastrados);
@@ -94,38 +135,43 @@ public class TelaEventosController {
     }
 
     @FXML
-    void enviarTrabalho(ActionEvent event) throws IOException {
-        anchorPane.getChildren().setAll(model.enviarTrabalho());
-        anchorPane.setVisible(true);
-        anchorPane.setDisable(false);
+    void enviarTrabalho() throws IOException {
+        abrirTelaEnvioTrabalho();
     }
 
-    @FXML
     void carregarDadosTrabalho(){
-        if(model.getTrabalho() != null && model.getTrabalho().getEvento() == model.getEventoSelecionado()){
-            dadosTrabalho.setVisible(true);
-            mensagemTrabalho.setVisible(true);
-            labelResumo.setVisible(true);
-            buttonEnviarTrabalho.setDisable(true);
+        if(model != null){
+            if (model.getTrabalho() != null && model.getTrabalho().getEvento() == model.getEventoSelecionado()) {
+                dadosTrabalho.setVisible(true);
+                mensagemTrabalho.setVisible(true);
+                labelResumo.setVisible(true);
+                buttonEnviarTrabalho.setDisable(true);
 
-            Trabalho trabalho = model.getTrabalho();
+                Trabalho trabalho = model.getTrabalho();
 
-            labelTituloTrabalho.setText(trabalho.getTitulo());
-            labelCoAutores.setText(trabalho.getNomeCoautores());
-            labelOrientador.setText(trabalho.getNomeOrientador());
-            labelPalavrasChave.setText(trabalho.getPalavrasChave());
-        } else{
-            dadosTrabalho.setVisible(false);
-            mensagemTrabalho.setVisible(false);
-            labelResumo.setVisible(false);
-            buttonEnviarTrabalho.setDisable(false);
+                labelTituloTrabalho.setText(trabalho.getTitulo());
+                labelCoAutores.setText(trabalho.getNomeCoautores());
+                labelOrientador.setText(trabalho.getNomeOrientador());
+                labelPalavrasChave.setText(trabalho.getPalavrasChave());
+            } else {
+                dadosTrabalho.setVisible(false);
+                mensagemTrabalho.setVisible(false);
+                labelResumo.setVisible(false);
+                buttonEnviarTrabalho.setDisable(false);
+            }
         }
     }
 
-    @FXML
-    void initialize() {
+    public void initialize(Model model, Stage stage) {
         carregarEventos();
         carregarDadosTrabalho();
+
+        this.model = model;
+        this.view = stage;
     }
 
+    @Override
+    public void update() {
+
+    }
 }

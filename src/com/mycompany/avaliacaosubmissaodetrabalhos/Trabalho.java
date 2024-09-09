@@ -11,7 +11,7 @@ public class Trabalho {
 
     private String nomeAutor;
     private int qntCoAutores;
-    private ArrayList<String> nomeCoAutores;
+    private ArrayList<String> nomeCoAutores = new ArrayList<>();
     private String nomeOrientador;
     private String titulo;
     private String resumo;

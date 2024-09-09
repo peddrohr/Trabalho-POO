@@ -1,6 +1,7 @@
 package View;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.Model;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Observer;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,8 +22,9 @@ import java.util.ResourceBundle;
 
 import static com.mycompany.avaliacaosubmissaodetrabalhos.Dados.usuariosCadastrados;
 
-public class TelaLoginController implements Initializable {
-    public Model model = MainTelaLogin.model;
+public class TelaLoginController implements Observer {
+    public Model model;
+    public Stage view;
 
 
     @FXML
@@ -56,21 +58,18 @@ public class TelaLoginController implements Initializable {
     }
 
     void novaTela() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TelaInicial.fxml")));
-
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-        stage.show();
-
-        Stage fecharTela = (Stage)butaoEntrar.getScene().getWindow();
-        fecharTela.close();
+        TelaInicialView telaInicial = new TelaInicialView();
+        telaInicial.iniciarTela(model, view);
 
     }
 
+    public void initialize(Model model, Stage stage) {
+        this.model = model;
+        this.view = stage;
+    }
+
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println(model);
+    public void update() {
+
     }
 }

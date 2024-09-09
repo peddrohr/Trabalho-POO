@@ -22,9 +22,10 @@ import java.io.File;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class TelaEnvioTrabalhoController implements Initializable {
+public class TelaEnvioTrabalhoController {
     private ObservableList<String> ObsTrilhasIndex;
     private Model model = MainTelaLogin.model;
+    private Stage view;
 
     @FXML
     private ComboBox<String> boxTrilha;
@@ -66,6 +67,57 @@ public class TelaEnvioTrabalhoController implements Initializable {
     private Label labelEnvio;
 
     @FXML
+    private MenuBar barraMenu;
+
+    @FXML
+    private Menu menuAvaliarTrabalho;
+
+    @FXML
+    private Menu menuEventos;
+
+    @FXML
+    private Menu menuInicio;
+
+    @FXML
+    private Menu menuPerfil;
+
+    @FXML
+    private MenuItem menuTrabalho;
+
+    @FXML
+    private Menu menuTrabalhos;
+
+    @FXML
+    void AbrirTelaAvaliacao() throws IOException {
+        TelaAvaliacaoView novaTela = new TelaAvaliacaoView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaEventos() throws IOException {
+        TelaEventosView novaTela = new TelaEventosView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaEnvioTrabalho() throws IOException {
+        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaPerfil() throws IOException {
+        TelaPerfilView novaTela = new TelaPerfilView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaInicial() throws IOException {
+        TelaInicialView novaTela = new TelaInicialView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
     void enviarTrabalho(ActionEvent event) throws IOException, TrilhaInvalidaException {
         if(model.vericarOrientador(fieldOrientador.getText()) && boxTrilha.getSelectionModel().getSelectedItem() != null){
             String nomeOrientador = fieldOrientador.getText();
@@ -78,10 +130,8 @@ public class TelaEnvioTrabalhoController implements Initializable {
             model.enviarTrabalho(titulo, palavrasChave, resumo, coAutores, trilha, nomeOrientador);
 
             labelEnvio.setText("Trabalho enviado por: " + model.getTrabalho().getNomeAutor());
-            AnchorPane a = FXMLLoader.load(getClass().getResource("LayoutInicial.fxml"));
-            anchorPane.getChildren().setAll(a);
-            anchorPane.setVisible(true);
-            anchorPane.setDisable(false);
+
+            abrirTelaInicial();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Envio");
@@ -135,8 +185,10 @@ public class TelaEnvioTrabalhoController implements Initializable {
         boxTrilha.setItems(ObsTrilhasIndex);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(Model model, Stage stage) {
+        this.model = model;
+        this.view = stage;
+
         carregarTrilha();
         adicionarTextoLabel();
     }

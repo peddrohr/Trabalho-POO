@@ -8,13 +8,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TelaInicialController implements Initializable {
-    private Model model = MainTelaLogin.model;
+public class TelaInicialController {
+    private Model model;
+    private Stage view;
 
     @FXML
     private MenuBar barraMenu;
@@ -36,31 +38,35 @@ public class TelaInicialController implements Initializable {
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
-        anchorPane.getChildren().setAll(model.AbrirTelaAvaliacao());
+        TelaAvaliacaoView novaTela = new TelaAvaliacaoView();
+        novaTela.iniciarTela(model, view);
     }
 
     @FXML
     void abrirTelaEventos() throws IOException {
-        anchorPane.getChildren().setAll(model.abrirTelaEventos());
+        TelaEventosView novaTela = new TelaEventosView();
+        novaTela.iniciarTela(model, view);
     }
 
     @FXML
     void abrirTelaEnvioTrabalho() throws IOException {
-        anchorPane.getChildren().setAll(model.abrirTelaEnvioTrabalho());
+        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
+        novaTela.iniciarTela(model, view);
     }
 
     @FXML
     void abrirTelaPerfil() throws IOException {
-        anchorPane.getChildren().setAll(model.abrirTelaPerfil());
+        TelaPerfilView novaTela = new TelaPerfilView();
+        novaTela.iniciarTela(model, view);
     }
 
     @FXML
     void abrirTelaInicial() throws IOException {
-        anchorPane.getChildren().setAll(model.abrirTelaInicial());
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(Model model, Stage stage) {
+        this.model = model;
+        this.view = stage;
 
         if(model.getTipoUsuarioLogado().equals("Professor") && ((Professor)model.getUsuarioLogadoTipado()).getAvaliador()){
             menuAvaliarTrabalho.setDisable(false);

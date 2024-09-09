@@ -9,13 +9,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TelaAvaliacaoController implements Initializable {
+public class TelaAvaliacaoController {
 
-    Model model = MainTelaLogin.model;
+    private Model model;
+    private Stage view;
 
     @FXML
     private AnchorPane anchorPane;
@@ -95,6 +98,57 @@ public class TelaAvaliacaoController implements Initializable {
     @FXML
     private ToggleGroup nota4;
 
+    @FXML
+    private MenuBar barraMenu;
+
+    @FXML
+    private Menu menuAvaliarTrabalho;
+
+    @FXML
+    private Menu menuEventos;
+
+    @FXML
+    private Menu menuInicio;
+
+    @FXML
+    private Menu menuPerfil;
+
+    @FXML
+    private MenuItem menuTrabalho;
+
+    @FXML
+    private Menu menuTrabalhos;
+
+    @FXML
+    void AbrirTelaAvaliacao() throws IOException {
+        TelaAvaliacaoView novaTela = new TelaAvaliacaoView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaEventos() throws IOException {
+        TelaEventosView novaTela = new TelaEventosView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaEnvioTrabalho() throws IOException {
+        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaPerfil() throws IOException {
+        TelaPerfilView novaTela = new TelaPerfilView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaInicial() throws IOException {
+        TelaInicialView novaTela = new TelaInicialView();
+        novaTela.iniciarTela(model, view);
+    }
+
     void adicionarTextoLabel(){
         Trabalho trabalho = model.getTrabalho();
         Evento evento = model.getTrabalho().getEvento();
@@ -152,8 +206,10 @@ public class TelaAvaliacaoController implements Initializable {
     }
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(Model model, Stage stage) {
+        this.model = model;
+        this.view = stage;
+
         adicionarTextoLabel();
     }
 }

@@ -1,20 +1,23 @@
 package View;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.stage.Stage;
 
 public class TelaPerfilController {
-    Model model = MainTelaLogin.model;
+    private Model model;
+    private Stage view;
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
+    private MenuBar barraMenu;
 
     @FXML
     private Label labelCpf;
@@ -29,6 +32,54 @@ public class TelaPerfilController {
     private Label labelTipoUsuario;
 
     @FXML
+    private Menu menuAvaliarTrabalho;
+
+    @FXML
+    private Menu menuEventos;
+
+    @FXML
+    private Menu menuInicio;
+
+    @FXML
+    private Menu menuPerfil;
+
+    @FXML
+    private MenuItem menuTrabalho;
+
+    @FXML
+    private Menu menuTrabalhos;
+
+    @FXML
+    void AbrirTelaAvaliacao() throws IOException {
+        TelaAvaliacaoView novaTela = new TelaAvaliacaoView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaEventos() throws IOException {
+        TelaEventosView novaTela = new TelaEventosView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaEnvioTrabalho() throws IOException {
+        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaPerfil() throws IOException {
+        TelaPerfilView novaTela = new TelaPerfilView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaInicial() throws IOException {
+        TelaInicialView novaTela = new TelaInicialView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
     void carregarDados(){
         labelNome.setText(((Usuario)model.getUsuarioLogado()).getNome());
         labelEmail.setText(((Usuario)model.getUsuarioLogado()).getEmail());
@@ -36,8 +87,10 @@ public class TelaPerfilController {
         labelTipoUsuario.setText(model.getTipoUsuarioLogado());
     }
 
-    @FXML
-    void initialize() {
+
+    public void initialize(Model model, Stage stage) {
+        this.model = model;
+        this.view = stage;
         carregarDados();
     }
 

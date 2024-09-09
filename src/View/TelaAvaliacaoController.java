@@ -99,7 +99,7 @@ public class TelaAvaliacaoController implements Initializable {
         Trabalho trabalho = model.getTrabalho();
         Evento evento = model.getTrabalho().getEvento();
 
-        nomeEvento.setText("Evento: " + evento.getNome());
+        nomeEvento.setText(evento.getNome());
         dataDeAbertura.setText("Inicio: " + evento.getDataInicio());
         dataDeVencimento.setText("Vencimento: " + evento.getDataFim());
         labelAutor.setText("Autor: " + trabalho.getNomeAutor());

@@ -8,43 +8,45 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="anchorPane" prefHeight="691.0" prefWidth="1092.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaEnvioTrabalhoController">
    <children>
-      <TextField id="barra" fx:id="fieldTitulo" layoutX="260.0" layoutY="209.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o titulo do Trabalho" style="-fx-border-radius: 2px; -fx-border-width: 1px; -fx-border-style: solid; -fx-border-color: grey;" styleClass="textField">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="697.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="1092.0" />
+      <TextField id="barra" fx:id="fieldTitulo" layoutX="260.0" layoutY="209.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o titulo do Trabalho" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField id="barra" fx:id="fieldOrientador" layoutX="260.0" layoutY="280.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o Nome do Orientador" style="-fx-border-radius: 2px; -fx-border-width: 1px; -fx-border-color: grey;" styleClass="textField">
+      <TextField id="barra" fx:id="fieldOrientador" layoutX="260.0" layoutY="280.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o Nome do Orientador" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button fx:id="buttonEnviarTrab" layoutX="496.0" layoutY="601.0" mnemonicParsing="false" onAction="#enviarTrabalho" prefHeight="40.0" prefWidth="101.0" text="Enviar">
+      <Button fx:id="buttonEnviarTrab" layoutX="496.0" layoutY="601.0" mnemonicParsing="false" onAction="#enviarTrabalho" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: darkblue; -fx-font-family: Cambria;" text="Enviar" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextArea fx:id="fieldResumo" layoutX="260.0" layoutY="352.0" prefHeight="240.0" prefWidth="573.0" promptText="Escreva seu resumo aqui . . . " style="-fx-border-color: grey; -fx-border-width: 1px; -fx-border-radius: 2px;" />
-      <TextField id="barra" fx:id="fieldPalavrasChave" layoutX="260.0" layoutY="317.0" prefHeight="29.0" prefWidth="286.0" promptText="DIgite as Palavras Chave" style="-fx-border-radius: 2px; -fx-border-width: 1px; -fx-border-color: grey;" styleClass="textField">
+      <TextArea fx:id="fieldResumo" layoutX="260.0" layoutY="352.0" prefHeight="240.0" prefWidth="573.0" promptText="Escreva seu resumo aqui . . . " style="-fx-font-family: Cambria; -fx-border-color: black;" />
+      <TextField id="barra" fx:id="fieldPalavrasChave" layoutX="260.0" layoutY="317.0" prefHeight="29.0" prefWidth="286.0" promptText="DIgite as Palavras Chave" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button fx:id="buttonEscolhaArquivo" layoutX="700.0" layoutY="317.0" mnemonicParsing="false" onAction="#handleAnexarArquivo" prefHeight="29.0" prefWidth="132.0" text="Escolha o Arquivo" textAlignment="CENTER">
+      <Button fx:id="buttonEscolhaArquivo" layoutX="700.0" layoutY="317.0" mnemonicParsing="false" onAction="#handleAnexarArquivo" prefHeight="29.0" prefWidth="132.0" style="-fx-background-color: darkblue;" text="Escolha o Arquivo" textAlignment="CENTER" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Cambria Bold" size="12.0" />
          </font></Button>
-      <TextField id="barra" fx:id="fieldCoAutores" layoutX="260.0" layoutY="244.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o Nome dos Co Autores (Opcional)" style="-fx-border-radius: 2px; -fx-border-width: 1px; -fx-border-style: solid; -fx-border-color: grey;" styleClass="textField">
+      <TextField id="barra" fx:id="fieldCoAutores" layoutX="260.0" layoutY="244.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o Nome dos Co Autores (Opcional)" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -55,13 +57,19 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <Label fx:id="nomeEvento" alignment="CENTER" contentDisplay="CENTER" layoutX="292.0" layoutY="56.0" prefHeight="40.0" prefWidth="509.0" text="Evento">
+      <Label fx:id="nomeEvento" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="-1.0" prefHeight="80.0" prefWidth="1092.0" style="-fx-background-color: darkblue;" text="Evento" textFill="WHITE">
          <font>
-            <Font size="26.0" />
+            <Font name="Arial Black" size="34.0" />
          </font>
       </Label>
-      <Label fx:id="dataDeAbertura" layoutX="260.0" layoutY="118.0" prefHeight="29.0" prefWidth="170.0" text="Abertura" />
-      <Label fx:id="dataDeVencimento" layoutX="260.0" layoutY="147.0" prefHeight="23.0" prefWidth="170.0" text="Vencimento" />
+      <Label fx:id="dataDeAbertura" layoutX="260.0" layoutY="118.0" prefHeight="29.0" prefWidth="286.0" style="-fx-font-family: Cambria;" text="Abertura:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="dataDeVencimento" layoutX="260.0" layoutY="147.0" prefHeight="23.0" prefWidth="286.0" style="-fx-font-family: Cambria;" text="Vencimento:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
       <ComboBox fx:id="boxTrilha" layoutX="260.0" layoutY="178.0" prefHeight="25.0" prefWidth="170.0" promptText="Selecione uma trilha" />
       <Label fx:id="labelEnvio" alignment="CENTER" layoutX="340.0" layoutY="649.0" prefHeight="27.0" prefWidth="412.0">
          <font>

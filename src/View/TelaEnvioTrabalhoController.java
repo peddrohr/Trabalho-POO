@@ -104,7 +104,7 @@ public class TelaEnvioTrabalhoController implements Initializable {
 
     void adicionarTextoLabel(){
         Evento evento = model.getEventoSelecionado();
-        nomeEvento.setText("Evento: " + evento.getNome());
+        nomeEvento.setText(evento.getNome());
         dataDeAbertura.setText("Inicio: " + evento.getDataInicio());
         dataDeVencimento.setText("Vencimento: " + evento.getDataFim());
     }

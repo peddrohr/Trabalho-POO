@@ -169,6 +169,7 @@ public class Trabalho {
 
      //adiciona uma avaliacao feita por um avaliador sobre o trabalho em um hashMap, passando o professor e a avaliacao feitas
     //por paramentro do metodo, vai ajudar a calcular a media final.
+
     public void adicionarAvaliacao(Professor avaliador, Avaliacao avaliacao){
         if(avaliacoes.containsKey(avaliador)){
             throw new IllegalArgumentException();

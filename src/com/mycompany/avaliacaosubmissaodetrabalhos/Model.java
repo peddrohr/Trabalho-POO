@@ -42,6 +42,8 @@ public class Model {
         return (AnchorPane) FXMLLoader.load(getClass().getResource("/View/LayoutInicial.fxml"));
     }
 
+    //Metodo para autenticar que tipo de usuario está logando e se é um usuario válido
+
     public boolean AutenticarUsuario(String login, String senha){
         boolean usuarioValido = false;
 
@@ -79,6 +81,7 @@ public class Model {
     }
 
     //View Tela Eventos
+
     public Evento carregarDadosEvento(Evento evento){
         setEventoSelecionado(evento);
 
@@ -104,6 +107,8 @@ public class Model {
             trabalhos.add(trabalho);
         }
     }
+
+    //
 
     public FileChooser anexarArquivo(){
         FileChooser fileChooser = new FileChooser();

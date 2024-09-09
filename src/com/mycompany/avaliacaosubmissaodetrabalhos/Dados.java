@@ -16,6 +16,8 @@ public class Dados {
         carregarCriterios();
     }
 
+    //Carregamento prévio de usuarios e de tipos diferentes de usuarios
+
     public void carregarUsuarios(){
 
         Usuario aluno = new Usuario("aluno teste", "123456789", "alunoteste@email.com","aluno123");
@@ -40,6 +42,8 @@ public class Dados {
         usuarios.add(avaliador1);
     }
 
+    //Carregamento prévio de eventos
+
     public void carregarEventos(){
         Evento evento1 = new Evento("Encontros Universitarios", "07/09/2024","07/10/2024");
         eventosCadastrados.add(evento1);
@@ -47,6 +51,8 @@ public class Dados {
         Evento evento2 = new Evento("Sescomp", "20/09/2024","20/10/2024");
         eventosCadastrados.add(evento2);
     }
+
+    //Carregamento prévio de trilhas
 
     public void carregarTrilha(){
         Trilha trilha1 = new Trilha();
@@ -60,6 +66,8 @@ public class Dados {
         trilhas.add(trilha2);
         trilhas.add(trilha3);
     }
+
+    //Carregamento prévio de criterios de avaliação
 
     public void carregarCriterios(){
         CriterioAvaliacao criterio1 = new CriterioAvaliacao("Criterio1", "Descricao1");

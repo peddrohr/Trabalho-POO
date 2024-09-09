@@ -82,12 +82,12 @@ public class TelaEventosController {
     @FXML
     void carregarDadosEvento(){
         buttonEnviarTrabalho.setDisable(false);
-        model.setEventoSelecionado(comboboxEventos.getSelectionModel().getSelectedItem());
-        Evento eventoSelecionado = model.getEventoSelecionado();
+        
+        Evento evento = model.carregarDadosEvento(comboboxEventos.getSelectionModel().getSelectedItem());
 
-        labelNomeEvento.setText(eventoSelecionado.getNome());
-        labelDatainicio.setText(eventoSelecionado.getDataInicio());
-        labelDataFim.setText(eventoSelecionado.getDataFim());
+        labelNomeEvento.setText(evento.getNome());
+        labelDatainicio.setText(evento.getDataInicio());
+        labelDataFim.setText(evento.getDataFim());
         labelEtapas.setText("Etapas");
         carregarDadosTrabalho();
 
@@ -95,16 +95,9 @@ public class TelaEventosController {
 
     @FXML
     void enviarTrabalho(ActionEvent event) throws IOException {
-        AnchorPane a = FXMLLoader.load(getClass().getResource("TelaEnvioTrabalho.fxml"));
-        anchorPane.getChildren().setAll(a);
+        anchorPane.getChildren().setAll(model.enviarTrabalho());
         anchorPane.setVisible(true);
         anchorPane.setDisable(false);
-        /*Parent root = FXMLLoader.load(getClass().getResource("TelaEnvioTrabalho.fxml"));
-        Scene scene = new Scene(root);
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();*/
     }
 
     @FXML

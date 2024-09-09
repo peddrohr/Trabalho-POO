@@ -2,6 +2,7 @@ package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class Model {
         trabalhos = new ArrayList<>();
     }
 
+    //Viem Tela Inicial
     public AnchorPane AbrirTelaAvaliacao() throws IOException {
         return (AnchorPane) FXMLLoader.load(getClass().getResource("/View/TelaAvaliacao.fxml"));
     }
@@ -38,51 +40,6 @@ public class Model {
 
     public AnchorPane abrirTelaInicial() throws IOException {
         return (AnchorPane) FXMLLoader.load(getClass().getResource("/View/LayoutInicial.fxml"));
-    }
-
-    public void addTrabalho(Trabalho trabalho){
-        if(trabalho != null){
-            trabalhos.add(trabalho);
-        }
-    }
-
-    public Trabalho getTrabalho(){
-        if(trabalhos.size() != 0) {
-            return trabalhos.getLast();
-        }
-        return null;
-    }
-
-    public Trabalho getTrabalho(String titulo){
-        Trabalho trabalhoEncontrado = null;
-        for(Trabalho trab: trabalhos){
-            if(trab.getTitulo().equals(titulo)){
-                trabalhoEncontrado = trab;
-            }
-        }
-        return trabalhoEncontrado;
-    }
-
-    public void setEventoSelecionado(Evento eventoSelecionado) {
-        if(eventoSelecionado != null && eventoSelecionado instanceof Evento) {
-            this.eventoSelecionado = eventoSelecionado;
-        }
-    }
-
-    public Evento getEventoSelecionado(){
-        return eventoSelecionado;
-    }
-
-    public Object getUsuarioLogado(){
-        return usuarioLogado;
-    }
-
-    public Object getUsuarioLogadoTipado(){
-        return usuarioLogadoTipado;
-    }
-
-    public String getTipoUsuarioLogado(){
-        return tipoUsuarioLogado;
     }
 
     public boolean AutenticarUsuario(String login, String senha){
@@ -115,9 +72,84 @@ public class Model {
                     }
                 }
             }
+            break;
         }
 
         return usuarioValido;
+    }
+
+    //View Tela Eventos
+    public Evento carregarDadosEvento(Evento evento){
+        setEventoSelecionado(evento);
+
+        return eventoSelecionado;
+    }
+
+    public AnchorPane enviarTrabalho() throws IOException {
+        return FXMLLoader.load(getClass().getResource("/View/TelaEnvioTrabalho.fxml"));
+    }
+
+    //View Tela Envio Trabalho
+
+    public void enviarTrabalho(String titulo, String palavrasChave, String resumo, String coAutores, String trilha, String orientador){
+        Trilha trilhaTrabalho = getTrilha(trilha);
+        Trabalho trabalho = new Trabalho(((Usuario)usuarioLogado).getNome(), orientador, titulo, resumo, palavrasChave, trilhaTrabalho);
+        trabalho.setEvento(getEventoSelecionado());
+        trabalho.setNomeAutor(((Usuario)getUsuarioLogado()).getNome());
+        addTrabalho(trabalho);
+    }
+    public void addTrabalho(Trabalho trabalho){
+        if(trabalho != null){
+            trabalhos.add(trabalho);
+        }
+    }
+
+    public FileChooser anexarArquivo(){
+        FileChooser fileChooser = new FileChooser();
+
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF files (.pdf)", ".pdf");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        return fileChooser;
+    }
+
+    public Trabalho getTrabalho(){
+        if(trabalhos.size() != 0) {
+            return trabalhos.getLast();
+        }
+        return null;
+    }
+
+    public Trabalho getTrabalho(String titulo){
+        Trabalho trabalhoEncontrado = null;
+        for(Trabalho trab: trabalhos){
+            if(trab.getTitulo().equals(titulo)){
+                trabalhoEncontrado = trab;
+            }
+        }
+        return trabalhoEncontrado;
+    }
+
+    private void setEventoSelecionado(Evento eventoSelecionado) {
+        if(eventoSelecionado != null) {
+            this.eventoSelecionado = eventoSelecionado;
+        }
+    }
+
+    public Evento getEventoSelecionado(){
+        return eventoSelecionado;
+    }
+
+    public Object getUsuarioLogado(){
+        return usuarioLogado;
+    }
+
+    public Object getUsuarioLogadoTipado(){
+        return usuarioLogadoTipado;
+    }
+
+    public String getTipoUsuarioLogado(){
+        return tipoUsuarioLogado;
     }
 
     public Trilha getTrilha(String nomeTrilha){

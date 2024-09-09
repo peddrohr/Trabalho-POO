@@ -67,13 +67,11 @@ public class TelaEnvioTrabalhoController implements Initializable {
 
     @FXML
     void enviarTrabalho(ActionEvent event) throws IOException, TrilhaInvalidaException {
-        Trabalho trabalho1 = new Trabalho();
-        trabalho1.setQntCoAutores(1);
-        trabalho1.setTitulo (fieldTitulo.getText());
+        String nomeOrientador = "";
         if(model.vericarOrientador(fieldOrientador.getText()) && boxTrilha.getSelectionModel().getSelectedItem() != null){
-            trabalho1.setNomeOrientador(fieldOrientador.getText());
+             nomeOrientador = fieldOrientador.getText();
 
-            labelEnvio.setText("Trabalho enviado por: "+trabalho1.getNomeAutor());
+            labelEnvio.setText("Trabalho enviado por: " + model.getTrabalho().getNomeAutor());
             AnchorPane a = FXMLLoader.load(getClass().getResource("LayoutInicial.fxml"));
             anchorPane.getChildren().setAll(a);
             anchorPane.setVisible(true);
@@ -91,14 +89,14 @@ public class TelaEnvioTrabalhoController implements Initializable {
             alert.setContentText("Digite um nome válido ou selecione uma trilha válida por favor");
             alert.show();
         }
-        trabalho1.setPalavrasChave(fieldPalavrasChave.getText());
-        trabalho1.setResumo(fieldResumo.getText());
-        trabalho1.setNomeCoAutores(fieldCoAutores.getText());
-        trabalho1.setNomeAutor(((Usuario)model.getUsuarioLogado()).getNome());
-        trabalho1.setEvento(model.getEventoSelecionado());
-        trabalho1.setTrilha(model.getTrilha(boxTrilha.getSelectionModel().getSelectedItem()));
 
-        model.addTrabalho(trabalho1);
+        String titulo = fieldTitulo.getText();
+        String palavrasChave = fieldPalavrasChave.getText();
+        String resumo = fieldResumo.getText();
+        String coAutores = fieldCoAutores.getText();
+        String trilha = boxTrilha.getSelectionModel().getSelectedItem();
+
+        model.enviarTrabalho(titulo, palavrasChave, resumo, coAutores, trilha, nomeOrientador);
 
     }
 
@@ -111,10 +109,7 @@ public class TelaEnvioTrabalhoController implements Initializable {
 
     @FXML
     private void handleAnexarArquivo() {
-        FileChooser fileChooser = new FileChooser();
-
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF files (.pdf)", ".pdf");
-        fileChooser.getExtensionFilters().add(extFilter);
+        FileChooser fileChooser = model.anexarArquivo();
 
         Stage stage = (Stage) buttonEscolhaArquivo.getScene().getWindow(); // Pega a Stage atual
         File file = fileChooser.showOpenDialog(stage);

@@ -25,13 +25,12 @@ public class Trabalho {
     public Trabalho() {
     }
 
-    public Trabalho(String nomeAutor, String nomeOrientador, String titulo, String resumo, String palavrasChave, Modalidade modalidade, Trilha trilha) {
+    public Trabalho(String nomeAutor, String nomeOrientador, String titulo, String resumo, String palavrasChave,  Trilha trilha) {
         this.nomeAutor = nomeAutor;
         this.nomeOrientador = nomeOrientador;
         this.titulo = titulo;
         this.resumo = resumo;
         this.palavrasChave = palavrasChave;
-        this.modalidade = modalidade;
         this.trilha = trilha;
     }
 

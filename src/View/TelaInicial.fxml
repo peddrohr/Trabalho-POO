@@ -26,29 +26,25 @@
                <items>
                   <MenuItem mnemonicParsing="false" text="Abrir perfil" />
                </items></Menu>
-          <Menu fx:id="menuTrabalhos" mnemonicParsing="false" text="Trabalhos">
-               <items>
-                  <MenuItem fx:id="menuTrabalho" mnemonicParsing="false" onAction="#abrirTelaEnvioTrabalho" text="Ver trabalhos" />
-               </items></Menu>
           <Menu fx:id="menuEventos" mnemonicParsing="false" text="Eventos">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#abrirTelaEventos" text="Ver eventos" />
                </items></Menu>
             <Menu fx:id="menuAvaliarTrabalho" disable="true" mnemonicParsing="false" text="Avaliar trabalhos" visible="false">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" />
+                <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" visible="false" />
               </items>
             </Menu>
         </menus>
       </MenuBar>
       <AnchorPane fx:id="anchorPane" layoutY="26.0" prefHeight="691.0" prefWidth="1098.0">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="487.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="487.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Livro.png" />
                </image>
             </ImageView>
-            <Text layoutX="390.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-Vindo ao Sistema de Eventos" textAlignment="CENTER" wrappingWidth="318.62762451171875">
+            <Text layoutX="390.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-Vindo ao Sistema de Eventos" textAlignment="CENTER" wrappingWidth="318.62762451171875">
                <font>
                   <Font size="33.0" />
                </font>

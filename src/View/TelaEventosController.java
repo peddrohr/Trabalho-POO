@@ -80,12 +80,6 @@ public class TelaEventosController implements Observer {
     private Menu menuPerfil;
 
     @FXML
-    private MenuItem menuTrabalho;
-
-    @FXML
-    private Menu menuTrabalhos;
-
-    @FXML
     void AbrirTelaAvaliacao() throws IOException {
         TelaAvaliacaoView novaTela = new TelaAvaliacaoView();
         novaTela.iniciarTela(model, view);

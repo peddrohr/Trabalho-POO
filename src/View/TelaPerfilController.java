@@ -41,12 +41,6 @@ public class TelaPerfilController {
     private Menu menuPerfil;
 
     @FXML
-    private MenuItem menuTrabalho;
-
-    @FXML
-    private Menu menuTrabalhos;
-
-    @FXML
     private Button butaoSair;
 
     @FXML

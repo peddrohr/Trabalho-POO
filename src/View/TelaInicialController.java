@@ -31,9 +31,6 @@ public class TelaInicialController {
     private Menu menuPerfil;
 
     @FXML
-    private Menu menuTrabalhos;
-
-    @FXML
     private AnchorPane anchorPane;
 
     @FXML

@@ -7,7 +7,7 @@ import java.util.Map;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.ModalidadeInvalidaException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.TrilhaInvalidaException;
 
-class Trabalho {
+public class Trabalho {
 
     //atributos
     private String nomeAutor;

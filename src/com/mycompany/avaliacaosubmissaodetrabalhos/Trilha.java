@@ -1,6 +1,6 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
-class Trilha {
+public class Trilha {
 
     //atributos
     private String nome;

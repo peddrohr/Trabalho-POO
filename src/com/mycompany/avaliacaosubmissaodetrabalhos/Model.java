@@ -1,5 +1,6 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.TrilhaInvalidaException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -94,7 +95,7 @@ public class Model {
 
     //View Tela Envio Trabalho
 
-    public void enviarTrabalho(String titulo, String palavrasChave, String resumo, String coAutores, String trilha, String orientador){
+    public void enviarTrabalho(String titulo, String palavrasChave, String resumo, String coAutores, String trilha, String orientador) throws TrilhaInvalidaException {
         Trilha trilhaTrabalho = getTrilha(trilha);
         Trabalho trabalho = new Trabalho(((Usuario)usuarioLogado).getNome(), orientador, titulo, resumo, palavrasChave, trilhaTrabalho);
         trabalho.setEvento(getEventoSelecionado());

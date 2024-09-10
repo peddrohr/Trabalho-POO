@@ -23,22 +23,22 @@ public class Dados {
 
     public void carregarUsuarios(){
 
-        Usuario aluno = new Usuario("aluno teste", "123456789", "alunoteste@email.com","aluno123");
+        Usuario aluno = new Usuario("aluno teste", "11111111111", "alunoteste@email.com","aluno123");
         Aluno aluno1 = new Aluno(aluno, 100000);
         usuariosCadastrados.add(aluno);
         usuarios.add(aluno1);
 
-        Usuario professor = new Usuario("professor teste", "123123123", "professorteste@gmail.com", "professor123");
+        Usuario professor = new Usuario("professor teste", "22222222222", "professorteste@gmail.com", "professor123");
         Professor professor1 = new Professor(professor, "0000010");
         usuariosCadastrados.add(professor);
         usuarios.add(professor1);
 
-        Usuario servidor = new Usuario("servidor teste", "789789789", "servidorteste@gmail.com", "servidor123");
+        Usuario servidor = new Usuario("servidor teste", "33333333333", "servidorteste@gmail.com", "servidor123");
         Servidor servidor1 = new Servidor(servidor, "110000");
         usuariosCadastrados.add(servidor);
         usuarios.add(servidor1);
 
-        Usuario avaliador = new Usuario("Avaliador teste", "132115131", "avaliadorteste@teste.com", "avaliador123");
+        Usuario avaliador = new Usuario("Avaliador teste", "44444444444", "avaliadorteste@teste.com", "avaliador123");
         Professor avaliador1 = new Professor(avaliador, "151131");
         avaliador1.serAvaliador();
         usuariosCadastrados.add(avaliador);

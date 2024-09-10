@@ -2,6 +2,7 @@ package View;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.*;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.NotaInvalidaException;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.SemTrabalhoDefinidoException;
 import com.sun.tools.javac.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -163,7 +164,7 @@ public class TelaAvaliacaoController {
     }
 
     @FXML
-    void enviarAvaliacao(ActionEvent event) throws NotaInvalidaException {
+    void enviarAvaliacao(ActionEvent event) throws NotaInvalidaException, SemTrabalhoDefinidoException {
 
         Trabalho trabalhoAvaliado = model.getTrabalho();
 

@@ -12,7 +12,7 @@ public class CriterioAvaliacao {
         setDescricao(descricao);
     }
     //setters
-    public void setDescricao(String descricaoo) {
+    public void setDescricao(String descricao) {
         if (descricao != null && !descricao.isEmpty()) {
             this.descricao = descricao;
         } else {

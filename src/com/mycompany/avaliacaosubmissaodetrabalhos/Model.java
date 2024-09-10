@@ -100,16 +100,18 @@ public class Model {
 
     //View Tela Envio Trabalho
 
-    public void enviarTrabalho(String titulo, String palavrasChave, String resumo, String coAutores, String trilha, String orientador) throws TrilhaInvalidaException, AlunoInvalidoException {
+    public void enviarTrabalho(String titulo, String palavrasChave, String resumo, ArrayList<String> coAutores, String trilha, String orientador) throws TrilhaInvalidaException, AlunoInvalidoException {
         if(vericarOrientador(orientador)){
             Trilha trilhaTrabalho = getTrilha(trilha);
             Trabalho trabalho = new Trabalho(((Usuario) usuarioLogado).getNome(), orientador, titulo, resumo, palavrasChave, trilhaTrabalho);
             trabalho.setEvento(getEventoSelecionado());
             trabalho.setNomeAutor(((Usuario) getUsuarioLogado()).getNome());
             trabalho.setNomeCoAutores(coAutores);
+            trabalho.formarCoAutores();
             ((Aluno)usuarioLogadoTipado).setTrabalho(trabalho);
             adicionarTrabalhoOrientador(orientador, trabalho);
             addTrabalho(trabalho);
+            trabalho.setNomeCoAutores(new ArrayList<>());
         }
     }
 

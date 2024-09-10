@@ -56,6 +56,15 @@ public class TelaEnvioTrabalhoController {
     private TextField fieldCoAutores;
 
     @FXML
+    private TextField fieldCoAutores1;
+
+    @FXML
+    private TextField fieldCoAutores2;
+
+    @FXML
+    private TextField fieldCoAutores3;
+
+    @FXML
     private Label nomeEvento;
 
     @FXML
@@ -116,11 +125,24 @@ public class TelaEnvioTrabalhoController {
     @FXML
     void enviarTrabalho(ActionEvent event) throws IOException, TrilhaInvalidaException, AlunoInvalidoException {
         if(boxTrilha.getSelectionModel().getSelectedItem() != null){
+            ArrayList<String> coAutores = new ArrayList<>();
+            if(fieldCoAutores != null && !fieldCoAutores.getText().isEmpty()){
+                coAutores.add(fieldCoAutores.getText());
+            }
+            if(fieldCoAutores2 != null && !fieldCoAutores2.getText().isEmpty()){
+                coAutores.add(fieldCoAutores2.getText());
+            }
+            if(fieldCoAutores1 != null && !fieldCoAutores1.getText().isEmpty()){
+                coAutores.add(fieldCoAutores1.getText());
+            }
+            if(fieldCoAutores3 != null && !fieldCoAutores3.getText().isEmpty()){
+                coAutores.add(fieldCoAutores3.getText());
+            }
+
             String nomeOrientador = fieldOrientador.getText();
             String titulo = fieldTitulo.getText();
             String palavrasChave = fieldPalavrasChave.getText();
             String resumo = fieldResumo.getText();
-            String coAutores = fieldCoAutores.getText();
             String trilha = boxTrilha.getSelectionModel().getSelectedItem();
 
             model.enviarTrabalho(titulo, palavrasChave, resumo, coAutores, trilha, nomeOrientador);

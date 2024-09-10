@@ -38,7 +38,8 @@ public final class Usuario {
             throw new IllegalArgumentException("O email não pode ser vazio.");
         }
 
-        // Regex para validar o formato do email
+        // Regex para validar o formato do email onde só aceita letras maiusculas, minusculas e numeros
+        // antes do @ e aceita letras minusculas depois do @ além de só aceitar 3 caracteres após o ponto
 
         String emailRegex = "^[a-zA-Z0-9]+@[a-z]+\\.[a-z]{3}$\n";
         if (!email.matches(emailRegex)) {

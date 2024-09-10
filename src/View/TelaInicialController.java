@@ -34,6 +34,9 @@ public class TelaInicialController {
     private AnchorPane anchorPane;
 
     @FXML
+    private Menu menuTrabalhosOrientados;
+
+    @FXML
     void AbrirTelaAvaliacao() throws IOException {
         TelaAvaliacaoView novaTela = new TelaAvaliacaoView();
         novaTela.iniciarTela(model, view);
@@ -58,6 +61,12 @@ public class TelaInicialController {
     }
 
     @FXML
+    void abrirTelaTrabalhosOrientados() throws IOException {
+        TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
     void abrirTelaInicial() throws IOException {
     }
 
@@ -69,6 +78,12 @@ public class TelaInicialController {
             menuAvaliarTrabalho.setDisable(false);
             menuAvaliarTrabalho.setVisible(true);
         }
+
+        if(model.verificarOrientador()){
+            menuTrabalhosOrientados.setDisable(false);
+            menuTrabalhosOrientados.setVisible(true);
+        }
+
         try {
             abrirTelaInicial();
         } catch (IOException e) {

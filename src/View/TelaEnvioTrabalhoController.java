@@ -1,6 +1,7 @@
 package View;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.*;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.AlunoInvalidoException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.TrilhaInvalidaException;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -113,8 +114,8 @@ public class TelaEnvioTrabalhoController {
     }
 
     @FXML
-    void enviarTrabalho(ActionEvent event) throws IOException, TrilhaInvalidaException {
-        if(model.vericarOrientador(fieldOrientador.getText()) && boxTrilha.getSelectionModel().getSelectedItem() != null){
+    void enviarTrabalho(ActionEvent event) throws IOException, TrilhaInvalidaException, AlunoInvalidoException {
+        if(boxTrilha.getSelectionModel().getSelectedItem() != null){
             String nomeOrientador = fieldOrientador.getText();
             String titulo = fieldTitulo.getText();
             String palavrasChave = fieldPalavrasChave.getText();

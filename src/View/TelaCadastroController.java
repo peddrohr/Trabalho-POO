@@ -44,6 +44,12 @@ public class TelaCadastroController implements Observer {
     private RadioButton radioServidor;
 
     @FXML
+    private RadioButton radioAvaliador;
+
+    @FXML
+    private RadioButton radioOrientador;
+
+    @FXML
     private ToggleGroup tipoUsuario;
 
     @FXML

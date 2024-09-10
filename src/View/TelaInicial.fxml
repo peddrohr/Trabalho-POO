@@ -35,6 +35,11 @@
                   <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalho" />
                </items>
             </Menu>
+            <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" text="Avaliar trabalhos" visible="false">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="Avaliar trabalho" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
       <AnchorPane fx:id="anchorPane" layoutY="26.0" prefHeight="691.0" prefWidth="1098.0">

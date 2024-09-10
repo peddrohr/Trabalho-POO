@@ -13,6 +13,7 @@ public class Professor{
     private boolean avaliador;
     private boolean orientador;
     private List<Aluno> alunosOrientados = new ArrayList<>();
+    private List<Trabalho> trabalhosOrientados = new ArrayList<>();
     private List<Trabalho> trabalhosAvaliados = new ArrayList<>();
     private Avaliacao avaliacao;
 
@@ -87,6 +88,10 @@ public class Professor{
     }
 
     public boolean getAvaliador(){ return avaliador; }
+
+    public boolean getOrientador(){
+        return orientador;
+    }
    
     //Metodos
     //metodo para um professor se tornar um orientador
@@ -123,6 +128,7 @@ public class Professor{
                 throw new AlunoInvalidoException();
             }
             this.alunosOrientados.add(aluno);
+            this.trabalhosOrientados.add(aluno.getTrabalho());
         }else{
             throw new IllegalArgumentException();
         }
@@ -148,6 +154,14 @@ public class Professor{
         }
         throw new IllegalArgumentException();
         
+    }
+
+    public List<Trabalho> getTrabalhosOrientados(){
+        return trabalhosOrientados;
+    }
+
+    public void addTrabalhosOrientados(Trabalho trabalho){
+        trabalhosOrientados.add(trabalho);
     }
     
     //metodos para o papel de avaliador

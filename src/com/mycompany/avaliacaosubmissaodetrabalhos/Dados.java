@@ -38,11 +38,17 @@ public class Dados {
         usuariosCadastrados.add(servidor);
         usuarios.add(servidor1);
 
-        Usuario avaliador = new Usuario("Avaliador teste", "44444444444", "avaliadorteste@teste.com", "avaliador123");
+        Usuario avaliador = new Usuario("avaliador teste", "44444444444", "avaliadorteste@teste.com", "avaliador123");
         Professor avaliador1 = new Professor(avaliador, "151131");
         avaliador1.serAvaliador();
         usuariosCadastrados.add(avaliador);
         usuarios.add(avaliador1);
+
+        Usuario orientador = new Usuario("orientador teste", "55555555555", "orientadorteste@teste.com", "orientador123");
+        Professor orientador1 = new Professor(orientador, "151131");
+        orientador1.serOrientador();
+        usuariosCadastrados.add(orientador);
+        usuarios.add(orientador1);
     }
 
     //Carregamento prévio de eventos

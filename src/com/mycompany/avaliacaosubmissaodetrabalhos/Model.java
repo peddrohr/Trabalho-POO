@@ -1,5 +1,6 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.AlunoInvalidoException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.TrilhaInvalidaException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -20,6 +21,10 @@ public class Model {
 
     public Model(){
         trabalhos = new ArrayList<>();
+    }
+
+    public ArrayList<Trabalho> getTrabalhos(){
+        return trabalhos;
     }
 
     //Viem Tela Inicial
@@ -95,13 +100,24 @@ public class Model {
 
     //View Tela Envio Trabalho
 
-    public void enviarTrabalho(String titulo, String palavrasChave, String resumo, String coAutores, String trilha, String orientador) throws TrilhaInvalidaException {
-        Trilha trilhaTrabalho = getTrilha(trilha);
-        Trabalho trabalho = new Trabalho(((Usuario)usuarioLogado).getNome(), orientador, titulo, resumo, palavrasChave, trilhaTrabalho);
-        trabalho.setEvento(getEventoSelecionado());
-        trabalho.setNomeAutor(((Usuario)getUsuarioLogado()).getNome());
-        trabalho.setNomeCoAutores(coAutores);
-        addTrabalho(trabalho);
+    public void enviarTrabalho(String titulo, String palavrasChave, String resumo, String coAutores, String trilha, String orientador) throws TrilhaInvalidaException, AlunoInvalidoException {
+        if(vericarOrientador(orientador)){
+            Trilha trilhaTrabalho = getTrilha(trilha);
+            Trabalho trabalho = new Trabalho(((Usuario) usuarioLogado).getNome(), orientador, titulo, resumo, palavrasChave, trilhaTrabalho);
+            trabalho.setEvento(getEventoSelecionado());
+            trabalho.setNomeAutor(((Usuario) getUsuarioLogado()).getNome());
+            trabalho.setNomeCoAutores(coAutores);
+            adicionarTrabalhoOrientador(orientador, trabalho);
+            addTrabalho(trabalho);
+        }
+    }
+
+    private void adicionarTrabalhoOrientador(String nomeOrientador, Trabalho trabalho) throws AlunoInvalidoException {
+        for(Object user: usuarios){
+            if(Professor.class == user.getClass() && ((Professor) user).getNome().equals(nomeOrientador)){
+                ((Professor) user).addAlunoOrientado((Aluno)usuarioLogadoTipado);
+            }
+        }
     }
     public void addTrabalho(Trabalho trabalho){
         if(trabalho != null){
@@ -139,6 +155,26 @@ public class Model {
                 tipoUsuarioLogado = "Professor";
                 break;
 
+            case "Avaliador":
+                Professor avaliador = new Professor(usuario, matricula);
+                usuariosCadastrados.add(usuario);
+                usuarios.add(avaliador);
+                usuarioLogado = usuario;
+                usuarioLogadoTipado = avaliador;
+                avaliador.serAvaliador();
+                tipoUsuarioLogado = "Professor";
+                break;
+
+            case "Orientador":
+                Professor orientador = new Professor(usuario, matricula);
+                usuariosCadastrados.add(usuario);
+                usuarios.add(orientador);
+                usuarioLogado = usuario;
+                usuarioLogadoTipado = orientador;
+                orientador.serOrientador();
+                tipoUsuarioLogado = "Professor";
+                break;
+
             case "Servidor":
                 Servidor servidor = new Servidor(usuario, matricula);
                 usuariosCadastrados.add(usuario);
@@ -163,6 +199,10 @@ public class Model {
     //Verificando se o usuario logado é Avaliador
     public boolean verificarAvaliador(){
         return tipoUsuarioLogado.equals("Professor") && ((Professor)usuarioLogadoTipado).getAvaliador();
+    }
+
+    public boolean verificarOrientador(){
+        return tipoUsuarioLogado.equals("Professor") && ((Professor)usuarioLogadoTipado).getOrientador();
     }
     public Trabalho getTrabalho(){
         if(trabalhos.size() != 0) {
@@ -213,12 +253,13 @@ public class Model {
         return trilhaSelecionada;
     }
 
-    public boolean vericarOrientador(String nomeOrinetador){
+    public boolean vericarOrientador(String nomeOrinetador) throws AlunoInvalidoException {
         boolean orientadorValido = false;
         for(Object usuario: usuarios){
             if(Professor.class == usuario.getClass()){
-                if(((Professor) usuario).getNome().equals(nomeOrinetador)){
+                if(((Professor) usuario).getOrientador()){
                     orientadorValido = true;
+                    ((Professor)usuario).addAlunoOrientado((Aluno)usuarioLogadoTipado);
                 }
             }
         }

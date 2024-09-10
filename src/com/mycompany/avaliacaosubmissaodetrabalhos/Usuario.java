@@ -26,7 +26,7 @@ public final class Usuario {
     }
 
     public void setCpf(String cpf) {
-        if (cpf.length() == 11) {
+        if (cpf.matches("\\d{11}")) {
             this.cpf = cpf;
         } else {
             throw new ExceptionInInitializerError("O cpf deve ter apenas 11 digitos");

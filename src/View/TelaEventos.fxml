@@ -16,9 +16,9 @@
 
 <AnchorPane fx:id="anchorPanePai" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="717.0" prefWidth="1092.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaEventosController">
    <children>
-      <ComboBox fx:id="comboboxEventos" layoutX="62.0" layoutY="64.0" onAction="#carregarDadosEvento" prefWidth="150.0" promptText="Eventos disponíveis" />
-      <Text layoutX="48.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione um evento desejado para obter informações de datas e envios" x="200.0" y="26.0" />
-      <GridPane layoutX="62.0" layoutY="154.0" prefHeight="222.0" prefWidth="570.0">
+      <ComboBox fx:id="comboboxEventos" layoutX="62.0" layoutY="132.0" onAction="#carregarDadosEvento" prefWidth="150.0" promptText="Eventos disponíveis" style="-fx-background-color: lightblue; -fx-border-color: darkblue;" />
+      <Text layoutX="48.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione um evento desejado para obter informações de datas e envios" x="200.0" y="26.0" />
+      <GridPane layoutX="62.0" layoutY="209.0" prefHeight="222.0" prefWidth="570.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="360.20001220703125" minWidth="10.0" prefWidth="135.20001220703125" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="606.5999908447266" minWidth="10.0" prefWidth="435.9999877929688" />
@@ -72,19 +72,19 @@
             </Label>
          </children>
       </GridPane>
-      <Button fx:id="buttonEnviarTrabalho" disable="true" layoutX="62.0" layoutY="431.0" mnemonicParsing="false" onAction="#enviarTrabalho" prefHeight="16.0" prefWidth="150.0" text="Enviar trabalho" />
-      <Label fx:id="mensagemTrabalho" layoutX="235.0" layoutY="433.0" text="Trabalho já enviado !!" visible="false">
+      <Button fx:id="buttonEnviarTrabalho" disable="true" layoutX="62.0" layoutY="501.0" mnemonicParsing="false" onAction="#enviarTrabalho" prefHeight="16.0" prefWidth="150.0" text="Enviar trabalho" />
+      <Label fx:id="mensagemTrabalho" layoutX="229.0" layoutY="503.0" text="Trabalho já enviado !!" visible="false">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Line endX="-149.79998779296875" endY="209.5999755859375" layoutX="818.0" layoutY="182.0" startX="-149.79998779296875" startY="-30.00000762939453" />
+      <Line endX="-149.79998779296875" endY="209.5999755859375" layoutX="817.0" layoutY="230.0" startX="-149.79998779296875" startY="-30.00000762939453" />
       <Label fx:id="labelResumo" alignment="CENTER" layoutX="764.0" layoutY="110.0" prefHeight="43.0" prefWidth="229.0" text="RESUMO TRABALHO ENVIADO:" visible="false">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <GridPane fx:id="dadosTrabalho" layoutX="702.0" layoutY="154.0" prefHeight="222.0" prefWidth="354.0" visible="false">
+      <GridPane fx:id="dadosTrabalho" layoutX="702.0" layoutY="219.0" prefHeight="222.0" prefWidth="354.0" style="-fx-border-color: darkbluew; -fx-background-color: ligthblue;" visible="false">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -162,5 +162,10 @@
             </Menu>
          </menus>
       </MenuBar>
+      <Label fx:id="nomeEvento" alignment="CENTER" contentDisplay="CENTER" layoutY="26.0" prefHeight="75.0" prefWidth="1092.0" style="-fx-background-color: darkblue;" text="Evento" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="34.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

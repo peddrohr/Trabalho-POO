@@ -107,6 +107,7 @@ public class Model {
             trabalho.setEvento(getEventoSelecionado());
             trabalho.setNomeAutor(((Usuario) getUsuarioLogado()).getNome());
             trabalho.setNomeCoAutores(coAutores);
+            ((Aluno)usuarioLogadoTipado).setTrabalho(trabalho);
             adicionarTrabalhoOrientador(orientador, trabalho);
             addTrabalho(trabalho);
         }
@@ -244,10 +245,11 @@ public class Model {
     }
 
     public Trilha getTrilha(String nomeTrilha){
-        Trilha trilhaSelecionada = new Trilha();
+        Trilha trilhaSelecionada = new Trilha(nomeTrilha, "a");
         for(Trilha trilha : trilhas){
-            if(trilha.getNome() == nomeTrilha){
+            if(Objects.equals(trilha.getNome(), nomeTrilha)){
                 trilhaSelecionada = trilha;
+                break;
             }
         }
         return trilhaSelecionada;
@@ -259,7 +261,6 @@ public class Model {
             if(Professor.class == usuario.getClass()){
                 if(((Professor) usuario).getOrientador()){
                     orientadorValido = true;
-                    ((Professor)usuario).addAlunoOrientado((Aluno)usuarioLogadoTipado);
                 }
             }
         }

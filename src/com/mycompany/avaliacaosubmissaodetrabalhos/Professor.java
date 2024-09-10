@@ -22,7 +22,7 @@ public class Professor{
         this.setUsuario(new Usuario(nome,cpf, email, senha));
         this.setSiape(siape);
         this.avaliador = false;
-        this.orientador = false; 
+        this.orientador = false;
     }
     
     public Professor(Usuario usuario, String siape) {
@@ -33,6 +33,7 @@ public class Professor{
         setSiape(siape);
         this.orientador = false;
         this.avaliador = false;
+
     }
 
     public Professor() {

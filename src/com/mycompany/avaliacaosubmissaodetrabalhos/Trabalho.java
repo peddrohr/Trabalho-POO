@@ -18,6 +18,8 @@ public class Trabalho {
     private String resumo;
     private String palavrasChave;
     private Modalidade modalidade;
+    private String nomeTrilha;
+    private String nomeEvento;
     private Trilha trilha;
     private Evento evento;
     private Map<Professor, Avaliacao> avaliacoes = new HashMap<>();
@@ -44,6 +46,7 @@ public class Trabalho {
     public void setEvento(Evento evento){
         if(evento != null){
             this.evento = evento;
+            this.nomeEvento = evento.getNome();
         }
     }
 
@@ -113,8 +116,9 @@ public class Trabalho {
     }
 
     public void setTrilha(Trilha trilha) throws TrilhaInvalidaException {
-        if (trilha instanceof Trilha) {
+        if (trilha != null) {
             this.trilha = trilha;
+            this.nomeTrilha = trilha.getNome();
         } else {
             throw new TrilhaInvalidaException();
         }
@@ -164,6 +168,10 @@ public class Trabalho {
     public Trilha getTrilha() {
         return trilha;
     }
+
+    public String getNomeTrilha(){ return nomeTrilha; }
+
+    public String getNomeEvento(){ return nomeEvento; }
 
     public Map<Professor, Avaliacao> getAvaliacoes() {
         return new HashMap<>(avaliacoes);

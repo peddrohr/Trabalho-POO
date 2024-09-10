@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class TelaTrabalhosOrientadosController implements Observer{
     Model model;
     Stage view;
@@ -53,34 +55,47 @@ public class TelaTrabalhosOrientadosController implements Observer{
     private TableView<Trabalho> tabelaTrabalhos;
 
     @FXML
-    void AbrirTelaAvaliacao(ActionEvent event) {
-
+    void AbrirTelaAvaliacao() throws IOException {
+        TelaAvaliacaoView novaTela = new TelaAvaliacaoView();
+        novaTela.iniciarTela(model, view);
     }
 
     @FXML
-    void abrirTelaEventos(ActionEvent event) {
-
+    void abrirTelaEventos() throws IOException {
+        TelaEventosView novaTela = new TelaEventosView();
+        novaTela.iniciarTela(model, view);
     }
 
     @FXML
-    void abrirTelaInicial(ActionEvent event) {
-
+    void abrirTelaEnvioTrabalho() throws IOException {
+        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
+        novaTela.iniciarTela(model, view);
     }
 
     @FXML
-    void abrirTelaPerfil(ActionEvent event) {
+    void abrirTelaPerfil() throws IOException {
+        TelaPerfilView novaTela = new TelaPerfilView();
+        novaTela.iniciarTela(model, view);
+    }
 
+    @FXML
+    void abrirTelaInicial() throws IOException {
+        TelaInicialView novaTela = new TelaInicialView();
+        novaTela.iniciarTela(model, view);
     }
 
     //carregar dados tabela
     void carregarDadosTrabalhos(){
         ObservableList<Trabalho> trabalhos = FXCollections.observableArrayList(((Professor)model.getUsuarioLogadoTipado()).getTrabalhosOrientados());
 
+        System.out.println(((Professor)model.getUsuarioLogadoTipado()).getTrabalhosOrientados().getLast().getNomeTrilha());
         colunaAutor.setCellValueFactory(new PropertyValueFactory<>("nomeAutor"));
-        colunaEvento.setCellValueFactory(new PropertyValueFactory<>("evento"));
+        colunaEvento.setCellValueFactory(new PropertyValueFactory<>("nomeEvento"));
+        colunaTrilha.setCellValueFactory(new PropertyValueFactory<>("nomeTrilha"));
         colunaNota.setCellValueFactory(new PropertyValueFactory<>("nota"));
         colunaTrilha.setCellValueFactory(new PropertyValueFactory<>("trilha"));
         colunaTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
+
 
 
         tabelaTrabalhos.setItems(trabalhos);
@@ -91,6 +106,7 @@ public class TelaTrabalhosOrientadosController implements Observer{
     void initialize(Model model, Stage stage){
         this.model = model;
         this.view = stage;
+
 
         carregarDadosTrabalhos();
     }

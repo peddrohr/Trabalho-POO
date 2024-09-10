@@ -9,10 +9,13 @@ import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.TrilhaInvalidaExcept
 
 public class Trabalho {
 
+    Model model = new Model();
+
     //atributos
     private String nomeAutor;
     private int qntCoAutores;
     private ArrayList<String> nomeCoAutores = new ArrayList<>();
+    private String coAutores = "";
     private String nomeOrientador;
     private String titulo;
     private String resumo;
@@ -68,9 +71,11 @@ public class Trabalho {
         }
     }
 
-    public void setNomeCoAutores(String nomeCoAutor) {
-        if (nomeCoAutor != null && !nomeCoAutor.isEmpty()) {
-            this.nomeCoAutores.add(nomeCoAutor);
+    public void setNomeCoAutores(ArrayList<String> coAutoresarr) {
+        for(String coAutor: coAutoresarr){
+            if (coAutor != null && !coAutor.isEmpty() && model.validarAluno(coAutor)) {
+                this.nomeCoAutores.add(coAutor);
+            }
         }
     }
 
@@ -137,11 +142,15 @@ public class Trabalho {
         return qntCoAutores;
     }
 
-    public String getNomeCoautores() {
-        String coAutores = "";
+    //formar String de coAutores
+    public String formarCoAutores() {
         for(String nomeCoAutor: nomeCoAutores){
-            coAutores = coAutores + nomeCoAutor;
+            coAutores = coAutores + nomeCoAutor+ ", ";
         }
+        return coAutores;
+    }
+
+    public String getCoAutores(){
         return coAutores;
     }
 

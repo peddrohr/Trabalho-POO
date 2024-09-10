@@ -93,7 +93,7 @@ public class TelaTrabalhosOrientadosController implements Observer{
         colunaEvento.setCellValueFactory(new PropertyValueFactory<>("nomeEvento"));
         colunaTrilha.setCellValueFactory(new PropertyValueFactory<>("nomeTrilha"));
         colunaNota.setCellValueFactory(new PropertyValueFactory<>("nota"));
-        colunaTrilha.setCellValueFactory(new PropertyValueFactory<>("trilha"));
+        colunaCoAutores.setCellValueFactory(new PropertyValueFactory<>("coAutores"));
         colunaTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
 
 

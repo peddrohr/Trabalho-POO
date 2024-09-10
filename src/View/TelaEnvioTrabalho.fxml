@@ -11,6 +11,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -18,7 +19,7 @@
 <AnchorPane fx:id="anchorPane" prefHeight="717.0" prefWidth="1092.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaEnvioTrabalhoController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="692.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="1093.0" />
-      <TextField id="barra" fx:id="fieldTitulo" layoutX="261.0" layoutY="231.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o titulo do Trabalho" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
+      <TextField id="barra" fx:id="fieldTitulo" layoutX="261.0" layoutY="261.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o titulo do Trabalho" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -36,20 +37,20 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextArea fx:id="fieldResumo" layoutX="261.0" layoutY="374.0" prefHeight="240.0" prefWidth="573.0" promptText="Escreva seu resumo aqui . . . " style="-fx-font-family: Cambria; -fx-border-color: black;" />
+      <TextArea fx:id="fieldResumo" layoutX="261.0" layoutY="374.0" prefHeight="240.0" prefWidth="581.0" promptText="Escreva seu resumo aqui . . . " style="-fx-font-family: Cambria; -fx-border-color: black;" />
       <TextField id="barra" fx:id="fieldPalavrasChave" layoutX="261.0" layoutY="339.0" prefHeight="29.0" prefWidth="286.0" promptText="DIgite as Palavras Chave" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button fx:id="buttonEscolhaArquivo" layoutX="701.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleAnexarArquivo" prefHeight="29.0" prefWidth="132.0" style="-fx-background-color: darkblue;" text="Escolha o Arquivo" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="buttonEscolhaArquivo" layoutX="700.0" layoutY="628.0" mnemonicParsing="false" onAction="#handleAnexarArquivo" prefHeight="29.0" prefWidth="132.0" style="-fx-background-color: darkblue;" text="Escolha o Arquivo" textAlignment="CENTER" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
             <Font name="Cambria Bold" size="12.0" />
          </font></Button>
-      <TextField id="barra" fx:id="fieldCoAutores" layoutX="261.0" layoutY="266.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o Nome dos Co Autores (Opcional)" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
+      <TextField id="barra" fx:id="fieldCoAutores" layoutX="557.0" layoutY="220.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o Nome dos Co Autor 1 (Opcional)" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -73,7 +74,7 @@
          <font>
             <Font size="16.0" />
          </font></Label>
-      <ComboBox fx:id="boxTrilha" layoutX="261.0" layoutY="200.0" prefHeight="25.0" prefWidth="170.0" promptText="Selecione uma trilha" />
+      <ComboBox fx:id="boxTrilha" layoutX="261.0" layoutY="220.0" prefHeight="26.0" prefWidth="286.0" promptText="Selecione uma trilha" />
       <Label fx:id="labelEnvio" alignment="CENTER" layoutX="341.0" layoutY="671.0" prefHeight="27.0" prefWidth="412.0">
          <font>
             <Font size="18.0" />
@@ -103,5 +104,26 @@
             </Menu>
          </menus>
       </MenuBar>
+      <TextField id="barra" fx:id="fieldCoAutores1" layoutX="557.0" layoutY="261.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o Nome dos Co Autor 2 (Opcional)" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField id="barra" fx:id="fieldCoAutores2" layoutX="557.0" layoutY="302.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o Nome dos Co Autor 4 (Opcional)" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField id="barra" fx:id="fieldCoAutores3" layoutX="557.0" layoutY="339.0" prefHeight="30.0" prefWidth="286.0" promptText="Digite o Nome dos Co Autor 4 (Opcional)" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Line endX="20.79998779296875" endY="181.39999389648438" layoutX="532.0" layoutY="185.0" startX="20.79998779296875" startY="31.0" />
+      <Text layoutX="661.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Co Autores">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

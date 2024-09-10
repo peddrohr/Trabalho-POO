@@ -81,11 +81,6 @@ public class TelaEnvioTrabalhoController {
     @FXML
     private Menu menuPerfil;
 
-    @FXML
-    private MenuItem menuTrabalho;
-
-    @FXML
-    private Menu menuTrabalhos;
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {

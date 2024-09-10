@@ -31,7 +31,7 @@ public class Model {
     }
 
     public AnchorPane abrirTelaEnvioTrabalho() throws IOException {
-        return (AnchorPane) FXMLLoader.load(getClass().getResource("/View/TelaAvaliacao.fxml"));
+        return (AnchorPane) FXMLLoader.load(getClass().getResource("/View/TelaEnvioTrabalho.fxml"));
     }
 
     public AnchorPane abrirTelaPerfil() throws IOException {

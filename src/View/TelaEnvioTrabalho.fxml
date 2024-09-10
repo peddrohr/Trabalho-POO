@@ -91,11 +91,6 @@
                   <MenuItem mnemonicParsing="false" text="Abrir perfil" />
                </items>
             </Menu>
-            <Menu fx:id="menuTrabalhos" mnemonicParsing="false" text="Trabalhos">
-               <items>
-                  <MenuItem fx:id="menuTrabalho" mnemonicParsing="false" onAction="#abrirTelaEnvioTrabalho" text="Ver trabalhos" />
-               </items>
-            </Menu>
             <Menu fx:id="menuEventos" mnemonicParsing="false" text="Eventos">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#abrirTelaEventos" text="Ver eventos" />

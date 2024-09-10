@@ -31,9 +31,9 @@
                   <MenuItem mnemonicParsing="false" onAction="#abrirTelaEventos" text="Ver eventos" />
                </items></Menu>
             <Menu fx:id="menuAvaliarTrabalho" disable="true" mnemonicParsing="false" text="Avaliar trabalhos" visible="false">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" visible="false" />
-              </items>
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalho" />
+               </items>
             </Menu>
         </menus>
       </MenuBar>

@@ -160,6 +160,10 @@ public class Model {
         }
     }
 
+    //Verificando se o usuario logado é Avaliador
+    public boolean verificarAvaliador(){
+        return tipoUsuarioLogado.equals("Professor") && ((Professor)usuarioLogadoTipado).getAvaliador();
+    }
     public Trabalho getTrabalho(){
         if(trabalhos.size() != 0) {
             return trabalhos.getLast();

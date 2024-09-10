@@ -184,6 +184,11 @@ public class TelaEnvioTrabalhoController {
         this.model = model;
         this.view = stage;
 
+        if(model.verificarAvaliador()){
+            menuAvaliarTrabalho.setDisable(false);
+            menuAvaliarTrabalho.setVisible(true);
+        }
+
         carregarTrilha();
         adicionarTextoLabel();
     }

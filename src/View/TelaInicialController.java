@@ -65,7 +65,7 @@ public class TelaInicialController {
         this.model = model;
         this.view = stage;
 
-        if(model.getTipoUsuarioLogado().equals("Professor") && ((Professor)model.getUsuarioLogadoTipado()).getAvaliador()){
+        if(model.verificarAvaliador()){
             menuAvaliarTrabalho.setDisable(false);
             menuAvaliarTrabalho.setVisible(true);
         }

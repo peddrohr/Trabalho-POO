@@ -93,6 +93,12 @@ public class TelaPerfilController {
     public void initialize(Model model, Stage stage) {
         this.model = model;
         this.view = stage;
+
+        if(model.verificarAvaliador()){
+            menuAvaliarTrabalho.setDisable(false);
+            menuAvaliarTrabalho.setVisible(true);
+        }
+
         carregarDados();
     }
 

@@ -160,6 +160,11 @@ public class TelaEventosController implements Observer {
         carregarEventos();
         carregarDadosTrabalho();
 
+        if(model.verificarAvaliador()){
+            menuAvaliarTrabalho.setDisable(false);
+            menuAvaliarTrabalho.setVisible(true);
+        }
+
         this.model = model;
         this.view = stage;
     }

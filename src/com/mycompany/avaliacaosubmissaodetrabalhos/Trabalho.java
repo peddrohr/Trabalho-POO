@@ -74,6 +74,7 @@ public class Trabalho {
     public void setNomeCoAutores(ArrayList<String> coAutoresarr) {
         for(String coAutor: coAutoresarr){
             if (coAutor != null && !coAutor.isEmpty() && model.validarAluno(coAutor)) {
+
                 this.nomeCoAutores.add(coAutor);
             }
         }

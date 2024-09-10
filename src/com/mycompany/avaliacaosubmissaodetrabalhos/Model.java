@@ -27,6 +27,15 @@ public class Model {
         return trabalhos;
     }
 
+    public boolean validarAluno(String nomeAluno){
+        for(Object user: usuarios){
+            if(Aluno.class == user.getClass() && ((Aluno)user).getUsuario().getNome().equals(nomeAluno)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     //Viem Tela Inicial
     public AnchorPane AbrirTelaAvaliacao() throws IOException {
         return (AnchorPane) FXMLLoader.load(getClass().getResource("/View/TelaAvaliacao.fxml"));

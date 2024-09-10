@@ -9,6 +9,8 @@ import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.TrilhaInvalidaExcept
 
 public class Trabalho {
 
+    Model model = new Model();
+
     //atributos
     private String nomeAutor;
     private int qntCoAutores;
@@ -71,7 +73,7 @@ public class Trabalho {
 
     public void setNomeCoAutores(ArrayList<String> coAutoresarr) {
         for(String coAutor: coAutoresarr){
-            if (coAutor != null && !coAutor.isEmpty()) {
+            if (coAutor != null && !coAutor.isEmpty() && model.validarAluno(coAutor)) {
                 this.nomeCoAutores.add(coAutor);
             }
         }

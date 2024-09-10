@@ -8,8 +8,8 @@ public class CriterioAvaliacao {
 
     //construtores
     public CriterioAvaliacao(String nome, String descricao){
-        this.nome = nome;
-        this.descricao = descricao;
+        setNome(nome);
+        setDescricao(descricao);
     }
     //setters
     public void setDescricao(String descricaoo) {

@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 public class Evento {
 
+    //atributos
     private String nome;
     private String dataInicio;
     private String dataFim;
     private ArrayList<Etapa> etapas;
 
+    //construtores
     public Evento(String nome, String dataInicio, String dataFim) {
         setNome(nome);
         setDataInicio(dataInicio);
@@ -42,12 +44,7 @@ public class Evento {
         }
     }
 
-    public void cadastrarEtapa(Etapa etapa) {
-        if (etapa != null && etapa instanceof Etapa) {
-            etapas.add(etapa);
-        }
-    }
-
+    //getters
     public String getNome() {
         return nome;
     }
@@ -67,5 +64,12 @@ public class Evento {
     @Override
     public String toString(){
         return getNome();
+    }
+
+     //metodo para cadastrar uma nova etapa e adiciona no ArrayList de etapas
+     public void cadastrarEtapa(Etapa etapa) {
+        if (etapa != null && etapa instanceof Etapa) {
+            etapas.add(etapa);
+        }
     }
 }

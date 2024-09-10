@@ -16,7 +16,6 @@ public class Avaliador {
 
     //construtor
     public Avaliador(Professor professor) throws UsuarioInvalidoException{
-        this.professor = professor;
         this.trabalhosAvaliados = new ArrayList<>();
         this.nome = professor.getNome();
         this.email = professor.getEmail();

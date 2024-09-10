@@ -6,22 +6,26 @@ import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.CriterioAvaliacaoInv
 
 public class Modalidade {
 
+    //atributos
     private String nome;
     private String descricao;
     private ArrayList<CriterioAvaliacao> criteriosAvaliacao;
 
+    //construtor
     public Modalidade(String nome, String descricao) {
         this.setNome(nome);
-        this.descricao = descricao;
+        this.setDescricao(descricao);
         criteriosAvaliacao = new ArrayList();
     }
 
+    //cria um novo criterio de avaliacao e adiciona no ArrayList de criterios de avaliacao.
     public CriterioAvaliacao CriarCriterioAvaliacao(String nome, String descricao) throws CriterioAvaliacaoInvalidoException {
         CriterioAvaliacao criterio = new CriterioAvaliacao(nome, descricao);
         criteriosAvaliacao.add(criterio);
         return criterio;
     }
 
+    //remove um criterio do ArrayList de criterios de avaliacao
     public void removerCriterioAvaliacao(CriterioAvaliacao criterioAvaliacao) throws CriterioAvaliacaoInvalidoException {
         if (criterioAvaliacao != null && criteriosAvaliacao.contains(criterioAvaliacao) && criterioAvaliacao instanceof CriterioAvaliacao) {
             int indice = criteriosAvaliacao.indexOf(criterioAvaliacao);

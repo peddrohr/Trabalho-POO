@@ -3,6 +3,12 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "Main",
+			"request": "launch",
+			"mainClass": "View.Main"
+		},
+		{
+			"type": "java",
 			"name": "MainTelaLogin",
 			"request": "launch",
 			"mainClass": "View.MainTelaLogin",

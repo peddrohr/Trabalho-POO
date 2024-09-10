@@ -7,8 +7,9 @@ import java.util.Map;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.ModalidadeInvalidaException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.TrilhaInvalidaException;
 
-public class Trabalho {
+class Trabalho {
 
+    //atributos
     private String nomeAutor;
     private int qntCoAutores;
     private ArrayList<String> nomeCoAutores = new ArrayList<>();
@@ -22,16 +23,17 @@ public class Trabalho {
     private Map<Professor, Avaliacao> avaliacoes = new HashMap<>();
     private float nota;
 
+    //construtores
     public Trabalho() {
     }
 
-    public Trabalho(String nomeAutor, String nomeOrientador, String titulo, String resumo, String palavrasChave,  Trilha trilha) {
-        this.nomeAutor = nomeAutor;
-        this.nomeOrientador = nomeOrientador;
-        this.titulo = titulo;
-        this.resumo = resumo;
-        this.palavrasChave = palavrasChave;
-        this.trilha = trilha;
+    public Trabalho(String nomeAutor, String nomeOrientador, String titulo, String resumo, String palavrasChave,  Trilha trilha) throws TrilhaInvalidaException {
+        this.setNomeAutor(nomeAutor);
+        this.setNomeOrientador(nomeOrientador);
+        this.setTitulo(titulo);
+        this.setResumo(resumo);
+        this.setPalavrasChave(palavrasChave);
+        this.setTrilha(trilha);
     }
 
     public Trabalho(String nome){
@@ -167,6 +169,10 @@ public class Trabalho {
         return new HashMap<>(avaliacoes);
     }
 
+    public float getNota(){
+        return nota;
+    }
+
      //adiciona uma avaliacao feita por um avaliador sobre o trabalho em um hashMap, passando o professor e a avaliacao feitas
     //por paramentro do metodo, vai ajudar a calcular a media final.
 
@@ -180,6 +186,7 @@ public class Trabalho {
         avaliacoes.put(avaliador, avaliacao);
     }
 
+    //metodo que calcula a nota final do trabalho;
     public void notaFinal(){
         if(avaliacoes.size() <= 2){
             float somaNotas = 0;
@@ -192,7 +199,4 @@ public class Trabalho {
         }
     }
 
-    public float getNota(){
-        return nota;
-    }
 }

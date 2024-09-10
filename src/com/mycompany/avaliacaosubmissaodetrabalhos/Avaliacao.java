@@ -9,6 +9,7 @@ import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.SemTrabalhoDefinidoE
 
 public class Avaliacao {
 
+    //Atributos
     private Trabalho trabalho;
     private String comentario;
     private ArrayList<CriterioAvaliacao> criteriosAvaliacao;
@@ -16,14 +17,15 @@ public class Avaliacao {
     private Map<CriterioAvaliacao, Float> notasPorCriterio = new HashMap<>();
     private float nota;
 
-    public Avaliacao(Trabalho trabalho, float nota, String comentario){
-        this.trabalho = trabalho;
-        this.nota = nota;
-        this.comentario = comentario;
+    //construtores
+    public Avaliacao(Trabalho trabalho, float nota, String comentario) throws SemTrabalhoDefinidoException{
+        setTrabalho(trabalho);
+        setNota(nota);
+        setComentario(comentario);
     }
 
-    public Avaliacao(Trabalho trabalho){
-        this.trabalho = trabalho;
+    public Avaliacao(Trabalho trabalho) throws SemTrabalhoDefinidoException{
+        setTrabalho(trabalho);
     }
 
     //setters  
@@ -40,6 +42,10 @@ public class Avaliacao {
         if (comentario != null) {
             this.comentario = comentario;
         }
+    }
+
+    public void setNota(float nota) {
+        this.nota = nota;
     }
 
     //getters
@@ -83,7 +89,4 @@ public class Avaliacao {
         return nota; 
     }
 
-    public void setNota(float nota) {
-        this.nota = nota;
-    }
 }

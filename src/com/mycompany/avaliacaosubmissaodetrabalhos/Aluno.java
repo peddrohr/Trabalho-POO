@@ -12,8 +12,9 @@ public class Aluno {
 
     //construtores
     public Aluno(String nome,String cpf, String email, int matriculaSigaa, String senha ) {
-        this.usuario = new Usuario(nome,cpf, email, senha);
-        this.matriculaSigaa = matriculaSigaa <0 ? matriculaSigaa : 0; 
+        setUsuario(new Usuario(nome,cpf, email, senha));
+        setMatriculaSigaa(matriculaSigaa);
+        setSenha(senha);
     }
     
     public Aluno(Usuario usuario, int matriculasigaa) {
@@ -95,7 +96,4 @@ public class Aluno {
     public float getNotaTrabalho() {
         return trabalho.getNota();
     }
-
-    
-
 }

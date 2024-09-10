@@ -2,20 +2,22 @@ package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 public class Etapa {
 
+    //atributos
     private String nomeEtapa;
     private String dataInicio;
     private String dataFim;
     private String descricao;
 
+    //construtores
     public Etapa(String nomeEtapa) {
         setNomeEtapa(nomeEtapa);
     }
 
     public Etapa(String nomeEtapa, String dataInicio, String dataFim, String descricao ){
-        this.nomeEtapa = nomeEtapa;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
-        this.descricao = descricao;
+        setNomeEtapa(nomeEtapa);
+        setDataInicio(dataInicio);
+        setDataFim(dataFim);
+        setDescricao(descricao);
     }
 
     

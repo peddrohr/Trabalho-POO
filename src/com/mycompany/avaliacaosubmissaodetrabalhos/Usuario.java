@@ -10,10 +10,10 @@ public final class Usuario {
 
     //construtores
     public Usuario(String nome, String cpf, String email, String senha){
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
-        this.senha = senha;
+        this.setNome(nome);
+        this.setCpf(cpf);
+        this.setEmail(email);
+        this.setSenha(senha);
     }
 
     //setters

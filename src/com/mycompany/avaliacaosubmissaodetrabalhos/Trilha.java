@@ -1,6 +1,6 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
-public class Trilha {
+class Trilha {
 
     //atributos
     private String nome;
@@ -8,8 +8,8 @@ public class Trilha {
 
     //construtores
     public Trilha(String nome, String descricao){
-        this.nome = nome;
-        this.descricao = descricao;
+        this.setNome(nome);
+        this.setDescricao(descricao);
     }
 
     public Trilha(){

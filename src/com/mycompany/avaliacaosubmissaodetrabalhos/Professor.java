@@ -18,8 +18,8 @@ public class Professor{
 
     //construtores
     public Professor(String nome,String cpf, String email,String senha, String siape) {
-        this.usuario = new Usuario(nome,cpf, email, senha);
-        this.siape = siape != null ? siape : "";
+        this.setUsuario(new Usuario(nome,cpf, email, senha));
+        this.setSiape(siape);
         this.avaliador = false;
         this.orientador = false; 
     }
@@ -28,8 +28,8 @@ public class Professor{
         if (usuario == null) {
             throw new IllegalArgumentException("Usuário não pode ser nulo");
         }
-        this.usuario = usuario;
-        this.siape = siape != null ? siape : ""; 
+        setUsuario(usuario);
+        setSiape(siape);
         this.orientador = false;
         this.avaliador = false;
     }
@@ -89,18 +89,21 @@ public class Professor{
     public boolean getAvaliador(){ return avaliador; }
    
     //Metodos
+    //metodo para um professor se tornar um orientador
     public void serOrientador(){
         if(this.orientador == false){
             this.orientador = true;
         }
     }
 
+    //metodo para um professor deixar de ser orientador
     public void naoSerOrientador(){
         if(this.orientador == true){
             this.orientador = false;
         }
     }
 
+    //metodo para um professor se tornar um orientador
     public void serAvaliador(){
         if(this.avaliador == false){
             this.avaliador = true;
@@ -138,8 +141,18 @@ public class Professor{
         }
         throw new IllegalArgumentException();
     }
+
+    public List<Trabalho> getTrabalhosAvaliados() {
+        if(avaliador){
+            return new ArrayList<>(trabalhosAvaliados);
+        }
+        throw new IllegalArgumentException();
+        
+    }
     
     //metodos para o papel de avaliador
+
+    //metodo para adicionar um trabalho para ser avaliado na lista de trabalhos que o avaliador deve avaliar.
     public void addTrabalhoAvaliado(Trabalho trabalho)throws SemTrabalhoDefinidoException{
         if(avaliador){
             if(trabalho == null){
@@ -151,6 +164,7 @@ public class Professor{
         }
     }
 
+    //remove um trabalho da lista de trabalho para serem avaliados.
     public void removerTrabalhoAvaliado(Trabalho trabalhoAvalido) throws SemTrabalhoDefinidoException{
         if(avaliador){
             if(trabalhoAvalido == null){
@@ -161,24 +175,22 @@ public class Professor{
             throw new IllegalArgumentException();
         }    
     }
-    public List<Trabalho> getTrabalhosAvaliados() {
-        if(avaliador){
-            return new ArrayList<>(trabalhosAvaliados);
-        }
-        throw new IllegalArgumentException();
-        
-    }
-
-    public void avaliarTrabalho(Trabalho trabalho){
+   
+    //metodo para o avaliador avaliar um trabalho.
+    public void avaliarTrabalho(Trabalho trabalho) throws SemTrabalhoDefinidoException{
         Avaliacao avaliacao = new Avaliacao(trabalho);
         this.avaliacao = avaliacao;
     }
 
+    //metodo para avaliar um critério
     public void avaliarCriterio(CriterioAvaliacao criterio, float nota) throws NotaInvalidaException{
         avaliacao.avaliarCriterio(criterio, nota);
     }
 
-    public Avaliacao adicionarNota(Trabalho trabalho, float nota, String comentario){
+    //metodo para adicionar a nota em um trabalho, junto com um comentario.
+    //nesse metodo tambem remove o trabalho da lista de trabalho para serem avaliados
+    //para nao correr o risco de ser avaliado novamente;
+    public Avaliacao adicionarNota(Trabalho trabalho, float nota, String comentario) throws SemTrabalhoDefinidoException{
         if(avaliador){
             if(trabalhosAvaliados.contains(trabalho)){
                 if(trabalho.getAvaliacoes().size()<2){

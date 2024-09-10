@@ -3,12 +3,15 @@ package com.mycompany.avaliacaosubmissaodetrabalhos;
 import java.util.ArrayList;
 
 public class Dados {
+
+    //atributos
     public static ArrayList<Usuario> usuariosCadastrados = new ArrayList<>();
     public static ArrayList<Object> usuarios= new ArrayList<>();
     public static ArrayList<Evento> eventosCadastrados = new ArrayList<>();
     public static ArrayList<Trilha> trilhas = new ArrayList<>();
     public static ArrayList<CriterioAvaliacao> criterios = new ArrayList<>();
 
+    //construtor
     public Dados(){
         carregarUsuarios();
         carregarEventos();

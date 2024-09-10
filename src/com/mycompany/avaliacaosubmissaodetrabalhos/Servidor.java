@@ -9,8 +9,8 @@ public class Servidor{
 
     //construtores
     public Servidor(String nome,String cpf, String email, String matricula, String senha ) {
-        this.usuario = new Usuario(nome,cpf, email, senha);
-        this.matricula = matricula != null ? matricula : ""; 
+        this.setUsuario( new Usuario(nome,cpf, email, senha));
+        this.setMatricula(matricula);
     }
     
     public Servidor(Usuario usuario, String matricula) {

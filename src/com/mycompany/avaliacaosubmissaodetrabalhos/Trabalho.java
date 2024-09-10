@@ -13,6 +13,7 @@ public class Trabalho {
     private String nomeAutor;
     private int qntCoAutores;
     private ArrayList<String> nomeCoAutores = new ArrayList<>();
+    private String coAutores = "";
     private String nomeOrientador;
     private String titulo;
     private String resumo;
@@ -137,8 +138,7 @@ public class Trabalho {
         return qntCoAutores;
     }
 
-    public String getNomeCoautores() {
-        String coAutores = "";
+    public String getCoAutores() {
         for(String nomeCoAutor: nomeCoAutores){
             coAutores = coAutores + nomeCoAutor;
         }

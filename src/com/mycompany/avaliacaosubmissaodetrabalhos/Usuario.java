@@ -34,11 +34,18 @@ public final class Usuario {
     }
 
     public void setEmail(String email) {
-        if (email != null && !email.isEmpty()) {
-            this.email = email;
-        } else {
-            throw new ExceptionInInitializerError("O email nao pode ser vazio");
+        if (email == null || email.isEmpty()) {
+            throw new IllegalArgumentException("O email não pode ser vazio.");
         }
+
+        // Regex para validar o formato do email
+
+        String emailRegex = "^[a-zA-Z0-9]+@[a-z]+\\.[a-z]{3}$\n";
+        if (!email.matches(emailRegex)) {
+            throw new IllegalArgumentException("Formato de email inválido.");
+        }
+
+        this.email = email;
     }
 
     public void setSenha(String senha) {

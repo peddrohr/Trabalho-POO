@@ -17,6 +17,9 @@ public class TelaCadastroController implements Observer {
     Stage view;
 
     @FXML
+    private Button butaoCancelar;
+
+    @FXML
     private Button butaoCadastro;
 
     @FXML
@@ -51,6 +54,12 @@ public class TelaCadastroController implements Observer {
 
     @FXML
     private ToggleGroup tipoUsuario;
+
+    @FXML
+    void Cancelar(ActionEvent event) throws IOException {
+        TelaLoginView novaTela = new TelaLoginView();
+        novaTela.iniciarTela(model, view);
+    }
 
     @FXML
     void fazerCadastro(ActionEvent event) throws IOException {

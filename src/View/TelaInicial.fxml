@@ -15,33 +15,6 @@
       <Cursor fx:constant="DEFAULT" />
    </cursor>
    <children>
-      <MenuBar fx:id="barraMenu" layoutX="-4.0" layoutY="-2.0" prefHeight="26.0" prefWidth="1092.0" AnchorPane.bottomAnchor="691.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <menus>
-            <Menu fx:id="menuInicio" mnemonicParsing="false" text="Inicio">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#abrirTelaInicial" text="Inicio" />
-              </items>
-            </Menu>
-          <Menu fx:id="menuPerfil" mnemonicParsing="false" onAction="#abrirTelaPerfil" text="Perfil">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Abrir perfil" />
-               </items></Menu>
-          <Menu fx:id="menuEventos" mnemonicParsing="false" text="Eventos">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaEventos" text="Ver eventos" />
-               </items></Menu>
-            <Menu fx:id="menuAvaliarTrabalho" disable="true" mnemonicParsing="false" text="Avaliar trabalhos" visible="false">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalho" />
-               </items>
-            </Menu>
-            <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" text="Avaliar trabalhos" visible="false">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="Avaliar trabalho" />
-               </items>
-            </Menu>
-        </menus>
-      </MenuBar>
       <AnchorPane fx:id="anchorPane" layoutY="26.0" prefHeight="691.0" prefWidth="1098.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="487.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
@@ -55,5 +28,34 @@
                </font>
             </Text>
          </children></AnchorPane>
+      <MenuBar fx:id="barraMenu" prefHeight="26.0" prefWidth="1092.0">
+         <menus>
+            <Menu fx:id="menuInicio" mnemonicParsing="false" text="Inicio">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaInicial" text="Inicio" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuPerfil" mnemonicParsing="false" onAction="#abrirTelaPerfil" text="Perfil">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Abrir perfil" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuEventos" mnemonicParsing="false" text="Eventos">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaEventos" text="Ver eventos" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuAvaliarTrabalho" disable="true" mnemonicParsing="false" text="Avaliar trabalhos" visible="false">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" text="Trabalhos Orientados" visible="false">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="trabalhosOrientados" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
    </children>
 </AnchorPane>

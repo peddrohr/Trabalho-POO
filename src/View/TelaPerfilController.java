@@ -32,6 +32,9 @@ public class TelaPerfilController {
     private Menu menuAvaliarTrabalho;
 
     @FXML
+    private Menu menuTrabalhosOrientados;
+
+    @FXML
     private Menu menuEventos;
 
     @FXML
@@ -41,15 +44,8 @@ public class TelaPerfilController {
     private Menu menuPerfil;
 
     @FXML
-    private Button butaoSair;
+    private Label nomeEvento;
 
-    @FXML
-    public void sair() throws IOException {
-        model.desconectarUsuario();
-
-        TelaLoginView novaTela = new TelaLoginView();
-        novaTela.iniciarTela(model, view);
-    }
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
@@ -64,8 +60,8 @@ public class TelaPerfilController {
     }
 
     @FXML
-    void abrirTelaEnvioTrabalho() throws IOException {
-        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
+    void abrirTelaTrabalhosOrientados() throws IOException {
+        TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
         novaTela.iniciarTela(model, view);
     }
 
@@ -78,6 +74,14 @@ public class TelaPerfilController {
     @FXML
     void abrirTelaInicial() throws IOException {
         TelaInicialView novaTela = new TelaInicialView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    public void sair() throws IOException {
+        model.desconectarUsuario();
+
+        TelaLoginView novaTela = new TelaLoginView();
         novaTela.iniciarTela(model, view);
     }
 
@@ -97,7 +101,12 @@ public class TelaPerfilController {
         if(model.verificarAvaliador()){
             menuAvaliarTrabalho.setDisable(false);
             menuAvaliarTrabalho.setVisible(true);
+        }if(model.verificarOrientador()){
+            menuTrabalhosOrientados.setDisable(false);
+            menuTrabalhosOrientados.setVisible(true);
         }
+
+
 
         carregarDados();
     }

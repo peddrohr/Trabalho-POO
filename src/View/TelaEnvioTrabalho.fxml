@@ -80,6 +80,27 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <TextField id="barra" fx:id="fieldCoAutores1" layoutX="557.0" layoutY="261.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o Nome dos Co Autor 2 (Opcional)" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField id="barra" fx:id="fieldCoAutores2" layoutX="557.0" layoutY="302.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o Nome dos Co Autor 4 (Opcional)" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField id="barra" fx:id="fieldCoAutores3" layoutX="557.0" layoutY="339.0" prefHeight="30.0" prefWidth="286.0" promptText="Digite o Nome dos Co Autor 4 (Opcional)" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Line endX="20.79998779296875" endY="181.39999389648438" layoutX="532.0" layoutY="185.0" startX="20.79998779296875" startY="31.0" />
+      <Text layoutX="661.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Co Autores">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
       <MenuBar fx:id="barraMenu" prefHeight="26.0" prefWidth="1092.0">
          <menus>
             <Menu fx:id="menuInicio" mnemonicParsing="false" text="Inicio">
@@ -102,28 +123,12 @@
                   <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" />
                </items>
             </Menu>
+            <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" text="Trabalhos Orientados" visible="false">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="trabalhosOrientados" />
+               </items>
+            </Menu>
          </menus>
       </MenuBar>
-      <TextField id="barra" fx:id="fieldCoAutores1" layoutX="557.0" layoutY="261.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o Nome dos Co Autor 2 (Opcional)" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </TextField>
-      <TextField id="barra" fx:id="fieldCoAutores2" layoutX="557.0" layoutY="302.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o Nome dos Co Autor 4 (Opcional)" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </TextField>
-      <TextField id="barra" fx:id="fieldCoAutores3" layoutX="557.0" layoutY="339.0" prefHeight="30.0" prefWidth="286.0" promptText="Digite o Nome dos Co Autor 4 (Opcional)" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </TextField>
-      <Line endX="20.79998779296875" endY="181.39999389648438" layoutX="532.0" layoutY="185.0" startX="20.79998779296875" startY="31.0" />
-      <Text layoutX="661.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Co Autores">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Text>
    </children>
 </AnchorPane>

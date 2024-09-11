@@ -83,6 +83,9 @@ public class TelaEnvioTrabalhoController {
     private Menu menuAvaliarTrabalho;
 
     @FXML
+    private Menu menuTrabalhosOrientados;
+
+    @FXML
     private Menu menuEventos;
 
     @FXML
@@ -90,7 +93,6 @@ public class TelaEnvioTrabalhoController {
 
     @FXML
     private Menu menuPerfil;
-
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
@@ -105,8 +107,8 @@ public class TelaEnvioTrabalhoController {
     }
 
     @FXML
-    void abrirTelaEnvioTrabalho() throws IOException {
-        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
+    void abrirTelaTrabalhosOrientados() throws IOException {
+        TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
         novaTela.iniciarTela(model, view);
     }
 
@@ -119,6 +121,12 @@ public class TelaEnvioTrabalhoController {
     @FXML
     void abrirTelaInicial() throws IOException {
         TelaInicialView novaTela = new TelaInicialView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaEnvioTrabalho() throws IOException {
+        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
         novaTela.iniciarTela(model, view);
     }
 
@@ -210,6 +218,9 @@ public class TelaEnvioTrabalhoController {
         if(model.verificarAvaliador()){
             menuAvaliarTrabalho.setDisable(false);
             menuAvaliarTrabalho.setVisible(true);
+        }if(model.verificarOrientador()){
+            menuTrabalhosOrientados.setDisable(false);
+            menuTrabalhosOrientados.setVisible(true);
         }
 
         carregarTrilha();

@@ -37,7 +37,13 @@ public class TelaTrabalhosOrientadosController implements Observer{
     private TableColumn<Trabalho, String> colunaTrilha;
 
     @FXML
+    private TableView<Trabalho> tabelaTrabalhos;
+
+    @FXML
     private Menu menuAvaliarTrabalho;
+
+    @FXML
+    private Menu menuTrabalhosOrientados;
 
     @FXML
     private Menu menuEventos;
@@ -51,8 +57,6 @@ public class TelaTrabalhosOrientadosController implements Observer{
     @FXML
     private Label nomeEvento;
 
-    @FXML
-    private TableView<Trabalho> tabelaTrabalhos;
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
@@ -67,8 +71,8 @@ public class TelaTrabalhosOrientadosController implements Observer{
     }
 
     @FXML
-    void abrirTelaEnvioTrabalho() throws IOException {
-        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
+    void abrirTelaTrabalhosOrientados() throws IOException {
+        TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
         novaTela.iniciarTela(model, view);
     }
 
@@ -107,6 +111,13 @@ public class TelaTrabalhosOrientadosController implements Observer{
         this.model = model;
         this.view = stage;
 
+        if(model.verificarOrientador()){
+            menuTrabalhosOrientados.setVisible(true);
+            menuTrabalhosOrientados.setDisable(false);
+        }if(model.verificarAvaliador()){
+            menuAvaliarTrabalho.setVisible(true);
+            menuAvaliarTrabalho.setDisable(false);
+        }
 
         carregarDadosTrabalhos();
     }

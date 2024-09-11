@@ -160,6 +160,11 @@
                   <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" />
                </items>
             </Menu>
+            <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" text="Trabalhos Orientados" visible="false">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="trabalhosOrientados" />
+               </items>
+            </Menu>
          </menus>
       </MenuBar>
     </children>

@@ -33,6 +33,11 @@
                   <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" />
                </items>
             </Menu>
+            <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" text="TrabalhosOrientados" visible="false">
+               <items>
+                  <MenuItem disable="true" mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="trabalhosOrientados" visible="false" />
+               </items>
+            </Menu>
          </menus>
       </MenuBar>
       <Label fx:id="nomeEvento" alignment="CENTER" contentDisplay="CENTER" layoutY="26.0" prefHeight="79.0" prefWidth="1095.0" style="-fx-background-color: darkblue;" text="Trabalhos Orientados" textFill="WHITE">

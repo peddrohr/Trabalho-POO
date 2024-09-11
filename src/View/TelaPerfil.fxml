@@ -72,6 +72,11 @@
          </children>
       </GridPane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7cbfff" height="691.0" layoutX="439.0" layoutY="26.0" stroke="BLACK" strokeType="INSIDE" width="659.0" />
+      <Button fx:id="butaoSair" layoutX="73.0" layoutY="632.0" mnemonicParsing="false" onAction="#sair" prefHeight="45.0" prefWidth="292.0" style="-fx-background-color: RED;" text="SAIR / MUDAR USUARIO" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
       <MenuBar fx:id="barraMenu" prefHeight="26.0" prefWidth="1092.0">
          <menus>
             <Menu fx:id="menuInicio" mnemonicParsing="false" text="Inicio">
@@ -94,12 +99,12 @@
                   <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" />
                </items>
             </Menu>
+            <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" text="Trabalhos Orientados" visible="false">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="trabalhosOrientados" />
+               </items>
+            </Menu>
          </menus>
       </MenuBar>
-      <Button fx:id="butaoSair" layoutX="73.0" layoutY="632.0" mnemonicParsing="false" onAction="#sair" prefHeight="45.0" prefWidth="292.0" style="-fx-background-color: RED;" text="SAIR / MUDAR USUARIO" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

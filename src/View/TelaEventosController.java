@@ -65,6 +65,9 @@ public class TelaEventosController implements Observer {
     private Menu menuAvaliarTrabalho;
 
     @FXML
+    private Menu menuTrabalhosOrientados;
+
+    @FXML
     private Menu menuEventos;
 
     @FXML
@@ -72,6 +75,10 @@ public class TelaEventosController implements Observer {
 
     @FXML
     private Menu menuPerfil;
+
+    @FXML
+    private Label nomeEvento;
+
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
@@ -86,8 +93,8 @@ public class TelaEventosController implements Observer {
     }
 
     @FXML
-    void abrirTelaEnvioTrabalho() throws IOException {
-        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
+    void abrirTelaTrabalhosOrientados() throws IOException {
+        TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
         novaTela.iniciarTela(model, view);
     }
 
@@ -103,6 +110,12 @@ public class TelaEventosController implements Observer {
         novaTela.iniciarTela(model, view);
     }
 
+    @FXML
+    void abrirTelaEnvioTrabalho() throws IOException {
+        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
+        novaTela.iniciarTela(model, view);
+    }
+
     void carregarEventos(){
         ObservableList<Evento> eventos = FXCollections.observableList(Dados.eventosCadastrados);
         comboboxEventos.setItems(eventos);
@@ -111,7 +124,7 @@ public class TelaEventosController implements Observer {
     @FXML
     void carregarDadosEvento(){
         buttonEnviarTrabalho.setDisable(false);
-        
+
         Evento evento = model.carregarDadosEvento(comboboxEventos.getSelectionModel().getSelectedItem());
 
         labelNomeEvento.setText(evento.getNome());
@@ -157,6 +170,9 @@ public class TelaEventosController implements Observer {
         if(model.verificarAvaliador()){
             menuAvaliarTrabalho.setDisable(false);
             menuAvaliarTrabalho.setVisible(true);
+        }if(model.verificarOrientador()){
+            menuTrabalhosOrientados.setDisable(false);
+            menuTrabalhosOrientados.setVisible(true);
         }
 
         this.model = model;

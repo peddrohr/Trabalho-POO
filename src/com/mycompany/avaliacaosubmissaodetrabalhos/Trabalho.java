@@ -217,4 +217,9 @@ public class Trabalho {
         }
     }
 
+    @Override
+    public String toString(){
+        return getTitulo();
+    }
+
 }

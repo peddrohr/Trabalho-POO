@@ -4,6 +4,8 @@ import com.mycompany.avaliacaosubmissaodetrabalhos.*;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.NotaInvalidaException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.SemTrabalhoDefinidoException;
 import com.sun.tools.javac.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class TelaAvaliacaoController {
@@ -103,6 +106,9 @@ public class TelaAvaliacaoController {
     private MenuBar barraMenu;
 
     @FXML
+    private ComboBox<Trabalho> comboBoxTrabalhosDisponiveis;
+
+    @FXML
     private Menu menuAvaliarTrabalho;
 
     @FXML
@@ -153,9 +159,16 @@ public class TelaAvaliacaoController {
         novaTela.iniciarTela(model, view);
     }
 
+    void carregarTrabalhos(){
+        ArrayList<Trabalho> trabalhosDisponiveis = model.getTrabalhosDisponíveis();
+        ObservableList<Trabalho> obsTrabalhosDisponiveis = FXCollections.observableList(trabalhosDisponiveis);
+        comboBoxTrabalhosDisponiveis.setItems(obsTrabalhosDisponiveis);
+    }
+
+    @FXML
     void adicionarTextoLabel(){
-        Trabalho trabalho = model.getTrabalho();
-        Evento evento = model.getTrabalho().getEvento();
+        Trabalho trabalho = comboBoxTrabalhosDisponiveis.getValue();
+        Evento evento = comboBoxTrabalhosDisponiveis.getValue().getEvento();
 
         nomeEvento.setText(evento.getNome());
         dataDeAbertura.setText("Inicio: " + evento.getDataInicio());
@@ -175,38 +188,27 @@ public class TelaAvaliacaoController {
     @FXML
     void enviarAvaliacao(ActionEvent event) throws NotaInvalidaException, SemTrabalhoDefinidoException {
 
-        Trabalho trabalhoAvaliado = model.getTrabalho();
-
-        Avaliacao avaliacao = new Avaliacao(trabalhoAvaliado);
-
         RadioButton selectedRadioButtonCriterio1 = (RadioButton) nota1.getSelectedToggle();
         float nota1 = Float.parseFloat(selectedRadioButtonCriterio1.getText());
-        avaliacao.avaliarCriterio(Dados.criterios.getFirst(), nota1);
 
         RadioButton selectedRadioButtonCriterio2 = (RadioButton) nota2.getSelectedToggle();
         float nota2 = Float.parseFloat(selectedRadioButtonCriterio2.getText());
-        avaliacao.avaliarCriterio(Dados.criterios.get(1), nota2);
 
         RadioButton selectedRadioButtonCriterio3 = (RadioButton) nota3.getSelectedToggle();
         float nota3 = Float.parseFloat(selectedRadioButtonCriterio3.getText());
-        avaliacao.avaliarCriterio(Dados.criterios.get(2), nota3);
 
         RadioButton selectedRadioButtonCriterio4 = (RadioButton) nota4.getSelectedToggle();
         float nota4 = Float.parseFloat(selectedRadioButtonCriterio4.getText());
-        avaliacao.avaliarCriterio(Dados.criterios.get(3), nota4);
 
-        float notaFinal = avaliacao.calcularNotaFinal();
-
-        trabalhoAvaliado.adicionarAvaliacao((Professor)model.getUsuarioLogadoTipado(), avaliacao);
-        trabalhoAvaliado.notaFinal();
-
-        avaliacao.setComentario(fieldComentario.getText());
+        model.enviarAvaliacao(nota1, nota2, nota3, nota4, fieldComentario.getText(), comboBoxTrabalhosDisponiveis.getValue().getNomeAutor());
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Envio");
         alert.setHeaderText("Trabalho avaliado com sucesso");
-        alert.setContentText("" + trabalhoAvaliado.getNota());
+        alert.setContentText("" /*trabalhoAvaliado.getNota()*/);
         alert.show();
+
+        buttonEnviarAval.setDisable(true);
     }
 
 
@@ -222,6 +224,6 @@ public class TelaAvaliacaoController {
             menuTrabalhosOrientados.setVisible(true);
         }
 
-        adicionarTextoLabel();
+        carregarTrabalhos();
     }
 }

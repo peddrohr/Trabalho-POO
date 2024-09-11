@@ -3,11 +3,8 @@ package View;
 import com.mycompany.avaliacaosubmissaodetrabalhos.*;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.AlunoInvalidoException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.TrilhaInvalidaException;
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -15,13 +12,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.EventObject;
+
 import javafx.stage.FileChooser;
 import java.io.File;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class TelaEnvioTrabalhoController {
     private ObservableList<String> ObsTrilhasIndex;
@@ -155,7 +150,7 @@ public class TelaEnvioTrabalhoController {
 
             model.enviarTrabalho(titulo, palavrasChave, resumo, coAutores, trilha, nomeOrientador);
 
-            labelEnvio.setText("Trabalho enviado por: " + model.getTrabalho().getNomeAutor());
+            labelEnvio.setText("Trabalho enviado por: " + model.getTrabalhoEnviado().getNomeAutor());
 
             abrirTelaInicial();
 

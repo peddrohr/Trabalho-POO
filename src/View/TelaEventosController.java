@@ -142,13 +142,13 @@ public class TelaEventosController implements Observer {
 
     void carregarDadosTrabalho(){
         if(model != null){
-            if (model.getTrabalho() != null && model.getTrabalho().getEvento() == model.getEventoSelecionado()) {
+            if (model.getTrabalhoEnviado() != null && model.getTrabalhoEnviado().getEvento() == model.getEventoSelecionado()) {
                 dadosTrabalho.setVisible(true);
                 mensagemTrabalho.setVisible(true);
                 labelResumo.setVisible(true);
                 buttonEnviarTrabalho.setDisable(true);
 
-                Trabalho trabalho = model.getTrabalho();
+                Trabalho trabalho = model.getTrabalhoEnviado();
 
                 labelTituloTrabalho.setText(trabalho.getTitulo());
                 labelCoAutores.setText(trabalho.getCoAutores());

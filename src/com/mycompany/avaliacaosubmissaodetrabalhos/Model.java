@@ -1,6 +1,7 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.AlunoInvalidoException;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.SemTrabalhoDefinidoException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.TrilhaInvalidaException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -17,15 +18,12 @@ public class Model {
     private Object usuarioLogado;
     private Object usuarioLogadoTipado;
     private String tipoUsuarioLogado;
-    private ArrayList<Trabalho> trabalhos;
+    private ArrayList<Trabalho> trabalhosDisponiveis;
 
-    public Model(){
-        trabalhos = new ArrayList<>();
+    public Model (){
+        trabalhosDisponiveis = new ArrayList<>();
     }
 
-    public ArrayList<Trabalho> getTrabalhos(){
-        return trabalhos;
-    }
 
     public boolean validarAluno(String nomeAluno){
         for(Object user: usuarios){
@@ -34,6 +32,37 @@ public class Model {
             }
         }
         return false;
+    }
+
+    private Trabalho getTrabalho(String nomeAutor){
+        for(Trabalho trabalho:trabalhosDisponiveis){
+            if(nomeAutor.equals(trabalho.getNomeAutor())){
+                return trabalho;
+            }
+        }
+        return null;
+    }
+
+    //TelaAvaliacao
+    //retorna o trabalho enviado pelo aluno
+    public Trabalho getTrabalhoEnviado(){
+        return ((Aluno)usuarioLogadoTipado).getTrabalho();
+    }
+
+    //retorna os trabalhos disponiveis para avaliar
+    public ArrayList<Trabalho> getTrabalhosDisponíveis(){
+        return trabalhosDisponiveis;
+    }
+
+    public void enviarAvaliacao(float nota1,float nota2,float nota3,float nota4, String comentario, String nomeAutor) throws SemTrabalhoDefinidoException {
+        Trabalho trabalhoAvaliado = getTrabalho(nomeAutor);
+        Avaliacao avaliacao = new Avaliacao(trabalhoAvaliado);
+
+        avaliacao.calcularNotaFinal();
+
+        trabalhoAvaliado.adicionarAvaliacao(((Professor)usuarioLogadoTipado), avaliacao );
+        trabalhoAvaliado.notaFinal();
+
     }
 
     //Viem Tela Inicial
@@ -103,10 +132,6 @@ public class Model {
         return eventoSelecionado;
     }
 
-    public AnchorPane enviarTrabalho() throws IOException {
-        return FXMLLoader.load(getClass().getResource("/View/TelaEnvioTrabalho.fxml"));
-    }
-
     //View Tela Envio Trabalho
 
     public void enviarTrabalho(String titulo, String palavrasChave, String resumo, ArrayList<String> coAutores, String trilha, String orientador) throws TrilhaInvalidaException, AlunoInvalidoException {
@@ -119,8 +144,9 @@ public class Model {
             trabalho.formarCoAutores();
             ((Aluno)usuarioLogadoTipado).setTrabalho(trabalho);
             adicionarTrabalhoOrientador(orientador, trabalho);
-            addTrabalho(trabalho);
             trabalho.setNomeCoAutores(new ArrayList<>());
+
+            trabalhosDisponiveis.add(trabalho);
         }
     }
 
@@ -129,11 +155,6 @@ public class Model {
             if(Professor.class == user.getClass() && ((Professor) user).getNome().equals(nomeOrientador)){
                 ((Professor) user).addAlunoOrientado((Aluno)usuarioLogadoTipado);
             }
-        }
-    }
-    public void addTrabalho(Trabalho trabalho){
-        if(trabalho != null){
-            trabalhos.add(trabalho);
         }
     }
 
@@ -215,22 +236,6 @@ public class Model {
 
     public boolean verificarOrientador(){
         return tipoUsuarioLogado.equals("Professor") && ((Professor)usuarioLogadoTipado).getOrientador();
-    }
-    public Trabalho getTrabalho(){
-        if(trabalhos.size() != 0) {
-            return trabalhos.getLast();
-        }
-        return null;
-    }
-
-    public Trabalho getTrabalho(String titulo){
-        Trabalho trabalhoEncontrado = null;
-        for(Trabalho trab: trabalhos){
-            if(trab.getTitulo().equals(titulo)){
-                trabalhoEncontrado = trab;
-            }
-        }
-        return trabalhoEncontrado;
     }
 
     private void setEventoSelecionado(Evento eventoSelecionado) {

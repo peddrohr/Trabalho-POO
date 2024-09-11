@@ -1,6 +1,7 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.AlunoInvalidoException;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.NotaInvalidaException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.SemTrabalhoDefinidoException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.TrilhaInvalidaException;
 import javafx.fxml.FXMLLoader;
@@ -37,6 +38,7 @@ public class Model {
     private Trabalho getTrabalho(String nomeAutor){
         for(Trabalho trabalho:trabalhosDisponiveis){
             if(nomeAutor.equals(trabalho.getNomeAutor())){
+                trabalhosDisponiveis.remove(trabalho);
                 return trabalho;
             }
         }
@@ -54,12 +56,18 @@ public class Model {
         return trabalhosDisponiveis;
     }
 
-    public void enviarAvaliacao(float nota1,float nota2,float nota3,float nota4, String comentario, String nomeAutor) throws SemTrabalhoDefinidoException {
+    public void enviarAvaliacao(float nota1,float nota2,float nota3,float nota4, String comentario, String nomeAutor) throws SemTrabalhoDefinidoException, NotaInvalidaException {
         Trabalho trabalhoAvaliado = getTrabalho(nomeAutor);
         Avaliacao avaliacao = new Avaliacao(trabalhoAvaliado);
+        float[] notas = {nota1, nota2, nota3, nota4};
+
+        for(int i = 0; i < notas.length; i++) {
+            avaliacao.avaliarCriterio(criterios.get(i), notas[i]);
+        }
 
         avaliacao.calcularNotaFinal();
 
+        assert trabalhoAvaliado != null;
         trabalhoAvaliado.adicionarAvaliacao(((Professor)usuarioLogadoTipado), avaliacao );
         trabalhoAvaliado.notaFinal();
 

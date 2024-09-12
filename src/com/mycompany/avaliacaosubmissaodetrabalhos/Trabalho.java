@@ -85,7 +85,7 @@ public class Trabalho {
         if (orientador != null) {
             this.orientador = orientador;
         } else {
-            throw new IllegalArgumentException("Nome do co-autor não pode ser vazio");
+            throw new IllegalArgumentException("Nome do orientador não pode ser vazio");
         }
 
     }

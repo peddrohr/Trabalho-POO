@@ -103,7 +103,6 @@ public class TelaTrabalhosOrientadosController implements Observer{
 
 
         tabelaTrabalhos.setItems(trabalhos);
-
     }
 
     //iniciando controller

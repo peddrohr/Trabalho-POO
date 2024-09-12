@@ -127,7 +127,7 @@ public class TelaEnvioTrabalhoController {
 
     @FXML
     void enviarTrabalho(ActionEvent event) throws IOException, TrilhaInvalidaException, AlunoInvalidoException {
-        if(boxTrilha.getSelectionModel().getSelectedItem() != null){
+        if(boxTrilha.getSelectionModel().getSelectedItem() != null && model.vericarOrientador(fieldOrientador.getText())){
             ArrayList<String> coAutores = new ArrayList<>();
             if(fieldCoAutores != null && !fieldCoAutores.getText().isEmpty()){
                 coAutores.add(fieldCoAutores.getText());
@@ -147,18 +147,26 @@ public class TelaEnvioTrabalhoController {
             String palavrasChave = fieldPalavrasChave.getText();
             String resumo = fieldResumo.getText();
             String trilha = boxTrilha.getSelectionModel().getSelectedItem();
+            try {
+                // cadastrando usuário pelo metodo da model
+                model.enviarTrabalho(titulo, palavrasChave, resumo, coAutores, trilha, nomeOrientador);
 
-            model.enviarTrabalho(titulo, palavrasChave, resumo, coAutores, trilha, nomeOrientador);
+                labelEnvio.setText("Trabalho enviado por: " + model.getTrabalhoEnviado().getNomeAutor());
 
-            labelEnvio.setText("Trabalho enviado por: " + model.getTrabalhoEnviado().getNomeAutor());
+                abrirTelaInicial();
 
-            abrirTelaInicial();
-
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Envio");
-            alert.setHeaderText("Trabalho enviado com sucesso");
-            alert.setContentText("Acompanhe o resumo e outras informações no sistema");
-            alert.show();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Envio");
+                alert.setHeaderText("Trabalho enviado com sucesso");
+                alert.setContentText("Acompanhe o resumo e outras informações no sistema");
+                alert.show();
+            } catch (IllegalArgumentException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erro de Envio");
+                alert.setHeaderText(null);
+                alert.setContentText(e.getMessage());
+                alert.showAndWait();
+            }
         } else{
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Orientador ou Trilha inválida");

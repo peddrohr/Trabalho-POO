@@ -91,7 +91,7 @@ public class Aluno {
         this.evento = evento;
     }
     
-    public void setMatriculaSigaa(int matriculaSigaa) {
+    public void setMatriculaSigaa(int matriculaSigaa) throws IllegalArgumentException {
         this.matriculaSigaa = matriculaSigaa;
     }
 

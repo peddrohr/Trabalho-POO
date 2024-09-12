@@ -72,6 +72,16 @@ public class Model {
         return null;
     }
 
+    public ArrayList<Trabalho> getTrabalhosEvento(Evento evento){
+        ArrayList<Trabalho> trabalhos = new ArrayList<>();
+        for(Trabalho trabalho : trabalhosEnviados){
+            if(trabalho.getEvento().equals(evento)){
+                trabalhos.add(trabalho);
+            }
+        }
+        return trabalhos;
+    }
+
     public void enviarAvaliacao(float nota1,float nota2,float nota3,float nota4, String comentario, String nomeAutor) throws SemTrabalhoDefinidoException, NotaInvalidaException {
 
         Trabalho trabalhoAvaliado = getTrabalho(nomeAutor);

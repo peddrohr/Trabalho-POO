@@ -168,6 +168,9 @@ public class TelaAvaliacaoController {
     private Menu menuTrabalhosEnviados;
 
     @FXML
+    private ComboBox<Evento> comboBoxEventos;
+
+    @FXML
     void abrirTelaTrabalhosEnviados() throws IOException {
         TelaTrabalhosEnviadosView novaTela = new TelaTrabalhosEnviadosView();
         novaTela.iniciarTela(model, view);
@@ -209,12 +212,20 @@ public class TelaAvaliacaoController {
         novaTela.iniciarTela(model, view);
     }
 
+    @FXML
     void carregarTrabalhos() {
-        ArrayList<Trabalho> trabalhosDisponiveis = model.getTrabalhosDisponíveis();
+        Evento eventoSelecionado = comboBoxEventos.getSelectionModel().getSelectedItem();
+        ArrayList<Trabalho> trabalhosDisponiveis = model.getTrabalhosEvento(eventoSelecionado);
         ObservableList<Trabalho> obsTrabalhosDisponiveis = FXCollections.observableList(trabalhosDisponiveis);
         comboBoxTrabalhosDisponiveis.setItems(obsTrabalhosDisponiveis);
+        comboBoxTrabalhosDisponiveis.setDisable(false);
     }
 
+    void carregarEventos(){
+        ArrayList<Evento> evento = Dados.eventosCadastrados;
+        ObservableList<Evento> obsEvento = FXCollections.observableArrayList(evento);
+        comboBoxEventos.setItems(obsEvento);
+    }
     @FXML
     void adicionarTextoLabel() {
         criterios.setDisable(false);
@@ -285,6 +296,6 @@ public class TelaAvaliacaoController {
             menuTrabalhosOrientados.setVisible(true);
         }
 
-        carregarTrabalhos();
+        carregarEventos();
     }
 }

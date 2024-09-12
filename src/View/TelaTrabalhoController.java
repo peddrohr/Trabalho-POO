@@ -1,0 +1,102 @@
+package View;
+
+import com.mycompany.avaliacaosubmissaodetrabalhos.Evento;
+
+import com.mycompany.avaliacaosubmissaodetrabalhos.Model;
+import com.mycompany.avaliacaosubmissaodetrabalhos.Trabalho;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+
+public class TelaTrabalhoController {
+
+    private Model model;
+    private Stage view;
+
+    @FXML
+    private Label dataDeAbertura;
+
+    @FXML
+    private Label dataDeVencimento;
+
+    @FXML
+    private Label labelAutor;
+
+    @FXML
+    private Label labelChave;
+
+    @FXML
+    private Label labelOrientador;
+
+    @FXML
+    private Label labelTitulo;
+
+    @FXML
+    private Label labelTrilha;
+
+    @FXML
+    private Label nomeEvento;
+
+    @FXML
+    private Label labelResumo;
+
+
+    @FXML
+    void AbrirTelaAvaliacao() throws IOException {
+        TelaAvaliacaoView novaTela = new TelaAvaliacaoView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaEventos() throws IOException {
+        TelaEventosView novaTela = new TelaEventosView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaTrabalhosOrientados() throws IOException {
+        TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaPerfil() throws IOException {
+        TelaPerfilView novaTela = new TelaPerfilView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaInicial() throws IOException {
+        TelaInicialView novaTela = new TelaInicialView();
+        novaTela.iniciarTela(model, view);
+    }
+
+
+    @FXML
+    void adicionarTextoLabel() {
+        Trabalho trabalho = model.trabalhoSelecionado;
+        Evento evento = trabalho.getEvento();
+
+        nomeEvento.setText(evento.getNome());
+        dataDeAbertura.setText("Inicio: " + evento.getDataInicio());
+        dataDeVencimento.setText("Vencimento: " + evento.getDataFim());
+        labelAutor.setText("Autor: " + trabalho.getNomeAutor());
+        labelTitulo.setText("Titulo: " + trabalho.getTitulo());
+        labelOrientador.setText("Orientador: " + trabalho.getNomeOrientador());
+        labelTrilha.setText("Trilha: " + trabalho.getTrilha().getNome());
+        labelResumo.setText("Resumo: " + trabalho.getResumo());
+        labelChave.setText("Palavras chave: " + trabalho.getPalavrasChave());
+    }
+
+
+    public void initialize(Model model, Stage stage) {
+        this.model = model;
+        this.view = stage;
+
+        adicionarTextoLabel();
+    }
+}
+

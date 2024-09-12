@@ -1,5 +1,7 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
+import java.util.ArrayList;
+
 public final class Usuario {
 
     //atributos
@@ -7,6 +9,7 @@ public final class Usuario {
     private String cpf;
     private String email;
     private String senha;
+    private ArrayList<Trabalho> trabalho = new ArrayList<>();
 
     //construtores
     public Usuario(String nome, String cpf, String email, String senha) {
@@ -17,6 +20,11 @@ public final class Usuario {
     }
 
     //setters
+    public void setTrabalho(Trabalho trabalho) {
+        if(trabalho != null) {
+            this.trabalho.add(trabalho);
+        }
+    }
     public void setNome(String nome) {
         if (nome != null && !nome.isEmpty()) {
             this.nome = nome;
@@ -73,5 +81,14 @@ public final class Usuario {
 
     public String getSenha() {
         return senha;
+    }
+
+    public Trabalho getTrabalho(Evento evento) {
+        for (Trabalho trabalho1 : trabalho) {
+            if (trabalho1.getEvento().equals(evento)) {
+                return trabalho1;
+            }
+        }
+        return null;
     }
 }

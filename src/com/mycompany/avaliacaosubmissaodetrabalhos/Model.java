@@ -51,7 +51,11 @@ public class Model {
     //TelaAvaliacao
     //retorna o trabalho enviado pelo aluno
     public Trabalho getTrabalhoEnviado(){
-        return ((Aluno)usuarioLogadoTipado).getTrabalho(eventoSelecionado);
+        if(tipoUsuarioLogado.equals("Aluno")) {
+            return ((Aluno) usuarioLogadoTipado).getTrabalho(eventoSelecionado);
+        } else {
+            return ((Usuario)usuarioLogado).getTrabalho(eventoSelecionado);
+        }
     }
 
     //retorna os trabalhos disponiveis para avaliar
@@ -156,7 +160,7 @@ public class Model {
     //View Tela Envio Trabalho
 
     public void enviarTrabalho(String titulo, String palavrasChave, String resumo, ArrayList<String> coAutores, String trilha, String nomeOrientador) throws TrilhaInvalidaException, AlunoInvalidoException {
-        if(vericarOrientador(nomeOrientador)){
+        if(vericarOrientador(nomeOrientador) && tipoUsuarioLogado.equals("Aluno")){
             Professor orientador = getOrientador(nomeOrientador);
             Trilha trilhaTrabalho = getTrilha(trilha);
             Trabalho trabalho = new Trabalho(((Usuario) usuarioLogado).getNome(), orientador, titulo, resumo, palavrasChave, trilhaTrabalho);
@@ -166,6 +170,18 @@ public class Model {
             trabalho.formarCoAutores();
             ((Aluno)usuarioLogadoTipado).setTrabalho(trabalho);
             adicionarTrabalhoOrientador(nomeOrientador, trabalho);
+            trabalho.setNomeCoAutores(new ArrayList<>());
+
+            trabalhosDisponiveis.add(trabalho);
+            trabalhosEnviados.add(trabalho);
+        } else {
+            Trilha trilhaTrabalho = getTrilha(trilha);
+            Trabalho trabalho = new Trabalho(((Usuario) usuarioLogado).getNome(), titulo, resumo, palavrasChave, trilhaTrabalho);
+            trabalho.setEvento(getEventoSelecionado());
+            trabalho.setNomeAutor(((Usuario) getUsuarioLogado()).getNome());
+            trabalho.setNomeCoAutores(coAutores);
+            trabalho.formarCoAutores();
+            ((Usuario)usuarioLogado).setTrabalho(trabalho);
             trabalho.setNomeCoAutores(new ArrayList<>());
 
             trabalhosDisponiveis.add(trabalho);

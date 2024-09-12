@@ -159,7 +159,11 @@ public class TelaEventosController implements Observer {
 
                 labelTituloTrabalho.setText(trabalho.getTitulo());
                 labelCoAutores.setText(trabalho.getCoAutores());
-                labelOrientador.setText(trabalho.getNomeOrientador());
+                if(model.getTipoUsuarioLogado().equals("Aluno")) {
+                    labelOrientador.setText(trabalho.getNomeOrientador());
+                } else {
+                    labelOrientador.setText("");
+                }
                 labelPalavrasChave.setText(trabalho.getPalavrasChave());
                 if (model.getTrabalhoEnviado().isAvaliado()) {
                     labelNotaNome.setVisible(true);

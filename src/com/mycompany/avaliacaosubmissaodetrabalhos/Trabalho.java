@@ -33,9 +33,19 @@ public class Trabalho {
     public Trabalho() {
     }
 
+    //Criar trabalho enviado por aluno(Precisa de um orientador)
     public Trabalho(String nomeAutor, Professor orientador, String titulo, String resumo, String palavrasChave, Trilha trilha) throws TrilhaInvalidaException {
         this.setNomeAutor(nomeAutor);
         this.setOrientador(orientador);
+        this.setTitulo(titulo);
+        this.setResumo(resumo);
+        this.setPalavrasChave(palavrasChave);
+        this.setTrilha(trilha);
+    }
+
+    //Criar trabalho enviado por professor/servidor(Não precisa de um orientador)
+    public Trabalho(String nomeAutor, String titulo, String resumo, String palavrasChave, Trilha trilha) throws TrilhaInvalidaException {
+        this.setNomeAutor(nomeAutor);
         this.setTitulo(titulo);
         this.setResumo(resumo);
         this.setPalavrasChave(palavrasChave);

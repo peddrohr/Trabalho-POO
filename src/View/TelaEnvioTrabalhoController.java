@@ -179,6 +179,11 @@ public class TelaEnvioTrabalhoController {
     }
 
     void adicionarTextoLabel() {
+
+        if(model.getTipoUsuarioLogado().equals("Professor") || model.getUsuarioLogado().equals("Servidor")){
+            fieldOrientador.setDisable(true);
+            fieldOrientador.setText("");
+        }
         Evento evento = model.getEventoSelecionado();
         nomeEvento.setText(evento.getNome());
         dataDeAbertura.setText("Inicio: " + evento.getDataInicio());

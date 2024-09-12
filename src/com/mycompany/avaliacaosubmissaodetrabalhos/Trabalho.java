@@ -147,7 +147,11 @@ public class Trabalho {
     //formar String de coAutores
     public String formarCoAutores() {
         for (String nomeCoAutor : nomeCoAutores) {
-            coAutores = coAutores + nomeCoAutor + ", ";
+            if(nomeCoAutor.equals(nomeCoAutores.get(0))){
+                coAutores = nomeCoAutor;
+            }else {
+                coAutores = coAutores + ", " + nomeCoAutor;
+            }
         }
         return coAutores;
     }

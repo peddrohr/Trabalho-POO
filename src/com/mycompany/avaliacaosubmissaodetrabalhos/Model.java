@@ -20,9 +20,11 @@ public class Model {
     private Object usuarioLogadoTipado;
     private String tipoUsuarioLogado;
     private ArrayList<Trabalho> trabalhosDisponiveis;
+    private ArrayList<Trabalho> trabalhosEnviados;
 
     public Model (){
         trabalhosDisponiveis = new ArrayList<>();
+        trabalhosEnviados = new ArrayList<>();
     }
 
 
@@ -48,12 +50,21 @@ public class Model {
     //TelaAvaliacao
     //retorna o trabalho enviado pelo aluno
     public Trabalho getTrabalhoEnviado(){
-        return ((Aluno)usuarioLogadoTipado).getTrabalho();
+        return ((Aluno)usuarioLogadoTipado).getTrabalho(eventoSelecionado);
     }
 
     //retorna os trabalhos disponiveis para avaliar
     public ArrayList<Trabalho> getTrabalhosDisponíveis(){
         return trabalhosDisponiveis;
+    }
+
+    public Trabalho getTrabalhosDisponiveis(Evento evento){
+        for(Trabalho trabalho : trabalhosEnviados){
+            if(trabalho.getEvento().equals(evento)){
+                return trabalho;
+            }
+        }
+        return null;
     }
 
     public void enviarAvaliacao(float nota1,float nota2,float nota3,float nota4, String comentario, String nomeAutor) throws SemTrabalhoDefinidoException, NotaInvalidaException {
@@ -142,8 +153,9 @@ public class Model {
 
     //View Tela Envio Trabalho
 
-    public void enviarTrabalho(String titulo, String palavrasChave, String resumo, ArrayList<String> coAutores, String trilha, String orientador) throws TrilhaInvalidaException, AlunoInvalidoException {
-        if(vericarOrientador(orientador)){
+    public void enviarTrabalho(String titulo, String palavrasChave, String resumo, ArrayList<String> coAutores, String trilha, String nomeOrientador) throws TrilhaInvalidaException, AlunoInvalidoException {
+        if(vericarOrientador(nomeOrientador)){
+            Professor orientador = getOrientador(nomeOrientador);
             Trilha trilhaTrabalho = getTrilha(trilha);
             Trabalho trabalho = new Trabalho(((Usuario) usuarioLogado).getNome(), orientador, titulo, resumo, palavrasChave, trilhaTrabalho);
             trabalho.setEvento(getEventoSelecionado());
@@ -151,10 +163,11 @@ public class Model {
             trabalho.setNomeCoAutores(coAutores);
             trabalho.formarCoAutores();
             ((Aluno)usuarioLogadoTipado).setTrabalho(trabalho);
-            adicionarTrabalhoOrientador(orientador, trabalho);
+            adicionarTrabalhoOrientador(nomeOrientador, trabalho);
             trabalho.setNomeCoAutores(new ArrayList<>());
 
             trabalhosDisponiveis.add(trabalho);
+            trabalhosEnviados.add(trabalho);
         }
     }
 
@@ -244,6 +257,17 @@ public class Model {
 
     public boolean verificarOrientador(){
         return tipoUsuarioLogado.equals("Professor") && ((Professor)usuarioLogadoTipado).getOrientador();
+    }
+
+    public Professor getOrientador(String nome){
+        for(Object usuario : usuarios){
+            if(Professor.class == usuario.getClass()){
+                if(((Professor) usuario).getUsuario().getNome().equals(nome)){
+                    return (Professor) usuario;
+                }
+            }
+        }
+        return null;
     }
 
     private void setEventoSelecionado(Evento eventoSelecionado) {

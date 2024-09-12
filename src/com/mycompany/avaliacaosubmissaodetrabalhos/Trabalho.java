@@ -16,7 +16,7 @@ public class Trabalho {
     private int qntCoAutores;
     private ArrayList<String> nomeCoAutores = new ArrayList<>();
     private String coAutores = "";
-    private String nomeOrientador;
+    private Professor orientador;
     private String titulo;
     private String resumo;
     private String palavrasChave;
@@ -32,9 +32,9 @@ public class Trabalho {
     public Trabalho() {
     }
 
-    public Trabalho(String nomeAutor, String nomeOrientador, String titulo, String resumo, String palavrasChave,  Trilha trilha) throws TrilhaInvalidaException {
+    public Trabalho(String nomeAutor, Professor orientador, String titulo, String resumo, String palavrasChave,  Trilha trilha) throws TrilhaInvalidaException {
         this.setNomeAutor(nomeAutor);
-        this.setNomeOrientador(nomeOrientador);
+        this.setOrientador(orientador);
         this.setTitulo(titulo);
         this.setResumo(resumo);
         this.setPalavrasChave(palavrasChave);
@@ -80,9 +80,9 @@ public class Trabalho {
         }
     }
 
-    public void setNomeOrientador(String nomeOrientador) {
-        if (nomeOrientador != null && !nomeOrientador.isEmpty()) {
-            this.nomeOrientador = nomeOrientador;
+    public void setOrientador(Professor orientador) {
+        if (orientador != null) {
+            this.orientador = orientador;
         } else {
             throw new IllegalArgumentException("Nome do co-autor não pode ser vazio");
         }
@@ -156,7 +156,7 @@ public class Trabalho {
     }
 
     public String getNomeOrientador() {
-        return nomeOrientador;
+        return orientador.getNome();
     }
 
     public String getTitulo() {

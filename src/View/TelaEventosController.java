@@ -141,14 +141,15 @@ public class TelaEventosController implements Observer {
     }
 
     void carregarDadosTrabalho(){
+        Evento evento = comboboxEventos.getSelectionModel().getSelectedItem();
         if(model != null){
-            if (model.getTrabalhoEnviado() != null && model.getTrabalhoEnviado().getEvento() == model.getEventoSelecionado()) {
+            if (model.getTrabalhoEnviado() != null && model.getTrabalhosDisponiveis(evento).getEvento() == model.getEventoSelecionado()) {
                 dadosTrabalho.setVisible(true);
                 mensagemTrabalho.setVisible(true);
                 labelResumo.setVisible(true);
                 buttonEnviarTrabalho.setDisable(true);
 
-                Trabalho trabalho = model.getTrabalhoEnviado();
+                Trabalho trabalho = model.getTrabalhosDisponiveis(evento);
 
                 labelTituloTrabalho.setText(trabalho.getTitulo());
                 labelCoAutores.setText(trabalho.getCoAutores());
@@ -165,7 +166,6 @@ public class TelaEventosController implements Observer {
 
     public void initialize(Model model, Stage stage) {
         carregarEventos();
-        carregarDadosTrabalho();
 
         if(model.verificarAvaliador()){
             menuAvaliarTrabalho.setDisable(false);

@@ -2,10 +2,13 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Aluno {
     //atributos
     private int matriculaSigaa;
-    private Trabalho trabalho;
+    private ArrayList<Trabalho> trabalho = new ArrayList<>();
     private Evento evento;
     private Usuario usuario;
     private float notaTrabalho;
@@ -31,8 +34,13 @@ public class Aluno {
     }
 
     //getters
-    public String getTitulo(){
-        return trabalho.getTitulo();
+    public String getTitulo(Trabalho trabalho){
+        for(Trabalho trabalho1:this.trabalho){
+            if(trabalho1.equals(trabalho)){
+                return trabalho1.getTitulo();
+            }
+        }
+        return null;
     }
 
     public Usuario getUsuario() {
@@ -51,8 +59,26 @@ public class Aluno {
         return matriculaSigaa;
     }
 
-    public Trabalho getTrabalho() {
+    public ArrayList<Trabalho> getTrabalhos() {
         return trabalho;
+    }
+
+    public Trabalho getTrabalho(Evento evento){
+        for(Trabalho trabalho1: trabalho){
+            if(trabalho1.getEvento().equals(evento)){
+                return trabalho1;
+            }
+        }
+        return null;
+    }
+
+    public Trabalho getTrabalhoOrientado(Professor orientador){
+        for(Trabalho trabalho1:trabalho){
+            if(trabalho1.getNomeOrientador().equals(orientador.getUsuario().getNome()) && !orientador.getTrabalhosOrientados().contains(trabalho1)){
+                return trabalho1;
+            }
+        }
+        return null;
     }
 
     public String getEmail(){
@@ -70,7 +96,7 @@ public class Aluno {
     }
 
     public void setTrabalho(Trabalho trabalho) {
-        this.trabalho = trabalho;
+        this.trabalho.add(trabalho);
     }
 
     public void setUsuario(Usuario usuario) {
@@ -93,7 +119,12 @@ public class Aluno {
         usuario.setCpf(cpf);
     }
 
-    public float getNotaTrabalho() {
-        return trabalho.getNota();
+    public float getNotaTrabalho(String titluo) {
+        for(Trabalho trabalho1:trabalho){
+            if(trabalho1.getTitulo().equals(titluo)){
+                return trabalho1.getNota();
+            }
+        }
+        return 0;
     }
 }

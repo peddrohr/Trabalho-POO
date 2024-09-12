@@ -129,7 +129,7 @@ public class Professor{
                 throw new AlunoInvalidoException();
             }
             this.alunosOrientados.add(aluno);
-            this.trabalhosOrientados.add(aluno.getTrabalho());
+            this.trabalhosOrientados.add(aluno.getTrabalhoOrientado(this));
         }else{
             throw new IllegalArgumentException();
         }

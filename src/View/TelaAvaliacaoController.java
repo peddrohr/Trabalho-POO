@@ -214,6 +214,9 @@ public class TelaAvaliacaoController {
 
     @FXML
     void carregarTrabalhos() {
+        if(comboBoxTrabalhosDisponiveis.getSelectionModel().getSelectedItem() != null){
+            comboBoxTrabalhosDisponiveis.getSelectionModel().clearSelection();
+        }
         Evento eventoSelecionado = comboBoxEventos.getSelectionModel().getSelectedItem();
         ArrayList<Trabalho> trabalhosDisponiveis = model.getTrabalhosEvento(eventoSelecionado);
         ObservableList<Trabalho> obsTrabalhosDisponiveis = FXCollections.observableList(trabalhosDisponiveis);
@@ -229,23 +232,24 @@ public class TelaAvaliacaoController {
     @FXML
     void adicionarTextoLabel() {
         criterios.setDisable(false);
+        if(comboBoxTrabalhosDisponiveis.getValue() != null){
+            Trabalho trabalho = comboBoxTrabalhosDisponiveis.getValue();
+            Evento evento = comboBoxTrabalhosDisponiveis.getValue().getEvento();
 
-        Trabalho trabalho = comboBoxTrabalhosDisponiveis.getValue();
-        Evento evento = comboBoxTrabalhosDisponiveis.getValue().getEvento();
-
-        nomeEvento.setText(evento.getNome());
-        dataDeAbertura.setText("Abertura: " + evento.getDataInicio());
-        dataDeVencimento.setText("Prazo: " + evento.getDataFim());
-        labelAutor.setText("Autor: " + trabalho.getNomeAutor());
-        labelTitulo.setText("Titulo: " + trabalho.getTitulo());
-        labelOrientador.setText("Orientador: " + trabalho.getNomeOrientador());
-        labelTrilha.setText("Trilha: " + trabalho.getTrilha().getNome());
-        labelResumo.setText("Resumo: " + trabalho.getResumo());
-        labelChave.setText("Palavras chave: " + trabalho.getPalavrasChave());
-        labelCriterio1.setText(Dados.criterios.get(0).getNome() + " " + Dados.criterios.get(0).getDescricao());
-        labelCriterio2.setText(Dados.criterios.get(1).getNome() + " " + Dados.criterios.get(1).getDescricao());
-        labelCriterio3.setText(Dados.criterios.get(2).getNome() + " " + Dados.criterios.get(2).getDescricao());
-        labelCriterio4.setText(Dados.criterios.get(3).getNome() + " " + Dados.criterios.get(3).getDescricao());
+            nomeEvento.setText(evento.getNome());
+            dataDeAbertura.setText("Abertura: " + evento.getDataInicio());
+            dataDeVencimento.setText("Prazo: " + evento.getDataFim());
+            labelAutor.setText("Autor: " + trabalho.getNomeAutor());
+            labelTitulo.setText("Titulo: " + trabalho.getTitulo());
+            labelOrientador.setText("Orientador: " + trabalho.getNomeOrientador());
+            labelTrilha.setText("Trilha: " + trabalho.getTrilha().getNome());
+            labelResumo.setText("Resumo: " + trabalho.getResumo());
+            labelChave.setText("Palavras chave: " + trabalho.getPalavrasChave());
+            labelCriterio1.setText(Dados.criterios.get(0).getNome() + " " + Dados.criterios.get(0).getDescricao());
+            labelCriterio2.setText(Dados.criterios.get(1).getNome() + " " + Dados.criterios.get(1).getDescricao());
+            labelCriterio3.setText(Dados.criterios.get(2).getNome() + " " + Dados.criterios.get(2).getDescricao());
+            labelCriterio4.setText(Dados.criterios.get(3).getNome() + " " + Dados.criterios.get(3).getDescricao());
+        }
     }
 
     @FXML

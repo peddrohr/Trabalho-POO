@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class TelaAvaliacaoController {
@@ -124,6 +125,9 @@ public class TelaAvaliacaoController {
     private Menu menuPerfil;
 
     @FXML
+    private AnchorPane criterios;
+
+    @FXML
     void AbrirTelaAvaliacao() throws IOException {
         TelaAvaliacaoView novaTela = new TelaAvaliacaoView();
         novaTela.iniciarTela(model, view);
@@ -167,6 +171,8 @@ public class TelaAvaliacaoController {
 
     @FXML
     void adicionarTextoLabel() {
+        criterios.setDisable(false);
+
         Trabalho trabalho = comboBoxTrabalhosDisponiveis.getValue();
         Evento evento = comboBoxTrabalhosDisponiveis.getValue().getEvento();
 
@@ -188,27 +194,35 @@ public class TelaAvaliacaoController {
     @FXML
     void enviarAvaliacao(ActionEvent event) throws NotaInvalidaException, SemTrabalhoDefinidoException {
 
-        RadioButton selectedRadioButtonCriterio1 = (RadioButton) nota1.getSelectedToggle();
-        float nota1 = Float.parseFloat(selectedRadioButtonCriterio1.getText());
+        if(!Objects.equals(fieldComentario.getText(), "")){
+            RadioButton selectedRadioButtonCriterio1 = (RadioButton) nota1.getSelectedToggle();
+            float nota1 = Float.parseFloat(selectedRadioButtonCriterio1.getText());
 
-        RadioButton selectedRadioButtonCriterio2 = (RadioButton) nota2.getSelectedToggle();
-        float nota2 = Float.parseFloat(selectedRadioButtonCriterio2.getText());
+            RadioButton selectedRadioButtonCriterio2 = (RadioButton) nota2.getSelectedToggle();
+            float nota2 = Float.parseFloat(selectedRadioButtonCriterio2.getText());
 
-        RadioButton selectedRadioButtonCriterio3 = (RadioButton) nota3.getSelectedToggle();
-        float nota3 = Float.parseFloat(selectedRadioButtonCriterio3.getText());
+            RadioButton selectedRadioButtonCriterio3 = (RadioButton) nota3.getSelectedToggle();
+            float nota3 = Float.parseFloat(selectedRadioButtonCriterio3.getText());
 
-        RadioButton selectedRadioButtonCriterio4 = (RadioButton) nota4.getSelectedToggle();
-        float nota4 = Float.parseFloat(selectedRadioButtonCriterio4.getText());
+            RadioButton selectedRadioButtonCriterio4 = (RadioButton) nota4.getSelectedToggle();
+            float nota4 = Float.parseFloat(selectedRadioButtonCriterio4.getText());
 
-        model.enviarAvaliacao(nota1, nota2, nota3, nota4, fieldComentario.getText(), comboBoxTrabalhosDisponiveis.getValue().getNomeAutor());
+            model.enviarAvaliacao(nota1, nota2, nota3, nota4, fieldComentario.getText(), comboBoxTrabalhosDisponiveis.getValue().getNomeAutor());
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Envio");
-        alert.setHeaderText("Trabalho avaliado com sucesso");
-        alert.setContentText("" /*trabalhoAvaliado.getNota()*/);
-        alert.show();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Envio");
+            alert.setHeaderText("Trabalho avaliado com sucesso");
+            alert.setContentText("" /*trabalhoAvaliado.getNota()*/);
+            alert.show();
 
-        buttonEnviarAval.setDisable(true);
+            buttonEnviarAval.setDisable(true);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atenção");
+            alert.setHeaderText("A avaliação precisa ter um comentário");
+            alert.setContentText("" /*trabalhoAvaliado.getNota()*/);
+            alert.show();
+        }
     }
 
 

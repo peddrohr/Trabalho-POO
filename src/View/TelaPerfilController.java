@@ -29,29 +29,34 @@ public class TelaPerfilController {
     private Label labelTipoUsuario;
 
     @FXML
-    private Menu menuAvaliarTrabalho;
-
-    @FXML
-    private Menu menuTrabalhosOrientados;
-
-    @FXML
-    private Menu menuEventos;
-
-    @FXML
-    private Menu menuInicio;
-
-    @FXML
-    private Menu menuPerfil;
-
-    @FXML
-    private Label nomeEvento;
-
-    @FXML
     private Label cargo;
 
     @FXML
     private Label labelCargo;
 
+    @FXML
+    private Label nomeEvento;
+
+    @FXML
+    private Menu menuAvaliarTrabalho;
+
+    @FXML
+    private Menu menuEventos;
+
+    @FXML
+    private Menu menuPerfil;
+
+    @FXML
+    private Menu menuTrabalhosOrientados;
+
+    @FXML
+    private Menu menuTrabalhosEnviados;
+
+    @FXML
+    void abrirTelaTrabalhosEnviados() throws IOException {
+        TelaTrabalhosEnviadosView novaTela = new TelaTrabalhosEnviadosView();
+        novaTela.iniciarTela(model, view);
+    }
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
@@ -66,14 +71,20 @@ public class TelaPerfilController {
     }
 
     @FXML
-    void abrirTelaTrabalhosOrientados() throws IOException {
-        TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
+    void abrirTelaEnvioTrabalho() throws IOException {
+        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
         novaTela.iniciarTela(model, view);
     }
 
     @FXML
     void abrirTelaPerfil() throws IOException {
         TelaPerfilView novaTela = new TelaPerfilView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
+    void abrirTelaTrabalhosOrientados() throws IOException {
+        TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
         novaTela.iniciarTela(model, view);
     }
 

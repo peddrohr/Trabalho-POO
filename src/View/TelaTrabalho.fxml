@@ -63,9 +63,14 @@
                 <Font size="25.0" />
             </font>
         </Label>
-      <MenuBar fx:id="barraMenu" layoutX="1.0" layoutY="1.0" prefHeight="26.0" prefWidth="1094.0">
+      <Label fx:id="nomeNota" contentDisplay="RIGHT" layoutX="670.0" layoutY="378.0" prefHeight="36.0" prefWidth="91.0" text="Nota: " visible="false">
+         <font>
+            <Font name="Cambria" size="16.0" />
+         </font>
+      </Label>
+      <MenuBar fx:id="barraMenu" prefHeight="26.0" prefWidth="1092.0">
          <menus>
-            <Menu fx:id="menuInicio" mnemonicParsing="false" onAction="#abrirTelaInicial" text="Inicio">
+            <Menu fx:id="menuInicio" mnemonicParsing="false" text="Inicio">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#abrirTelaInicial" text="Inicio" />
                </items>
@@ -75,27 +80,27 @@
                   <MenuItem mnemonicParsing="false" text="Abrir perfil" />
                </items>
             </Menu>
-            <Menu fx:id="menuEventos" mnemonicParsing="false" onAction="#abrirTelaEventos" text="Eventos">
+            <Menu fx:id="menuEventos" mnemonicParsing="false" text="Eventos">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#abrirTelaEventos" text="Ver eventos" />
                </items>
             </Menu>
-            <Menu fx:id="menuAvaliarTrabalho" disable="true" mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" visible="false">
+            <Menu fx:id="menuAvaliarTrabalho" disable="true" mnemonicParsing="false" text="Avaliar trabalhos" visible="false">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" />
                </items>
             </Menu>
-            <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="TrabalhosOrientados" visible="false">
+            <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" text="Trabalhos Orientados" visible="false">
                <items>
-                  <MenuItem disable="true" mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="trabalhosOrientados" visible="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="trabalhosOrientados" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuTrabalhosEnviados" mnemonicParsing="false" text="Trabalhos Enviados">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaTrabalhosEnviados" text="Trabalhos Enviados" />
                </items>
             </Menu>
          </menus>
       </MenuBar>
-      <Label fx:id="nomeNota" contentDisplay="RIGHT" layoutX="670.0" layoutY="378.0" prefHeight="36.0" prefWidth="91.0" text="Nota: " visible="false">
-         <font>
-            <Font name="Cambria" size="16.0" />
-         </font>
-      </Label>
     </children>
 </AnchorPane>

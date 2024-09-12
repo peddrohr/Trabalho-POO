@@ -49,8 +49,23 @@ public class TelaTrabalhoController {
     @FXML
     private Menu menuAvaliarTrabalho;
 
+    @FXML
+    private Menu menuEventos;
 
+    @FXML
+    private Menu menuPerfil;
 
+    @FXML
+    private Menu menuTrabalhosOrientados;
+
+    @FXML
+    private Menu menuTrabalhosEnviados;
+
+    @FXML
+    void abrirTelaTrabalhosEnviados() throws IOException {
+        TelaTrabalhosEnviadosView novaTela = new TelaTrabalhosEnviadosView();
+        novaTela.iniciarTela(model, view);
+    }
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
@@ -65,20 +80,10 @@ public class TelaTrabalhoController {
     }
 
     @FXML
-    void abrirTelaTrabalhosOrientados() throws IOException {
-        TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
+    void abrirTelaEnvioTrabalho() throws IOException {
+        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
         novaTela.iniciarTela(model, view);
     }
-
-    @FXML
-    private Menu menuInicio;
-
-    @FXML
-    private Menu menuPerfil;
-
-    @FXML
-    private Menu menuTrabalhosOrientados;
-
 
     @FXML
     void abrirTelaPerfil() throws IOException {
@@ -87,13 +92,16 @@ public class TelaTrabalhoController {
     }
 
     @FXML
+    void abrirTelaTrabalhosOrientados() throws IOException {
+        TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
+        novaTela.iniciarTela(model, view);
+    }
+
+    @FXML
     void abrirTelaInicial() throws IOException {
         TelaInicialView novaTela = new TelaInicialView();
         novaTela.iniciarTela(model, view);
     }
-
-
-
 
 
     @FXML

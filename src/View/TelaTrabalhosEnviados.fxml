@@ -9,23 +9,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="717.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaTrabalhosOrientadosController">
-    <children>
-        <Label fx:id="nomeEvento" alignment="CENTER" contentDisplay="CENTER" layoutY="26.0" prefHeight="79.0" prefWidth="1095.0" style="-fx-background-color: darkblue;" text="Trabalhos Orientados" textFill="WHITE">
-            <font>
-                <Font name="Arial Black" size="34.0" />
-            </font>
-        </Label>
-        <TableView fx:id="tabelaTrabalhos" layoutX="32.0" layoutY="122.0" onMouseClicked="#AbrirTelaTrabalho" prefHeight="352.0" prefWidth="1030.0">
-            <columns>
-                <TableColumn fx:id="colunaTitulo" prefWidth="222.40002059936523" text="Titulo" />
-                <TableColumn fx:id="colunaAutor" minWidth="0.0" prefWidth="116.80006408691406" text="Autor" />
-                <TableColumn fx:id="colunaCoAutores" prefWidth="185.5999755859375" text="CoAutores" />
-                <TableColumn fx:id="colunaEvento" prefWidth="249.5999755859375" text="Evento" />
-                <TableColumn fx:id="colunaTrilha" prefWidth="173.5999755859375" text="Trilha" />
-                <TableColumn fx:id="colunaNota" prefWidth="80.00003662109384" text="Nota" />
-            </columns>
-        </TableView>
+<AnchorPane prefHeight="717.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaTrabalhosEnviadosController">
+   <children>
+      <Label fx:id="nomeEvento" alignment="CENTER" contentDisplay="CENTER" layoutY="26.0" prefHeight="79.0" prefWidth="1095.0" style="-fx-background-color: darkblue;" text="Trabalhos Enviados" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="34.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tabelaTrabalhos" layoutX="32.0" layoutY="122.0" onMouseClicked="#AbrirTelaTrabalho" prefHeight="352.0" prefWidth="1030.0">
+         <columns>
+            <TableColumn fx:id="colunaTitulo" prefWidth="222.40002059936523" text="Titulo" />
+            <TableColumn fx:id="colunaAutor" minWidth="0.0" prefWidth="116.80006408691406" text="Autor" />
+            <TableColumn fx:id="colunaCoAutores" prefWidth="185.5999755859375" text="CoAutores" />
+            <TableColumn fx:id="colunaEvento" prefWidth="249.5999755859375" text="Evento" />
+            <TableColumn fx:id="colunaTrilha" prefWidth="173.5999755859375" text="Trilha" />
+            <TableColumn fx:id="colunaNota" prefWidth="80.00003662109384" text="Nota" />
+         </columns>
+      </TableView>
       <MenuBar fx:id="barraMenu" prefHeight="26.0" prefWidth="1092.0">
          <menus>
             <Menu fx:id="menuInicio" mnemonicParsing="false" text="Inicio">
@@ -60,5 +60,5 @@
             </Menu>
          </menus>
       </MenuBar>
-    </children>
+   </children>
 </AnchorPane>

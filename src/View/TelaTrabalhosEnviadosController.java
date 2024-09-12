@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TelaTrabalhosOrientadosController implements Observer {
+public class TelaTrabalhosEnviadosController implements Observer {
     Model model;
     Stage view;
 
@@ -98,9 +98,12 @@ public class TelaTrabalhosOrientadosController implements Observer {
 
     //carregar dados tabela
     void carregarDadosTrabalhos() {
-        ObservableList<Trabalho> trabalhos = FXCollections.observableArrayList(((Professor) model.getUsuarioLogadoTipado()).getTrabalhosOrientados());
-
-        System.out.println(((Professor) model.getUsuarioLogadoTipado()).getTrabalhosOrientados().getLast().getNomeTrilha());
+        ObservableList<Trabalho> trabalhos;
+        if(model.getTipoUsuarioLogado().equals("Aluno")){
+            trabalhos = FXCollections.observableArrayList(((Aluno) model.getUsuarioLogadoTipado()).getTrabalhos());
+        } else {
+            trabalhos = FXCollections.observableArrayList(((Usuario) model.getUsuarioLogado()).getTrabalhos());
+        }
         colunaAutor.setCellValueFactory(new PropertyValueFactory<>("nomeAutor"));
         colunaEvento.setCellValueFactory(new PropertyValueFactory<>("nomeEvento"));
         colunaTrilha.setCellValueFactory(new PropertyValueFactory<>("nomeTrilha"));

@@ -1,22 +1,20 @@
 package View;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.Model;
-import com.mycompany.avaliacaosubmissaodetrabalhos.Professor;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class TelaInicialController {
     private Model model;
     private Stage view;
+
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private MenuBar barraMenu;
@@ -31,10 +29,16 @@ public class TelaInicialController {
     private Menu menuPerfil;
 
     @FXML
-    private AnchorPane anchorPane;
+    private Menu menuTrabalhosOrientados;
 
     @FXML
-    private Menu menuTrabalhosOrientados;
+    private Menu menuTrabalhosEnviados;
+
+    @FXML
+    void abrirTelaTrabalhosEnviados() throws IOException {
+        TelaTrabalhosEnviadosView novaTela = new TelaTrabalhosEnviadosView();
+        novaTela.iniciarTela(model, view);
+    }
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {

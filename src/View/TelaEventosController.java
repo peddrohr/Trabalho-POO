@@ -62,29 +62,31 @@ public class TelaEventosController implements Observer {
     private Label mensagemTrabalho;
 
     @FXML
-    private Menu menuAvaliarTrabalho;
-
-    @FXML
-    private Menu menuTrabalhosOrientados;
-
-    @FXML
-    private Menu menuEventos;
-
-    @FXML
-    private Menu menuInicio;
-
-    @FXML
-    private Menu menuPerfil;
-
-    @FXML
-    private Label nomeEvento;
-
-    @FXML
     private Label labelNotaNome;
 
     @FXML
     private Label labelNota;
 
+    @FXML
+    private Menu menuAvaliarTrabalho;
+
+    @FXML
+    private Menu menuEventos;
+
+    @FXML
+    private Menu menuPerfil;
+
+    @FXML
+    private Menu menuTrabalhosOrientados;
+
+    @FXML
+    private Menu menuTrabalhosEnviados;
+
+    @FXML
+    void abrirTelaTrabalhosEnviados() throws IOException {
+        TelaTrabalhosEnviadosView novaTela = new TelaTrabalhosEnviadosView();
+        novaTela.iniciarTela(model, view);
+    }
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
@@ -99,8 +101,8 @@ public class TelaEventosController implements Observer {
     }
 
     @FXML
-    void abrirTelaTrabalhosOrientados() throws IOException {
-        TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
+    void abrirTelaEnvioTrabalho() throws IOException {
+        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
         novaTela.iniciarTela(model, view);
     }
 
@@ -111,14 +113,14 @@ public class TelaEventosController implements Observer {
     }
 
     @FXML
-    void abrirTelaInicial() throws IOException {
-        TelaInicialView novaTela = new TelaInicialView();
+    void abrirTelaTrabalhosOrientados() throws IOException {
+        TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
         novaTela.iniciarTela(model, view);
     }
 
     @FXML
-    void abrirTelaEnvioTrabalho() throws IOException {
-        TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
+    void abrirTelaInicial() throws IOException {
+        TelaInicialView novaTela = new TelaInicialView();
         novaTela.iniciarTela(model, view);
     }
 

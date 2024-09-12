@@ -76,35 +76,6 @@
             </font>
         </Label>
         <Separator layoutX="544.0" layoutY="110.0" orientation="VERTICAL" prefHeight="603.0" prefWidth="4.0" />
-        <MenuBar fx:id="barraMenu" prefHeight="26.0" prefWidth="1092.0">
-            <menus>
-                <Menu fx:id="menuInicio" mnemonicParsing="false" text="Inicio">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#abrirTelaInicial" text="Inicio" />
-                    </items>
-                </Menu>
-                <Menu fx:id="menuPerfil" mnemonicParsing="false" onAction="#abrirTelaPerfil" text="Perfil">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Abrir perfil" />
-                    </items>
-                </Menu>
-                <Menu fx:id="menuEventos" mnemonicParsing="false" text="Eventos">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#abrirTelaEventos" text="Ver eventos" />
-                    </items>
-                </Menu>
-                <Menu fx:id="menuAvaliarTrabalho" disable="true" mnemonicParsing="false" text="Avaliar trabalhos" visible="false">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" />
-                    </items>
-                </Menu>
-                <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" text="Trabalhos Orientados" visible="false">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="trabalhosOrientados" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
       <AnchorPane fx:id="criterios" disable="true" layoutX="550.0" layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="540.0">
          <children>
             <Button fx:id="buttonEnviarAval" layoutX="219.0" layoutY="510.0" mnemonicParsing="false" onAction="#enviarAvaliacao" prefHeight="40.0" prefWidth="101.0" style="-fx-font-family: Cambria; -fx-background-color: darkblue;" text="Enviar" textFill="WHITE">
@@ -247,5 +218,39 @@
             </TextArea>
          </children>
       </AnchorPane>
+      <MenuBar fx:id="barraMenu" prefHeight="26.0" prefWidth="1092.0">
+         <menus>
+            <Menu fx:id="menuInicio" mnemonicParsing="false" text="Inicio">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaInicial" text="Inicio" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuPerfil" mnemonicParsing="false" onAction="#abrirTelaPerfil" text="Perfil">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Abrir perfil" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuEventos" mnemonicParsing="false" text="Eventos">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaEventos" text="Ver eventos" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuAvaliarTrabalho" disable="true" mnemonicParsing="false" text="Avaliar trabalhos" visible="false">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" text="Trabalhos Orientados" visible="false">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="trabalhosOrientados" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuTrabalhosEnviados" mnemonicParsing="false" text="Trabalhos Enviados">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaTrabalhosEnviados" text="Trabalhos Enviados" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
     </children>
 </AnchorPane>

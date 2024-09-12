@@ -91,4 +91,8 @@ public final class Usuario {
         }
         return null;
     }
+
+    public ArrayList<Trabalho> getTrabalhos() {
+        return trabalho;
+    }
 }

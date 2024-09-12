@@ -115,7 +115,7 @@ public class Professor {
         }
     }
 
-    //metodo para um professor se tornar um orientador
+    //metodo para um professor se tornar um avaliador
     public void serAvaliador() {
         if (this.avaliador == false) {
             this.avaliador = true;

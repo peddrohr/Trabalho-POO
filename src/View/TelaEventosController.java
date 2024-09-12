@@ -32,9 +32,6 @@ public class TelaEventosController implements Observer {
     private GridPane dadosTrabalho;
 
     @FXML
-    private Label labelCoAutores;
-
-    @FXML
     private Label labelDataFim;
 
     @FXML
@@ -62,10 +59,10 @@ public class TelaEventosController implements Observer {
     private Label mensagemTrabalho;
 
     @FXML
-    private Label labelNotaNome;
+    private Label labelStatus;
 
     @FXML
-    private Label labelNota;
+    private Label labelStatusNome;
 
     @FXML
     private Menu menuAvaliarTrabalho;
@@ -160,7 +157,6 @@ public class TelaEventosController implements Observer {
                 Trabalho trabalho = model.getTrabalhosDisponiveis(evento);
 
                 labelTituloTrabalho.setText(trabalho.getTitulo());
-                labelCoAutores.setText(trabalho.getCoAutores());
                 if(model.getTipoUsuarioLogado().equals("Aluno")) {
                     labelOrientador.setText(trabalho.getNomeOrientador());
                 } else {
@@ -168,8 +164,7 @@ public class TelaEventosController implements Observer {
                 }
                 labelPalavrasChave.setText(trabalho.getPalavrasChave());
                 if (model.getTrabalhoEnviado().isAvaliado()) {
-                    labelNotaNome.setVisible(true);
-                    labelNota.setText("" + model.getTrabalhoEnviado().getNota());
+                    labelStatus.setText("AVALIADO");
                 }
             } else {
                 dadosTrabalho.setVisible(false);

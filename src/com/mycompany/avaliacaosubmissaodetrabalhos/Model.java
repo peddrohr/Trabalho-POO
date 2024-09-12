@@ -275,7 +275,7 @@ public class Model {
                 tipoUsuarioLogado = "Aluno";
                 break;
 
-            case "AvaliadorOrientador":
+            case "Avaliador e Orientador":
                 Professor avaliadorOrientador = new Professor(usuario, matricula);
                 usuariosCadastrados.add(usuario);
                 usuarios.add(avaliadorOrientador);

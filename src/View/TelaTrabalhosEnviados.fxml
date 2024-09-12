@@ -19,12 +19,12 @@
       </Label>
       <TableView fx:id="tabelaTrabalhos" layoutX="32.0" layoutY="122.0" onMouseClicked="#AbrirTelaTrabalho" prefHeight="352.0" prefWidth="1031.0">
          <columns>
-            <TableColumn fx:id="colunaTitulo" prefWidth="222.40002059936523" text="Titulo" />
-            <TableColumn fx:id="colunaAutor" minWidth="0.0" prefWidth="116.80006408691406" text="Autor" />
-            <TableColumn fx:id="colunaCoAutores" prefWidth="185.5999755859375" text="CoAutores" />
-            <TableColumn fx:id="colunaEvento" prefWidth="249.5999755859375" text="Evento" />
-            <TableColumn fx:id="colunaTrilha" prefWidth="173.5999755859375" text="Trilha" />
-            <TableColumn fx:id="colunaNota" prefWidth="79.99997558593759" text="Nota" />
+            <TableColumn fx:id="colunaTitulo" prefWidth="222.40002059936523" sortable="false" text="Titulo" />
+            <TableColumn fx:id="colunaAutor" minWidth="0.0" prefWidth="116.80006408691406" sortable="false" text="Autor" />
+            <TableColumn fx:id="colunaCoAutores" prefWidth="185.5999755859375" sortable="false" text="CoAutores" />
+            <TableColumn fx:id="colunaEvento" prefWidth="249.5999755859375" sortable="false" text="Evento" />
+            <TableColumn fx:id="colunaTrilha" prefWidth="173.5999755859375" sortable="false" text="Trilha" />
+            <TableColumn fx:id="colunaNota" prefWidth="79.99997558593759" sortable="false" text="Nota" />
          </columns>
       </TableView>
       <MenuBar fx:id="barraMenu" prefHeight="26.0" prefWidth="1092.0">

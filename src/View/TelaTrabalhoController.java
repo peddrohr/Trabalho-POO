@@ -1,5 +1,6 @@
 package View;
 
+import com.mycompany.avaliacaosubmissaodetrabalhos.Dados;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Evento;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.Model;
@@ -10,11 +11,37 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
 public class TelaTrabalhoController {
 
     private Model model;
     private Stage view;
+
+    @FXML
+    private Label labelCriterio1;
+
+    @FXML
+    private Label labelCriterio2;
+
+    @FXML
+    private Label labelCriterio3;
+
+    @FXML
+    private Label labelCriterio4;
+
+    @FXML
+    private Label labelNotaC1;
+
+    @FXML
+    private Label labelNotaC2;
+
+    @FXML
+    private Label labelNotaC3;
+
+    @FXML
+    private Label labelNotaC4;
+
+    @FXML
+    private Label labelCoAutores;
 
     @FXML
     private Label dataDeAbertura;
@@ -118,6 +145,15 @@ public class TelaTrabalhoController {
         labelTrilha.setText("Trilha: " + trabalho.getTrilha().getNome());
         labelResumo.setText("Resumo: " + trabalho.getResumo());
         labelChave.setText("Palavras chave: " + trabalho.getPalavrasChave());
+        labelCriterio1.setText(Dados.criterios.get(0).getNome() + " " + Dados.criterios.get(0).getDescricao());
+        labelCriterio2.setText(Dados.criterios.get(1).getNome() + " " + Dados.criterios.get(1).getDescricao());
+        labelCriterio3.setText(Dados.criterios.get(2).getNome() + " " + Dados.criterios.get(2).getDescricao());
+        labelCriterio4.setText(Dados.criterios.get(3).getNome() + " " + Dados.criterios.get(3).getDescricao());
+        /*labelNotaC1.setText(trabalho.getAvaliacoes().forEach().getNotasPorCriterio().get());*/
+
+        if(trabalho.getCoAutores() != "") {
+            labelCoAutores.setText("Co autores: " + trabalho.getCoAutores());
+        }
 
         if(trabalho.isAvaliado()){
             nomeNota.setVisible(true);

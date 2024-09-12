@@ -17,6 +17,9 @@ public class TelaPerfilController {
     private MenuBar barraMenu;
 
     @FXML
+    private Label labelCoAutores;
+
+    @FXML
     private Label labelCpf;
 
     @FXML
@@ -121,12 +124,16 @@ public class TelaPerfilController {
             menuAvaliarTrabalho.setVisible(true);
             labelCargo.setVisible(true);
             nomeCargo += "Avaliador";
-        }
-        if (model.verificarOrientador()) {
-            menuTrabalhosOrientados.setDisable(false);
-            menuTrabalhosOrientados.setVisible(true);
-            labelCargo.setVisible(true);
-            nomeCargo += "Orientador";
+            if (model.verificarOrientador()) {
+                nomeCargo += " e Orientador";
+            }
+        }else {
+            if (model.verificarOrientador()) {
+                menuTrabalhosOrientados.setDisable(false);
+                menuTrabalhosOrientados.setVisible(true);
+                labelCargo.setVisible(true);
+                nomeCargo += "Orientador";
+            }
         }
 
         cargo.setText(nomeCargo);

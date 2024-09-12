@@ -73,7 +73,7 @@ public class TelaCadastroController implements Observer {
         String tipoUser = usuarioSelecionado.getText();
         if (checkAvaliador.isSelected()) {
             if (checkOrientador.isSelected()) {
-                tipoUser = "AvaliadorOrientador";
+                tipoUser = "Avaliador e Orientador";
             } else {
                 tipoUser = "Avaliador";
             }

@@ -44,23 +44,23 @@
                 <Font size="18.0" />
             </font>
         </Label>
-        <Label fx:id="labelTrilha" layoutX="14.0" layoutY="328.0" prefHeight="23.0" prefWidth="460.0" style="-fx-font-family: Cambria;" text="Trilha: ">
+        <Label fx:id="labelTrilha" layoutX="14.0" layoutY="328.0" prefHeight="23.0" prefWidth="280.0" style="-fx-font-family: Cambria;" text="Trilha: ">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
         <ComboBox fx:id="comboBoxTrabalhosDisponiveis" disable="true" layoutX="327.0" layoutY="115.0" onAction="#adicionarTextoLabel" prefHeight="24.0" prefWidth="170.0" promptText="Selecione um trabalho" />
-        <Label fx:id="labelAutor" layoutX="14.0" layoutY="352.0" prefHeight="27.0" prefWidth="460.0" style="-fx-font-family: Cambria;" text="Nome do autor:  ">
+        <Label fx:id="labelAutor" layoutX="14.0" layoutY="352.0" prefHeight="27.0" prefWidth="280.0" style="-fx-font-family: Cambria;" text="Nome do autor:  ">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="labelOrientador" layoutX="14.0" layoutY="376.0" prefHeight="27.0" prefWidth="460.0" style="-fx-font-family: Cambria;" text="Nome do orientador: ">
+        <Label fx:id="labelOrientador" layoutX="14.0" layoutY="376.0" prefHeight="27.0" prefWidth="280.0" style="-fx-font-family: Cambria;" text="Nome do orientador: ">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="labelChave" layoutX="14.0" layoutY="277.0" prefHeight="27.0" prefWidth="460.0" style="-fx-font-family: Cambria;" text="Palavras chave: ">
+        <Label fx:id="labelChave" layoutX="14.0" layoutY="277.0" prefHeight="27.0" prefWidth="280.0" style="-fx-font-family: Cambria;" text="Palavras chave: ">
             <font>
                 <Font size="16.0" />
             </font>
@@ -76,7 +76,7 @@
             </font>
         </Label>
         <Separator layoutX="544.0" layoutY="110.0" orientation="VERTICAL" prefHeight="603.0" prefWidth="4.0" />
-      <AnchorPane fx:id="criterios" disable="true" focusTraversable="true" layoutX="550.0" layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="540.0">
+      <AnchorPane fx:id="criterios" disable="true" focusTraversable="true" layoutX="544.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="540.0">
          <children>
             <Button fx:id="buttonEnviarAval" layoutX="219.0" layoutY="510.0" mnemonicParsing="false" onAction="#enviarAvaliacao" prefHeight="40.0" prefWidth="101.0" style="-fx-font-family: Cambria; -fx-background-color: #0e4476;" text="Enviar" textFill="WHITE">
                <font>
@@ -189,5 +189,10 @@
          </menus>
       </MenuBar>
       <ComboBox fx:id="comboBoxEventos" layoutX="140.0" layoutY="116.0" onAction="#carregarTrabalhos" prefHeight="24.0" prefWidth="170.0" promptText="Selecione um evento" />
+      <Label fx:id="labelCoAutores" alignment="TOP_LEFT" layoutX="265.0" layoutY="278.0" prefHeight="122.0" prefWidth="225.0" style="-fx-font-family: Cambria;" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

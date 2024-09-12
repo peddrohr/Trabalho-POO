@@ -249,6 +249,16 @@ public class Model {
                 tipoUsuarioLogado = "Aluno";
                 break;
 
+            case "AvaliadorOrientador":
+                Professor avaliadorOrientador = new Professor(usuario, matricula);
+                usuariosCadastrados.add(usuario);
+                usuarios.add(avaliadorOrientador);
+                usuarioLogado = usuario;
+                usuarioLogadoTipado = avaliadorOrientador;
+                avaliadorOrientador.serOrientador();
+                avaliadorOrientador.serAvaliador();
+                tipoUsuarioLogado = "Professor";
+                break;
         }
     }
 

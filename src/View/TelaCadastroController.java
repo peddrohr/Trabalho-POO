@@ -44,13 +44,14 @@ public class TelaCadastroController implements Observer {
     private RadioButton radioServidor;
 
     @FXML
-    private RadioButton radioAvaliador;
-
-    @FXML
-    private RadioButton radioOrientador;
-
-    @FXML
     private ToggleGroup tipoUsuario;
+
+    @FXML
+    private CheckBox checkAvaliador;
+
+    @FXML
+    private CheckBox checkOrientador;
+
 
     @FXML
     void Cancelar(ActionEvent event) throws IOException {
@@ -67,8 +68,19 @@ public class TelaCadastroController implements Observer {
         String senha = labelSenha.getText();
 
         // guarda o tipo de aluno selecionado
+
         RadioButton usuarioSelecionado = (RadioButton) tipoUsuario.getSelectedToggle();
         String tipoUser = usuarioSelecionado.getText();
+        if(checkAvaliador.isSelected()){
+            if(checkOrientador.isSelected()){
+                tipoUser = "AvaliadorOrientador";
+            }else{
+                tipoUser = "Avaliador";
+            }
+        }else {
+            if (checkOrientador.isSelected()) {
+                tipoUser = "Orientador";
+            }
 
         try {
             // cadastrando usuário pelo metodo da model
@@ -83,9 +95,21 @@ public class TelaCadastroController implements Observer {
             alert.setHeaderText(null);
             alert.setContentText(e.getMessage());
             alert.showAndWait();
+            }
         }
     }
 
+    @FXML
+    void roleSet(ActionEvent event){
+        checkAvaliador.setVisible(true);
+        checkOrientador.setVisible(true);
+    }
+
+    @FXML
+    void alunoSet(ActionEvent event){
+        checkAvaliador.setVisible(false);
+        checkOrientador.setVisible(false);
+    }
 
     void initialize(Model model, Stage stage) {
         this.model = model;

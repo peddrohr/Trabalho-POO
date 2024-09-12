@@ -7,12 +7,12 @@ public class Trilha {
     private String descricao;
 
     //construtores
-    public Trilha(String nome, String descricao){
+    public Trilha(String nome, String descricao) {
         this.setNome(nome);
         this.setDescricao(descricao);
     }
 
-    public Trilha(){
+    public Trilha() {
     }
 
     //setters

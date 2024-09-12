@@ -3,7 +3,7 @@ package com.mycompany.avaliacaosubmissaodetrabalhos;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CriarCriterioAvaliacao{
+public class CriarCriterioAvaliacao {
 
     private List<CriterioAvaliacao> criterios;
 
@@ -14,7 +14,7 @@ public class CriarCriterioAvaliacao{
 
     // Metodo para criar e adicionar um criterio de avaliacao
     public CriterioAvaliacao criarCriterioAvaliacao(String nome, String descricao) {
-        CriterioAvaliacao criterio = new CriterioAvaliacao( nome,  descricao);
+        CriterioAvaliacao criterio = new CriterioAvaliacao(nome, descricao);
         criterios.add(criterio);
         return criterio;
     }
@@ -36,6 +36,6 @@ public class CriarCriterioAvaliacao{
                 return criterio;
             }
         }
-        return null; 
+        return null;
     }
 }

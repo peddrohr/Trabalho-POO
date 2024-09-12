@@ -18,7 +18,7 @@ public class TelaAvaliacaoView implements Observer {
         this.stage = stage;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaAvaliacao.fxml"));
-        Parent root  = loader.load();
+        Parent root = loader.load();
 
         TelaAvaliacaoController controller = loader.getController();
         controller.initialize(model, stage);

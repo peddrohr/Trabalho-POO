@@ -1,24 +1,24 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
 
-public class Servidor{
-    
+public class Servidor {
+
     //atributos
 
     private String matricula;
     private Usuario usuario;
 
     //construtores
-    public Servidor(String nome,String cpf, String email, String matricula, String senha ) {
-        this.setUsuario( new Usuario(nome,cpf, email, senha));
+    public Servidor(String nome, String cpf, String email, String matricula, String senha) {
+        this.setUsuario(new Usuario(nome, cpf, email, senha));
         this.setMatricula(matricula);
     }
-    
+
     public Servidor(Usuario usuario, String matricula) {
         if (usuario == null) {
             throw new IllegalArgumentException("Usuário não pode ser nulo");
         }
         this.usuario = usuario;
-        this.matricula = matricula; 
+        this.matricula = matricula;
     }
 
     public Servidor() {
@@ -33,7 +33,7 @@ public class Servidor{
         }
         this.usuario = usuario;
     }
-    
+
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
@@ -42,15 +42,15 @@ public class Servidor{
         this.usuario.setEmail(email);
     }
 
-    public void setSenha(String senha){
+    public void setSenha(String senha) {
         usuario.setSenha(senha);
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         usuario.setNome(nome);
     }
 
-    public void setCpf(String cpf){
+    public void setCpf(String cpf) {
         usuario.setCpf(cpf);
     }
 
@@ -58,6 +58,7 @@ public class Servidor{
     public String getNome() {
         return usuario.getNome();
     }
+
     public Usuario getUsuario() {
         return usuario;
     }
@@ -65,7 +66,7 @@ public class Servidor{
     public String getMatricula() {
         return matricula;
     }
-    
+
     public String getEmail() {
         return usuario.getEmail();
     }

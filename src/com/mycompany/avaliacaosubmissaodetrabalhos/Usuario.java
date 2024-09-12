@@ -9,7 +9,7 @@ public final class Usuario {
     private String senha;
 
     //construtores
-    public Usuario(String nome, String cpf, String email, String senha){
+    public Usuario(String nome, String cpf, String email, String senha) {
         this.setNome(nome);
         this.setCpf(cpf);
         this.setEmail(email);

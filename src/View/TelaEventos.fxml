@@ -17,7 +17,10 @@
 <AnchorPane fx:id="anchorPanePai" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="717.0" prefWidth="1092.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaEventosController">
    <children>
       <ComboBox fx:id="comboboxEventos" layoutX="62.0" layoutY="132.0" onAction="#carregarDadosEvento" prefWidth="150.0" promptText="Eventos disponíveis" style="-fx-background-color: lightblue; -fx-border-color: darkblue;" />
-      <Text layoutX="48.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione um evento desejado para obter informações de datas e envios" x="200.0" y="26.0" />
+      <Text layoutX="29.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione um evento desejado para obter informações de datas e envios" wrappingWidth="478.35546875" x="200.0" y="26.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
       <GridPane layoutX="62.0" layoutY="209.0" prefHeight="222.0" prefWidth="570.0" style="-fx-background-color: lightblue; -fx-border-color: darkblue;">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="360.20001220703125" minWidth="10.0" prefWidth="135.20001220703125" />
@@ -78,8 +81,8 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Line endX="-149.79998779296875" endY="209.5999755859375" layoutX="817.0" layoutY="230.0" startX="-149.79998779296875" startY="-30.00000762939453" />
-      <Label fx:id="labelResumo" alignment="CENTER" layoutX="764.0" layoutY="110.0" prefHeight="43.0" prefWidth="229.0" text="RESUMO TRABALHO ENVIADO:" visible="false">
+      <Line endX="-149.800048828125" endY="203.0" layoutX="817.0" layoutY="230.0" startX="-149.800048828125" startY="-104.0" />
+      <Label fx:id="labelResumo" alignment="CENTER" layoutX="765.0" layoutY="124.0" prefHeight="43.0" prefWidth="229.0" text="RESUMO TRABALHO ENVIADO:">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

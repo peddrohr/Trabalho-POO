@@ -6,13 +6,13 @@ public class Dados {
 
     //atributos
     public static ArrayList<Usuario> usuariosCadastrados = new ArrayList<>();
-    public static ArrayList<Object> usuarios= new ArrayList<>();
+    public static ArrayList<Object> usuarios = new ArrayList<>();
     public static ArrayList<Evento> eventosCadastrados = new ArrayList<>();
     public static ArrayList<Trilha> trilhas = new ArrayList<>();
     public static ArrayList<CriterioAvaliacao> criterios = new ArrayList<>();
 
     //construtor
-    public Dados(){
+    public Dados() {
         carregarUsuarios();
         carregarEventos();
         carregarTrilha();
@@ -34,9 +34,9 @@ public class Dados {
 
     //Carregamento prévio de usuarios e de tipos diferentes de usuarios
 
-    public void carregarUsuarios(){
+    public void carregarUsuarios() {
 
-        Usuario aluno = new Usuario("aluno teste", "11111111111", "alunoteste@email.com","aluno123");
+        Usuario aluno = new Usuario("aluno teste", "11111111111", "alunoteste@email.com", "aluno123");
         Aluno aluno1 = new Aluno(aluno, 100000);
         usuariosCadastrados.add(aluno);
         usuarios.add(aluno1);
@@ -66,7 +66,7 @@ public class Dados {
         for (int i = 0; i < 50; i++) {
             // Gerar dados variáveis
             String cpf = "12312312312";
-            String email = "teste"+i+"@email.com";
+            String email = "teste" + i + "@email.com";
             String senha = "senha" + (i + 1);
 
             Usuario usuario = new Usuario(nomes[i], cpf, email, senha);
@@ -78,14 +78,14 @@ public class Dados {
             } else if (i < 17) { // 8 Alunos
                 Aluno aluno5 = new Aluno(usuario, 3000 + i);
                 usuarios.add(aluno5);
-            } else if(i < 25){ // 8 Servidores
+            } else if (i < 25) { // 8 Servidores
                 Servidor servidor5 = new Servidor(usuario, "Matricula" + (4000 + i));
                 usuarios.add(servidor5);
-            } else if(i < 37){ //12 Avaliadores
+            } else if (i < 37) { //12 Avaliadores
                 Professor professor5 = new Professor(usuario, "SIAPE" + (200 + i));
                 professor5.serAvaliador();
                 usuarios.add(professor5);
-            }else{ //1 Orientadores
+            } else { //1 Orientadores
                 Professor professor5 = new Professor(usuario, "SIAPE" + (200 + i));
                 professor5.serOrientador();
                 usuarios.add(professor5);
@@ -96,26 +96,26 @@ public class Dados {
 
     //Carregamento prévio de eventos
 
-    public void carregarEventos(){
-        Evento evento1 = new Evento("Encontros Universitarios", "07/09/2024","07/10/2024");
+    public void carregarEventos() {
+        Evento evento1 = new Evento("Encontros Universitarios", "07/09/2024", "07/10/2024");
         eventosCadastrados.add(evento1);
 
-        Evento evento2 = new Evento("Sescomp", "20/09/2024","20/10/2024");
+        Evento evento2 = new Evento("Sescomp", "20/09/2024", "20/10/2024");
         eventosCadastrados.add(evento2);
 
-        Evento evento3 = new Evento("XX Congresso tal", "20/09/2024","20/10/2024");
+        Evento evento3 = new Evento("XX Congresso tal", "20/09/2024", "20/10/2024");
         eventosCadastrados.add(evento3);
 
-        Evento evento4 = new Evento("Conferência estudantil", "20/09/2024","20/10/2024");
+        Evento evento4 = new Evento("Conferência estudantil", "20/09/2024", "20/10/2024");
         eventosCadastrados.add(evento4);
 
-        Evento evento5 = new Evento("IV Simpósio tal", "20/09/2024","20/10/2024");
+        Evento evento5 = new Evento("IV Simpósio tal", "20/09/2024", "20/10/2024");
         eventosCadastrados.add(evento5);
     }
 
     //Carregamento prévio de trilhas
 
-    public void carregarTrilha(){
+    public void carregarTrilha() {
         Trilha trilha1 = new Trilha();
         trilha1.setNome("Poster");
         Trilha trilha2 = new Trilha();
@@ -130,7 +130,7 @@ public class Dados {
 
     //Carregamento prévio de criterios de avaliação
 
-    public void carregarCriterios(){
+    public void carregarCriterios() {
         CriterioAvaliacao criterio1 = new CriterioAvaliacao("Criterio1", "Descricao1");
         CriterioAvaliacao criterio2 = new CriterioAvaliacao("Criterio2", "Descricao2");
         CriterioAvaliacao criterio3 = new CriterioAvaliacao("Criterio3", "Descricao3");

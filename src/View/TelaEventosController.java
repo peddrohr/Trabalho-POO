@@ -122,13 +122,13 @@ public class TelaEventosController implements Observer {
         novaTela.iniciarTela(model, view);
     }
 
-    void carregarEventos(){
+    void carregarEventos() {
         ObservableList<Evento> eventos = FXCollections.observableList(Dados.eventosCadastrados);
         comboboxEventos.setItems(eventos);
     }
 
     @FXML
-    void carregarDadosEvento(){
+    void carregarDadosEvento() {
         buttonEnviarTrabalho.setDisable(false);
 
         Evento evento = model.carregarDadosEvento(comboboxEventos.getSelectionModel().getSelectedItem());
@@ -146,9 +146,9 @@ public class TelaEventosController implements Observer {
         abrirTelaEnvioTrabalho();
     }
 
-    void carregarDadosTrabalho(){
+    void carregarDadosTrabalho() {
         Evento evento = comboboxEventos.getSelectionModel().getSelectedItem();
-        if(model != null){
+        if (model != null) {
             if (model.getTrabalhoEnviado() != null && model.getTrabalhosDisponiveis(evento).getEvento() == model.getEventoSelecionado()) {
                 dadosTrabalho.setVisible(true);
                 mensagemTrabalho.setVisible(true);
@@ -161,9 +161,9 @@ public class TelaEventosController implements Observer {
                 labelCoAutores.setText(trabalho.getCoAutores());
                 labelOrientador.setText(trabalho.getNomeOrientador());
                 labelPalavrasChave.setText(trabalho.getPalavrasChave());
-                if(model.getTrabalhoEnviado().isAvaliado()){
+                if (model.getTrabalhoEnviado().isAvaliado()) {
                     labelNotaNome.setVisible(true);
-                    labelNota.setText(""+model.getTrabalhoEnviado().getNota());
+                    labelNota.setText("" + model.getTrabalhoEnviado().getNota());
                 }
             } else {
                 dadosTrabalho.setVisible(false);
@@ -177,10 +177,11 @@ public class TelaEventosController implements Observer {
     public void initialize(Model model, Stage stage) {
         carregarEventos();
 
-        if(model.verificarAvaliador()){
+        if (model.verificarAvaliador()) {
             menuAvaliarTrabalho.setDisable(false);
             menuAvaliarTrabalho.setVisible(true);
-        }if(model.verificarOrientador()){
+        }
+        if (model.verificarOrientador()) {
             menuTrabalhosOrientados.setDisable(false);
             menuTrabalhosOrientados.setVisible(true);
         }

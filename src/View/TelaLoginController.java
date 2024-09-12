@@ -42,7 +42,7 @@ public class TelaLoginController implements Observer {
     void validarEntrada(ActionEvent event) throws IOException {
         boolean validacao = model.AutenticarUsuario(fieldLogin.getText(), fieldSenha.getText());
 
-        if(validacao){
+        if (validacao) {
             System.out.println("Parabens, voce entrou");
             try {
                 this.novaTela();

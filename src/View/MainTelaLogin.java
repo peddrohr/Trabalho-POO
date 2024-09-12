@@ -13,6 +13,7 @@ import java.util.Objects;
 
 public class MainTelaLogin extends Application {
     public static Model model = new Model();
+
     public static void main(String[] args) {
         System.out.println(model);
         TelaLoginController viewController = new TelaLoginController();

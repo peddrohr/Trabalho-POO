@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javafx.stage.FileChooser;
+
 import java.io.File;
 import java.util.List;
 
@@ -127,18 +128,18 @@ public class TelaEnvioTrabalhoController {
 
     @FXML
     void enviarTrabalho(ActionEvent event) throws IOException, TrilhaInvalidaException, AlunoInvalidoException {
-        if(boxTrilha.getSelectionModel().getSelectedItem() != null && model.vericarOrientador(fieldOrientador.getText())){
+        if (boxTrilha.getSelectionModel().getSelectedItem() != null && model.vericarOrientador(fieldOrientador.getText())) {
             ArrayList<String> coAutores = new ArrayList<>();
-            if(fieldCoAutores != null && !fieldCoAutores.getText().isEmpty()){
+            if (fieldCoAutores != null && !fieldCoAutores.getText().isEmpty()) {
                 coAutores.add(fieldCoAutores.getText());
             }
-            if(fieldCoAutores2 != null && !fieldCoAutores2.getText().isEmpty()){
+            if (fieldCoAutores2 != null && !fieldCoAutores2.getText().isEmpty()) {
                 coAutores.add(fieldCoAutores2.getText());
             }
-            if(fieldCoAutores1 != null && !fieldCoAutores1.getText().isEmpty()){
+            if (fieldCoAutores1 != null && !fieldCoAutores1.getText().isEmpty()) {
                 coAutores.add(fieldCoAutores1.getText());
             }
-            if(fieldCoAutores3 != null && !fieldCoAutores3.getText().isEmpty()){
+            if (fieldCoAutores3 != null && !fieldCoAutores3.getText().isEmpty()) {
                 coAutores.add(fieldCoAutores3.getText());
             }
 
@@ -167,7 +168,7 @@ public class TelaEnvioTrabalhoController {
                 alert.setContentText(e.getMessage());
                 alert.showAndWait();
             }
-        } else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Orientador ou Trilha inválida");
             alert.setHeaderText("Orientador ou Trilha informada inválida");
@@ -177,7 +178,7 @@ public class TelaEnvioTrabalhoController {
 
     }
 
-    void adicionarTextoLabel(){
+    void adicionarTextoLabel() {
         Evento evento = model.getEventoSelecionado();
         nomeEvento.setText(evento.getNome());
         dataDeAbertura.setText("Inicio: " + evento.getDataInicio());
@@ -198,17 +199,16 @@ public class TelaEnvioTrabalhoController {
         }
     }
 
-    private ObservableList<String> getIndexList(List<Trilha> trilhas)
-    {
+    private ObservableList<String> getIndexList(List<Trilha> trilhas) {
         List<String> comboBoxList = new ArrayList<String>();
 
-        for(Trilha trilha : trilhas)
+        for (Trilha trilha : trilhas)
             comboBoxList.add(trilha.getNome());
 
         return FXCollections.observableArrayList(comboBoxList);
     }
 
-    public void carregarTrilha(){
+    public void carregarTrilha() {
         ObsTrilhasIndex = getIndexList(Dados.trilhas);
 
         boxTrilha.setItems(ObsTrilhasIndex);
@@ -218,10 +218,11 @@ public class TelaEnvioTrabalhoController {
         this.model = model;
         this.view = stage;
 
-        if(model.verificarAvaliador()){
+        if (model.verificarAvaliador()) {
             menuAvaliarTrabalho.setDisable(false);
             menuAvaliarTrabalho.setVisible(true);
-        }if(model.verificarOrientador()){
+        }
+        if (model.verificarOrientador()) {
             menuTrabalhosOrientados.setDisable(false);
             menuTrabalhosOrientados.setVisible(true);
         }

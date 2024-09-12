@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TelaTrabalhosOrientadosController implements Observer{
+public class TelaTrabalhosOrientadosController implements Observer {
     Model model;
     Stage view;
 
@@ -89,10 +89,10 @@ public class TelaTrabalhosOrientadosController implements Observer{
     }
 
     //carregar dados tabela
-    void carregarDadosTrabalhos(){
-        ObservableList<Trabalho> trabalhos = FXCollections.observableArrayList(((Professor)model.getUsuarioLogadoTipado()).getTrabalhosOrientados());
+    void carregarDadosTrabalhos() {
+        ObservableList<Trabalho> trabalhos = FXCollections.observableArrayList(((Professor) model.getUsuarioLogadoTipado()).getTrabalhosOrientados());
 
-        System.out.println(((Professor)model.getUsuarioLogadoTipado()).getTrabalhosOrientados().getLast().getNomeTrilha());
+        System.out.println(((Professor) model.getUsuarioLogadoTipado()).getTrabalhosOrientados().getLast().getNomeTrilha());
         colunaAutor.setCellValueFactory(new PropertyValueFactory<>("nomeAutor"));
         colunaEvento.setCellValueFactory(new PropertyValueFactory<>("nomeEvento"));
         colunaTrilha.setCellValueFactory(new PropertyValueFactory<>("nomeTrilha"));
@@ -101,19 +101,19 @@ public class TelaTrabalhosOrientadosController implements Observer{
         colunaTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
 
 
-
         tabelaTrabalhos.setItems(trabalhos);
     }
 
     //iniciando controller
-    void initialize(Model model, Stage stage){
+    void initialize(Model model, Stage stage) {
         this.model = model;
         this.view = stage;
 
-        if(model.verificarOrientador()){
+        if (model.verificarOrientador()) {
             menuTrabalhosOrientados.setVisible(true);
             menuTrabalhosOrientados.setDisable(false);
-        }if(model.verificarAvaliador()){
+        }
+        if (model.verificarAvaliador()) {
             menuAvaliarTrabalho.setVisible(true);
             menuAvaliarTrabalho.setDisable(false);
         }
@@ -124,5 +124,13 @@ public class TelaTrabalhosOrientadosController implements Observer{
     @Override
     public void update() {
 
+
+    }
+
+    @FXML
+    void AbrirTelaTrabalho() throws IOException {
+        model.trabalhoSelecionado = tabelaTrabalhos.getSelectionModel().getSelectedItem();
+        TelaTrabalhoView novaTela = new TelaTrabalhoView();
+        novaTela.iniciarTela(model, view);
     }
 }

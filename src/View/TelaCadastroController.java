@@ -87,10 +87,11 @@ public class TelaCadastroController implements Observer {
     }
 
 
-    void initialize(Model model, Stage stage){
+    void initialize(Model model, Stage stage) {
         this.model = model;
         this.view = stage;
     }
+
     @Override
     public void update() {
 

@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.AlunoInvalidoException;
 
-public class Orientador{
-    
+public class Orientador {
+
     //atributos
     private List<Aluno> alunosOrientados;
     private Professor professor;
@@ -22,22 +22,22 @@ public class Orientador{
     }
 
     //adiciona um aluno no arrayList
-    public void addAlunoOrientado(Aluno alunoOrientado ) throws AlunoInvalidoException{
-        if(alunoOrientado == null){
+    public void addAlunoOrientado(Aluno alunoOrientado) throws AlunoInvalidoException {
+        if (alunoOrientado == null) {
             throw new AlunoInvalidoException();
         }
         this.alunosOrientados.add(alunoOrientado);
     }
-    
+
     //remover aluno do arrayList
-    public void removerAlunoOrientado(Aluno alunoOrientado){
+    public void removerAlunoOrientado(Aluno alunoOrientado) {
         this.alunosOrientados.remove(alunoOrientado);
     }
 
     //getters
     //retorna uma cópia do arrayList com todos os alunos orientados.
     public List<Aluno> getAlunosOrientados() {
-        return new ArrayList<>(alunosOrientados); 
+        return new ArrayList<>(alunosOrientados);
     }
 
     public Professor getProfessor() {
@@ -52,5 +52,5 @@ public class Orientador{
         return email;
     }
 
-  
+
 }

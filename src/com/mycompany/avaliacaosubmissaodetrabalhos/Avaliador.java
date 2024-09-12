@@ -8,30 +8,30 @@ import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.UsuarioInvalidoExcep
 
 public class Avaliador {
 
-   //atributos 
+    //atributos
     private List<Trabalho> trabalhosAvaliados;
     private Professor professor;
     private String nome;
     private String email;
 
     //construtor
-    public Avaliador(Professor professor) throws UsuarioInvalidoException{
+    public Avaliador(Professor professor) throws UsuarioInvalidoException {
         this.trabalhosAvaliados = new ArrayList<>();
         this.nome = professor.getNome();
         this.email = professor.getEmail();
     }
 
     //adiciona um trabalho para ser avaliado na lista
-    public void addTrabalhoAvaliado(Trabalho trabalhoAvaliado) throws SemTrabalhoDefinidoException{
-        if(trabalhoAvaliado == null){
+    public void addTrabalhoAvaliado(Trabalho trabalhoAvaliado) throws SemTrabalhoDefinidoException {
+        if (trabalhoAvaliado == null) {
             throw new SemTrabalhoDefinidoException();
         }
         this.trabalhosAvaliados.add(trabalhoAvaliado);
     }
-    
+
     //remove um trabalho para ser avaliado na lista
-    public void removerTrabalhoAvaliado(Trabalho trabalhoAvalido) throws SemTrabalhoDefinidoException{
-        if(trabalhoAvalido == null){
+    public void removerTrabalhoAvaliado(Trabalho trabalhoAvalido) throws SemTrabalhoDefinidoException {
+        if (trabalhoAvalido == null) {
             throw new SemTrabalhoDefinidoException();
         }
         this.trabalhosAvaliados.remove(trabalhoAvalido);
@@ -46,13 +46,13 @@ public class Avaliador {
     public Professor getProfessor() {
         return professor;
     }
-    
-    public String getNome(){
+
+    public String getNome() {
         return nome;
     }
 
     public String getEmail() {
         return email;
     }
-    
+
 }

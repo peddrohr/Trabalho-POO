@@ -64,7 +64,7 @@ public class Modalidade {
     public ArrayList<CriterioAvaliacao> getCriteriosAvaliacao() {
         return new ArrayList<>(criteriosAvaliacao);
     }
-    
+
     //faz uma busca na lista de criterios atraves do nome.
     public CriterioAvaliacao buscarCriterioPorNome(String nome) {
         for (CriterioAvaliacao criterio : criteriosAvaliacao) {
@@ -72,7 +72,7 @@ public class Modalidade {
                 return criterio;
             }
         }
-        return null; 
+        return null;
     }
-  
+
 }

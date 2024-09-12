@@ -86,10 +86,10 @@ public class TelaPerfilController {
     }
 
     @FXML
-    void carregarDados(){
-        labelNome.setText(((Usuario)model.getUsuarioLogado()).getNome());
-        labelEmail.setText(((Usuario)model.getUsuarioLogado()).getEmail());
-        labelCpf.setText(((Usuario)model.getUsuarioLogado()).getCpf());
+    void carregarDados() {
+        labelNome.setText(((Usuario) model.getUsuarioLogado()).getNome());
+        labelEmail.setText(((Usuario) model.getUsuarioLogado()).getEmail());
+        labelCpf.setText(((Usuario) model.getUsuarioLogado()).getCpf());
         labelTipoUsuario.setText(model.getTipoUsuarioLogado());
     }
 
@@ -98,14 +98,14 @@ public class TelaPerfilController {
         this.model = model;
         this.view = stage;
 
-        if(model.verificarAvaliador()){
+        if (model.verificarAvaliador()) {
             menuAvaliarTrabalho.setDisable(false);
             menuAvaliarTrabalho.setVisible(true);
-        }if(model.verificarOrientador()){
+        }
+        if (model.verificarOrientador()) {
             menuTrabalhosOrientados.setDisable(false);
             menuTrabalhosOrientados.setVisible(true);
         }
-
 
 
         carregarDados();

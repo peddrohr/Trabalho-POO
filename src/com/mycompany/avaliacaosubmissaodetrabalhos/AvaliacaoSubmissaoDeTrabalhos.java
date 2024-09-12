@@ -14,6 +14,7 @@ import java.util.Objects;
 
 public class AvaliacaoSubmissaoDeTrabalhos extends Application {
     public static Model model = new Model();
+
     public static void main(String[] args) {
         Dados dados = new Dados();
         dados.carregarUsuarios();

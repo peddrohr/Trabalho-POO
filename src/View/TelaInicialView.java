@@ -1,4 +1,5 @@
 package View;
+
 import com.mycompany.avaliacaosubmissaodetrabalhos.Model;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Observer;
 import javafx.application.Application;
@@ -19,7 +20,7 @@ public class TelaInicialView implements Observer {
         this.stage = stage;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaInicial.fxml"));
-        Parent root  = loader.load();
+        Parent root = loader.load();
 
         TelaInicialController controller = loader.getController();
         controller.initialize(model, stage);

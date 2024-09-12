@@ -18,7 +18,7 @@ public class TelaEnvioTrabalhoView implements Observer {
         this.stage = stage;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaEnvioTrabalho.fxml"));
-        Parent root  = loader.load();
+        Parent root = loader.load();
 
         TelaEnvioTrabalhoController controller = loader.getController();
         controller.initialize(model, stage);

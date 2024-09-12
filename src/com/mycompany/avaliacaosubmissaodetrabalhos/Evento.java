@@ -62,12 +62,12 @@ public class Evento {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return getNome();
     }
 
-     //metodo para cadastrar uma nova etapa e adiciona no ArrayList de etapas
-     public void cadastrarEtapa(Etapa etapa) {
+    //metodo para cadastrar uma nova etapa e adiciona no ArrayList de etapas
+    public void cadastrarEtapa(Etapa etapa) {
         if (etapa != null && etapa instanceof Etapa) {
             etapas.add(etapa);
         }

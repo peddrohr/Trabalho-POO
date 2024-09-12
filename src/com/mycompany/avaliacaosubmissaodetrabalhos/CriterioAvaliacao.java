@@ -7,10 +7,11 @@ public class CriterioAvaliacao {
     private float pontuacaoMaxima;
 
     //construtores
-    public CriterioAvaliacao(String nome, String descricao){
+    public CriterioAvaliacao(String nome, String descricao) {
         setNome(nome);
         setDescricao(descricao);
     }
+
     //setters
     public void setDescricao(String descricao) {
         if (descricao != null && !descricao.isEmpty()) {
@@ -33,6 +34,7 @@ public class CriterioAvaliacao {
     public String getDescricao() {
         return descricao;
     }
+
     public String getNome() {
         return nome;
     }
@@ -40,6 +42,6 @@ public class CriterioAvaliacao {
     public float getPontuacaoMaxima() {
         return 5;
     }
-    
+
 }
 

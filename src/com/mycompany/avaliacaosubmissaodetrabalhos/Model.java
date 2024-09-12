@@ -21,6 +21,7 @@ public class Model {
     private String tipoUsuarioLogado;
     private ArrayList<Trabalho> trabalhosDisponiveis;
     private ArrayList<Trabalho> trabalhosEnviados;
+    public Trabalho trabalhoSelecionado;
 
     public Model (){
         trabalhosDisponiveis = new ArrayList<>();
@@ -314,5 +315,7 @@ public class Model {
         }
         return orientadorValido;
     }
+
+
 
 }

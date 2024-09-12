@@ -33,7 +33,7 @@ public class Trabalho {
     public Trabalho() {
     }
 
-    public Trabalho(String nomeAutor, Professor orientador, String titulo, String resumo, String palavrasChave,  Trilha trilha) throws TrilhaInvalidaException {
+    public Trabalho(String nomeAutor, Professor orientador, String titulo, String resumo, String palavrasChave, Trilha trilha) throws TrilhaInvalidaException {
         this.setNomeAutor(nomeAutor);
         this.setOrientador(orientador);
         this.setTitulo(titulo);
@@ -42,13 +42,13 @@ public class Trabalho {
         this.setTrilha(trilha);
     }
 
-    public Trabalho(String nome){
+    public Trabalho(String nome) {
         this.nomeAutor = nome;
     }
 
     //setters
-    public void setEvento(Evento evento){
-        if(evento != null){
+    public void setEvento(Evento evento) {
+        if (evento != null) {
             this.evento = evento;
             this.nomeEvento = evento.getNome();
         }
@@ -62,7 +62,7 @@ public class Trabalho {
         }
     }
 
-    
+
     public void setQntCoAutores(int qntCoAutores) {
         if (qntCoAutores > 0 && qntCoAutores < 5) {
             this.qntCoAutores = qntCoAutores;
@@ -73,7 +73,7 @@ public class Trabalho {
     }
 
     public void setNomeCoAutores(ArrayList<String> coAutoresarr) {
-        for(String coAutor: coAutoresarr){
+        for (String coAutor : coAutoresarr) {
             if (coAutor != null && !coAutor.isEmpty() && model.validarAluno(coAutor)) {
 
                 this.nomeCoAutores.add(coAutor);
@@ -146,13 +146,13 @@ public class Trabalho {
 
     //formar String de coAutores
     public String formarCoAutores() {
-        for(String nomeCoAutor: nomeCoAutores){
-            coAutores = coAutores + nomeCoAutor+ ", ";
+        for (String nomeCoAutor : nomeCoAutores) {
+            coAutores = coAutores + nomeCoAutor + ", ";
         }
         return coAutores;
     }
 
-    public String getCoAutores(){
+    public String getCoAutores() {
         return coAutores;
     }
 
@@ -180,28 +180,34 @@ public class Trabalho {
         return trilha;
     }
 
-    public String getNomeTrilha(){ return nomeTrilha; }
+    public String getNomeTrilha() {
+        return nomeTrilha;
+    }
 
-    public String getNomeEvento(){ return nomeEvento; }
+    public String getNomeEvento() {
+        return nomeEvento;
+    }
 
     public Map<Professor, Avaliacao> getAvaliacoes() {
         return new HashMap<>(avaliacoes);
     }
 
-    public float getNota(){
+    public float getNota() {
         return nota;
     }
 
-    public boolean isAvaliado() {return avaliado;}
+    public boolean isAvaliado() {
+        return avaliado;
+    }
 
-     //adiciona uma avaliacao feita por um avaliador sobre o trabalho em um hashMap, passando o professor e a avaliacao feitas
+    //adiciona uma avaliacao feita por um avaliador sobre o trabalho em um hashMap, passando o professor e a avaliacao feitas
     //por paramentro do metodo, vai ajudar a calcular a media final.
 
-    public void adicionarAvaliacao(Professor avaliador, Avaliacao avaliacao){
-        if(avaliacoes.containsKey(avaliador)){
+    public void adicionarAvaliacao(Professor avaliador, Avaliacao avaliacao) {
+        if (avaliacoes.containsKey(avaliador)) {
             throw new IllegalArgumentException();
         }
-        if(avaliacoes.size()>=2){
+        if (avaliacoes.size() >= 2) {
             throw new IllegalArgumentException();
         }
         avaliacoes.put(avaliador, avaliacao);
@@ -209,20 +215,20 @@ public class Trabalho {
     }
 
     //metodo que calcula a nota final do trabalho;
-    public void notaFinal(){
-        if(avaliacoes.size() <= 2){
+    public void notaFinal() {
+        if (avaliacoes.size() <= 2) {
             float somaNotas = 0;
-            for(Avaliacao avaliacao: avaliacoes.values()){
+            for (Avaliacao avaliacao : avaliacoes.values()) {
                 somaNotas += avaliacao.calcularNotaFinal();
             }
-            nota = somaNotas/ avaliacoes.size();
-        }else{
+            nota = somaNotas / avaliacoes.size();
+        } else {
             throw new IllegalArgumentException();
         }
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return getTitulo();
     }
 

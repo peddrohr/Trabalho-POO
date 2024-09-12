@@ -21,7 +21,7 @@ public class TelaLoginView implements Observer {
         this.stage = stage;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaLogin.fxml"));
-        Parent root  = loader.load();
+        Parent root = loader.load();
 
         TelaLoginController controller = loader.getController();
         controller.initialize(model, stage);
@@ -31,6 +31,7 @@ public class TelaLoginView implements Observer {
         stage.show();
 
     }
+
     @Override
     public void update() {
 

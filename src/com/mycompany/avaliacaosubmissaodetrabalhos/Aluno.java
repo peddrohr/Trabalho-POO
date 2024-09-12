@@ -14,18 +14,18 @@ public class Aluno {
     private float notaTrabalho;
 
     //construtores
-    public Aluno(String nome,String cpf, String email, int matriculaSigaa, String senha ) {
-        setUsuario(new Usuario(nome,cpf, email, senha));
+    public Aluno(String nome, String cpf, String email, int matriculaSigaa, String senha) {
+        setUsuario(new Usuario(nome, cpf, email, senha));
         setMatriculaSigaa(matriculaSigaa);
         setSenha(senha);
     }
-    
+
     public Aluno(Usuario usuario, int matriculasigaa) {
         if (usuario == null) {
             throw new IllegalArgumentException("Usuário não pode ser nulo");
         }
         this.usuario = usuario;
-        this.matriculaSigaa = matriculasigaa != 0 ? matriculasigaa : 0; 
+        this.matriculaSigaa = matriculasigaa != 0 ? matriculasigaa : 0;
     }
 
     public Aluno() {
@@ -34,9 +34,9 @@ public class Aluno {
     }
 
     //getters
-    public String getTitulo(Trabalho trabalho){
-        for(Trabalho trabalho1:this.trabalho){
-            if(trabalho1.equals(trabalho)){
+    public String getTitulo(Trabalho trabalho) {
+        for (Trabalho trabalho1 : this.trabalho) {
+            if (trabalho1.equals(trabalho)) {
                 return trabalho1.getTitulo();
             }
         }
@@ -63,34 +63,34 @@ public class Aluno {
         return trabalho;
     }
 
-    public Trabalho getTrabalho(Evento evento){
-        for(Trabalho trabalho1: trabalho){
-            if(trabalho1.getEvento().equals(evento)){
+    public Trabalho getTrabalho(Evento evento) {
+        for (Trabalho trabalho1 : trabalho) {
+            if (trabalho1.getEvento().equals(evento)) {
                 return trabalho1;
             }
         }
         return null;
     }
 
-    public Trabalho getTrabalhoOrientado(Professor orientador){
-        for(Trabalho trabalho1:trabalho){
-            if(trabalho1.getNomeOrientador().equals(orientador.getUsuario().getNome()) && !orientador.getTrabalhosOrientados().contains(trabalho1)){
+    public Trabalho getTrabalhoOrientado(Professor orientador) {
+        for (Trabalho trabalho1 : trabalho) {
+            if (trabalho1.getNomeOrientador().equals(orientador.getUsuario().getNome()) && !orientador.getTrabalhosOrientados().contains(trabalho1)) {
                 return trabalho1;
             }
         }
         return null;
     }
 
-    public String getEmail(){
+    public String getEmail() {
         return usuario.getEmail();
-    }   
-    
+    }
+
     //setters
 
     public void setEvento(Evento evento) {
         this.evento = evento;
     }
-    
+
     public void setMatriculaSigaa(int matriculaSigaa) throws IllegalArgumentException {
         this.matriculaSigaa = matriculaSigaa;
     }
@@ -107,21 +107,21 @@ public class Aluno {
         this.usuario.setEmail(email);
     }
 
-    public void setSenha(String senha){
+    public void setSenha(String senha) {
         usuario.setSenha(senha);
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         usuario.setNome(nome);
     }
 
-    public void setCpf(String cpf){
+    public void setCpf(String cpf) {
         usuario.setCpf(cpf);
     }
 
     public float getNotaTrabalho(String titluo) {
-        for(Trabalho trabalho1:trabalho){
-            if(trabalho1.getTitulo().equals(titluo)){
+        for (Trabalho trabalho1 : trabalho) {
+            if (trabalho1.getTitulo().equals(titluo)) {
                 return trabalho1.getNota();
             }
         }

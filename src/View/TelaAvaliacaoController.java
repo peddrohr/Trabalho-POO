@@ -159,14 +159,14 @@ public class TelaAvaliacaoController {
         novaTela.iniciarTela(model, view);
     }
 
-    void carregarTrabalhos(){
+    void carregarTrabalhos() {
         ArrayList<Trabalho> trabalhosDisponiveis = model.getTrabalhosDisponíveis();
         ObservableList<Trabalho> obsTrabalhosDisponiveis = FXCollections.observableList(trabalhosDisponiveis);
         comboBoxTrabalhosDisponiveis.setItems(obsTrabalhosDisponiveis);
     }
 
     @FXML
-    void adicionarTextoLabel(){
+    void adicionarTextoLabel() {
         Trabalho trabalho = comboBoxTrabalhosDisponiveis.getValue();
         Evento evento = comboBoxTrabalhosDisponiveis.getValue().getEvento();
 
@@ -176,13 +176,13 @@ public class TelaAvaliacaoController {
         labelAutor.setText("Autor: " + trabalho.getNomeAutor());
         labelTitulo.setText("Titulo: " + trabalho.getTitulo());
         labelOrientador.setText("Orientador: " + trabalho.getNomeOrientador());
-        labelTrilha.setText("Trilha: " +trabalho.getTrilha().getNome());
-        labelResumo.setText("Resumo: " +trabalho.getResumo());
-        labelChave.setText("Palavras chave: " +trabalho.getPalavrasChave());
-        labelCriterio1.setText(Dados.criterios.get(0).getNome()+" "+Dados.criterios.get(0).getDescricao());
-        labelCriterio2.setText(Dados.criterios.get(1).getNome()+" "+Dados.criterios.get(1).getDescricao());
-        labelCriterio3.setText(Dados.criterios.get(2).getNome()+" "+Dados.criterios.get(2).getDescricao());
-        labelCriterio4.setText(Dados.criterios.get(3).getNome()+" "+Dados.criterios.get(3).getDescricao());
+        labelTrilha.setText("Trilha: " + trabalho.getTrilha().getNome());
+        labelResumo.setText("Resumo: " + trabalho.getResumo());
+        labelChave.setText("Palavras chave: " + trabalho.getPalavrasChave());
+        labelCriterio1.setText(Dados.criterios.get(0).getNome() + " " + Dados.criterios.get(0).getDescricao());
+        labelCriterio2.setText(Dados.criterios.get(1).getNome() + " " + Dados.criterios.get(1).getDescricao());
+        labelCriterio3.setText(Dados.criterios.get(2).getNome() + " " + Dados.criterios.get(2).getDescricao());
+        labelCriterio4.setText(Dados.criterios.get(3).getNome() + " " + Dados.criterios.get(3).getDescricao());
     }
 
     @FXML
@@ -216,10 +216,11 @@ public class TelaAvaliacaoController {
         this.model = model;
         this.view = stage;
 
-        if(model.verificarAvaliador()){
+        if (model.verificarAvaliador()) {
             menuAvaliarTrabalho.setDisable(false);
             menuAvaliarTrabalho.setVisible(true);
-        }if(model.verificarOrientador()){
+        }
+        if (model.verificarOrientador()) {
             menuTrabalhosOrientados.setDisable(false);
             menuTrabalhosOrientados.setVisible(true);
         }

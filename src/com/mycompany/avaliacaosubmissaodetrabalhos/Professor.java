@@ -1,4 +1,5 @@
 package com.mycompany.avaliacaosubmissaodetrabalhos;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,7 +7,7 @@ import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.AlunoInvalidoExcepti
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.NotaInvalidaException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.SemTrabalhoDefinidoException;
 
-public class Professor{
+public class Professor {
     //atributos
     private String siape;
     private Usuario usuario;
@@ -18,13 +19,13 @@ public class Professor{
     private Avaliacao avaliacao;
 
     //construtores
-    public Professor(String nome,String cpf, String email,String senha, String siape) {
-        this.setUsuario(new Usuario(nome,cpf, email, senha));
+    public Professor(String nome, String cpf, String email, String senha, String siape) {
+        this.setUsuario(new Usuario(nome, cpf, email, senha));
         this.setSiape(siape);
         this.avaliador = false;
         this.orientador = false;
     }
-    
+
     public Professor(Usuario usuario, String siape) {
         if (usuario == null) {
             throw new IllegalArgumentException("Usuário não pode ser nulo");
@@ -48,9 +49,11 @@ public class Professor{
         }
         this.usuario = usuario;
     }
-    public void setEmail(String email){
+
+    public void setEmail(String email) {
         this.usuario.setEmail(email);
     }
+
     public void setSiape(String siape) {
         if (siape != null && !siape.isEmpty()) {
             this.siape = siape;
@@ -58,15 +61,16 @@ public class Professor{
             throw new ExceptionInInitializerError("O email não pode ser vazio");
         }
     }
-    public void setSenha(String senha){
+
+    public void setSenha(String senha) {
         usuario.setSenha(senha);
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         usuario.setNome(nome);
     }
 
-    public void setCpf(String cpf){
+    public void setCpf(String cpf) {
         usuario.setCpf(cpf);
     }
 
@@ -88,142 +92,145 @@ public class Professor{
         return siape;
     }
 
-    public boolean getAvaliador(){ return avaliador; }
+    public boolean getAvaliador() {
+        return avaliador;
+    }
 
-    public boolean getOrientador(){
+    public boolean getOrientador() {
         return orientador;
     }
-   
+
     //Metodos
     //metodo para um professor se tornar um orientador
-    public void serOrientador(){
-        if(this.orientador == false){
+    public void serOrientador() {
+        if (this.orientador == false) {
             this.orientador = true;
         }
     }
 
     //metodo para um professor deixar de ser orientador
-    public void naoSerOrientador(){
-        if(this.orientador == true){
+    public void naoSerOrientador() {
+        if (this.orientador == true) {
             this.orientador = false;
         }
     }
 
     //metodo para um professor se tornar um orientador
-    public void serAvaliador(){
-        if(this.avaliador == false){
+    public void serAvaliador() {
+        if (this.avaliador == false) {
             this.avaliador = true;
         }
     }
-    
-    public void naoSerAvaliador(){
-        if(this.avaliador == true){
+
+    public void naoSerAvaliador() {
+        if (this.avaliador == true) {
             this.avaliador = false;
         }
     }
 
     //metodos para o papel de orientador
-    public void addAlunoOrientado(Aluno aluno) throws AlunoInvalidoException{
-        if(orientador){
-            if(aluno == null){
+    public void addAlunoOrientado(Aluno aluno) throws AlunoInvalidoException {
+        if (orientador) {
+            if (aluno == null) {
                 throw new AlunoInvalidoException();
             }
             this.alunosOrientados.add(aluno);
             this.trabalhosOrientados.add(aluno.getTrabalhoOrientado(this));
-        }else{
+        } else {
             throw new IllegalArgumentException();
         }
     }
-    public void removerAlunoOrientado(Aluno alunoOrientado){
-        if(orientador){
+
+    public void removerAlunoOrientado(Aluno alunoOrientado) {
+        if (orientador) {
             this.alunosOrientados.remove(alunoOrientado);
-        }else{
+        } else {
             throw new IllegalArgumentException();
-        }       
+        }
     }
 
-    public List<Aluno> getAlunosOrientados(){
-        if(orientador){
+    public List<Aluno> getAlunosOrientados() {
+        if (orientador) {
             return new ArrayList<>(alunosOrientados);
         }
         throw new IllegalArgumentException();
     }
 
     public List<Trabalho> getTrabalhosAvaliados() {
-        if(avaliador){
+        if (avaliador) {
             return new ArrayList<>(trabalhosAvaliados);
         }
         throw new IllegalArgumentException();
-        
+
     }
 
-    public List<Trabalho> getTrabalhosOrientados(){
+    public List<Trabalho> getTrabalhosOrientados() {
         return trabalhosOrientados;
     }
 
-    public void addTrabalhosOrientados(Trabalho trabalho){
+    public void addTrabalhosOrientados(Trabalho trabalho) {
         trabalhosOrientados.add(trabalho);
     }
-    
+
     //metodos para o papel de avaliador
 
     //metodo para adicionar um trabalho para ser avaliado na lista de trabalhos que o avaliador deve avaliar.
-    public void addTrabalhoAvaliado(Trabalho trabalho)throws SemTrabalhoDefinidoException{
-        if(avaliador){
-            if(trabalho == null){
+    public void addTrabalhoAvaliado(Trabalho trabalho) throws SemTrabalhoDefinidoException {
+        if (avaliador) {
+            if (trabalho == null) {
                 throw new SemTrabalhoDefinidoException();
             }
             this.trabalhosAvaliados.add(trabalho);
-        }else{
+        } else {
             throw new IllegalArgumentException();
         }
     }
 
     //remove um trabalho da lista de trabalho para serem avaliados.
-    public void removerTrabalhoAvaliado(Trabalho trabalhoAvalido) throws SemTrabalhoDefinidoException{
-        if(avaliador){
-            if(trabalhoAvalido == null){
+    public void removerTrabalhoAvaliado(Trabalho trabalhoAvalido) throws SemTrabalhoDefinidoException {
+        if (avaliador) {
+            if (trabalhoAvalido == null) {
                 throw new SemTrabalhoDefinidoException();
             }
             this.trabalhosAvaliados.remove(trabalhoAvalido);
-        }else{
+        } else {
             throw new IllegalArgumentException();
-        }    
+        }
     }
-   
+
     //metodo para o avaliador avaliar um trabalho.
-    public void avaliarTrabalho(Trabalho trabalho) throws SemTrabalhoDefinidoException{
+    public void avaliarTrabalho(Trabalho trabalho) throws SemTrabalhoDefinidoException {
         Avaliacao avaliacao = new Avaliacao(trabalho);
         this.avaliacao = avaliacao;
     }
 
     //metodo para avaliar um critério
-    public void avaliarCriterio(CriterioAvaliacao criterio, float nota) throws NotaInvalidaException{
+    public void avaliarCriterio(CriterioAvaliacao criterio, float nota) throws NotaInvalidaException {
         avaliacao.avaliarCriterio(criterio, nota);
     }
 
     //metodo para adicionar a nota em um trabalho, junto com um comentario.
     //nesse metodo tambem remove o trabalho da lista de trabalho para serem avaliados
     //para nao correr o risco de ser avaliado novamente;
-    public Avaliacao adicionarNota(Trabalho trabalho, float nota, String comentario) throws SemTrabalhoDefinidoException{
-        if(avaliador){
-            if(trabalhosAvaliados.contains(trabalho)){
-                if(trabalho.getAvaliacoes().size()<2){
+    public Avaliacao adicionarNota(Trabalho trabalho, float nota, String comentario) throws SemTrabalhoDefinidoException {
+        if (avaliador) {
+            if (trabalhosAvaliados.contains(trabalho)) {
+                if (trabalho.getAvaliacoes().size() < 2) {
                     Avaliacao avaliar = new Avaliacao(trabalho, nota, comentario);
                     trabalhosAvaliados.remove(trabalho);
-                    if(trabalho.getAvaliacoes().size()<2){
+                    if (trabalho.getAvaliacoes().size() < 2) {
                         trabalho.adicionarAvaliacao(this, avaliacao);
-                    }else{
+                    } else {
                         throw new IllegalArgumentException();
                     }
                     return avaliar;
-                }else{
+                } else {
                     throw new IllegalArgumentException();
                 }
-            }else{
+            } else {
                 throw new IllegalArgumentException();
             }
-        }else{
+        } else {
             throw new IllegalArgumentException();
         }
     }

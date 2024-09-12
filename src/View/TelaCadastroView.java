@@ -17,7 +17,7 @@ public class TelaCadastroView {
         this.stage = stage;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaCadastro.fxml"));
-        Parent root  = loader.load();
+        Parent root = loader.load();
 
         TelaCadastroController controller = loader.getController();
         controller.initialize(model, stage);

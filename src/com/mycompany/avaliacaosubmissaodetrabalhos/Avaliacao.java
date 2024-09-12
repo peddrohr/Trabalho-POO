@@ -18,13 +18,13 @@ public class Avaliacao {
     private float nota;
 
     //construtores
-    public Avaliacao(Trabalho trabalho, float nota, String comentario) throws SemTrabalhoDefinidoException{
+    public Avaliacao(Trabalho trabalho, float nota, String comentario) throws SemTrabalhoDefinidoException {
         setTrabalho(trabalho);
         setNota(nota);
         setComentario(comentario);
     }
 
-    public Avaliacao(Trabalho trabalho) throws SemTrabalhoDefinidoException{
+    public Avaliacao(Trabalho trabalho) throws SemTrabalhoDefinidoException {
         setTrabalho(trabalho);
     }
 
@@ -68,10 +68,10 @@ public class Avaliacao {
     public Map<CriterioAvaliacao, Float> getNotasPorCriterio() {
         return notasPorCriterio;
     }
-    
+
     //adiciona uma nota para cada critério de avaliação
-    public void avaliarCriterio(CriterioAvaliacao criterio, float nota)throws NotaInvalidaException{
-        if(nota < 0 || nota > 5){
+    public void avaliarCriterio(CriterioAvaliacao criterio, float nota) throws NotaInvalidaException {
+        if (nota < 0 || nota > 5) {
             throw new NotaInvalidaException();
         }
         notasPorCriterio.put(criterio, nota);
@@ -84,9 +84,9 @@ public class Avaliacao {
         for (Float nota : notasPorCriterio.values()) {
             somaNotas += nota;
         }
-        notaFinal = somaNotas/ notasPorCriterio.size();
+        notaFinal = somaNotas / notasPorCriterio.size();
         setNota(notaFinal);
-        return nota; 
+        return nota;
     }
 
 }

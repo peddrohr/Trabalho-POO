@@ -18,7 +18,7 @@ public class TelaEventosView implements Observer {
         this.stage = stage;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaEventos.fxml"));
-        Parent root  = loader.load();
+        Parent root = loader.load();
 
         TelaEventosController controller = loader.getController();
         controller.initialize(model, stage);

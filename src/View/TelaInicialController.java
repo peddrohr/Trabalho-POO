@@ -74,12 +74,12 @@ public class TelaInicialController {
         this.model = model;
         this.view = stage;
 
-        if(model.verificarAvaliador()){
+        if (model.verificarAvaliador()) {
             menuAvaliarTrabalho.setDisable(false);
             menuAvaliarTrabalho.setVisible(true);
         }
 
-        if(model.verificarOrientador()){
+        if (model.verificarOrientador()) {
             menuTrabalhosOrientados.setDisable(false);
             menuTrabalhosOrientados.setVisible(true);
         }

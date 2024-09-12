@@ -18,7 +18,7 @@ public class TelaTrabalhosOrientadosView implements Observer {
         this.stage = stage;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaTrabalhosOrientados.fxml"));
-        Parent root  = loader.load();
+        Parent root = loader.load();
 
         TelaTrabalhosOrientadosController controller = loader.getController();
         controller.initialize(model, stage);

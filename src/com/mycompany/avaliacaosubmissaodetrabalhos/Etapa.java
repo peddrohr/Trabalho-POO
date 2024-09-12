@@ -13,14 +13,14 @@ public class Etapa {
         setNomeEtapa(nomeEtapa);
     }
 
-    public Etapa(String nomeEtapa, String dataInicio, String dataFim, String descricao ){
+    public Etapa(String nomeEtapa, String dataInicio, String dataFim, String descricao) {
         setNomeEtapa(nomeEtapa);
         setDataInicio(dataInicio);
         setDataFim(dataFim);
         setDescricao(descricao);
     }
 
-    
+
     //setters
     private void setNomeEtapa(String nomeEtapa) {
         if (nomeEtapa != null && !nomeEtapa.isEmpty()) {

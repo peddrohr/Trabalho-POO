@@ -18,7 +18,7 @@ public class TelaPerfilView implements Observer {
         this.stage = stage;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaPerfil.fxml"));
-        Parent root  = loader.load();
+        Parent root = loader.load();
 
         TelaPerfilController controller = loader.getController();
         controller.initialize(model, stage);

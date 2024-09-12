@@ -79,6 +79,12 @@ public class TelaEventosController implements Observer {
     @FXML
     private Label nomeEvento;
 
+    @FXML
+    private Label labelNotaNome;
+
+    @FXML
+    private Label labelNota;
+
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
@@ -155,6 +161,10 @@ public class TelaEventosController implements Observer {
                 labelCoAutores.setText(trabalho.getCoAutores());
                 labelOrientador.setText(trabalho.getNomeOrientador());
                 labelPalavrasChave.setText(trabalho.getPalavrasChave());
+                if(model.getTrabalhoEnviado().isAvaliado()){
+                    labelNotaNome.setVisible(true);
+                    labelNota.setText(""+model.getTrabalhoEnviado().getNota());
+                }
             } else {
                 dadosTrabalho.setVisible(false);
                 mensagemTrabalho.setVisible(false);

@@ -27,6 +27,7 @@ public class Trabalho {
     private Evento evento;
     private Map<Professor, Avaliacao> avaliacoes = new HashMap<>();
     private float nota;
+    private boolean avaliado;
 
     //construtores
     public Trabalho() {
@@ -191,6 +192,8 @@ public class Trabalho {
         return nota;
     }
 
+    public boolean isAvaliado() {return avaliado;}
+
      //adiciona uma avaliacao feita por um avaliador sobre o trabalho em um hashMap, passando o professor e a avaliacao feitas
     //por paramentro do metodo, vai ajudar a calcular a media final.
 
@@ -202,6 +205,7 @@ public class Trabalho {
             throw new IllegalArgumentException();
         }
         avaliacoes.put(avaliador, avaliacao);
+        avaliado = true;
     }
 
     //metodo que calcula a nota final do trabalho;

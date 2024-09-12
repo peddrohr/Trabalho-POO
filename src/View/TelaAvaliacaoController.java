@@ -3,22 +3,17 @@ package View;
 import com.mycompany.avaliacaosubmissaodetrabalhos.*;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.NotaInvalidaException;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Excecoes.SemTrabalhoDefinidoException;
-import com.sun.tools.javac.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.ResourceBundle;
 
 public class TelaAvaliacaoController {
 
@@ -32,19 +27,64 @@ public class TelaAvaliacaoController {
     private Button buttonEnviarAval;
 
     @FXML
-    private RadioButton b1;
+    private RadioButton c1b1;
 
     @FXML
-    private RadioButton b2;
+    private RadioButton c1b2;
 
     @FXML
-    private RadioButton b3;
+    private RadioButton c1b3;
 
     @FXML
-    private RadioButton b4;
+    private RadioButton c1b4;
 
     @FXML
-    private RadioButton b5;
+    private RadioButton c1b5;
+
+    @FXML
+    private RadioButton c2b1;
+
+    @FXML
+    private RadioButton c2b2;
+
+    @FXML
+    private RadioButton c2b3;
+
+    @FXML
+    private RadioButton c2b4;
+
+    @FXML
+    private RadioButton c2b5;
+
+    @FXML
+    private RadioButton c3b1;
+
+    @FXML
+    private RadioButton c3b2;
+
+    @FXML
+    private RadioButton c3b3;
+
+    @FXML
+    private RadioButton c3b4;
+
+    @FXML
+    private RadioButton c3b5;
+
+    @FXML
+    private RadioButton c4b1;
+
+    @FXML
+    private RadioButton c4b2;
+
+    @FXML
+    private RadioButton c4b3;
+
+    @FXML
+    private RadioButton c4b4;
+
+    @FXML
+    private RadioButton c4b5;
 
     @FXML
     private Label dataDeAbertura;
@@ -92,16 +132,16 @@ public class TelaAvaliacaoController {
     private Label labelResumo;
 
     @FXML
-    private ToggleGroup nota1;
+    private ToggleGroup criterio1;
 
     @FXML
-    private ToggleGroup nota2;
+    private ToggleGroup criterio2;
 
     @FXML
-    private ToggleGroup nota3;
+    private ToggleGroup criterio3;
 
     @FXML
-    private ToggleGroup nota4;
+    private ToggleGroup criterio4;
 
     @FXML
     private MenuBar barraMenu;
@@ -201,16 +241,16 @@ public class TelaAvaliacaoController {
     void enviarAvaliacao(ActionEvent event) throws NotaInvalidaException, SemTrabalhoDefinidoException {
 
         if(!Objects.equals(fieldComentario.getText(), "")){
-            RadioButton selectedRadioButtonCriterio1 = (RadioButton) nota1.getSelectedToggle();
+            RadioButton selectedRadioButtonCriterio1 = (RadioButton) criterio1.getSelectedToggle();
             float nota1 = Float.parseFloat(selectedRadioButtonCriterio1.getText());
 
-            RadioButton selectedRadioButtonCriterio2 = (RadioButton) nota2.getSelectedToggle();
+            RadioButton selectedRadioButtonCriterio2 = (RadioButton) criterio2.getSelectedToggle();
             float nota2 = Float.parseFloat(selectedRadioButtonCriterio2.getText());
 
-            RadioButton selectedRadioButtonCriterio3 = (RadioButton) nota3.getSelectedToggle();
+            RadioButton selectedRadioButtonCriterio3 = (RadioButton) criterio3.getSelectedToggle();
             float nota3 = Float.parseFloat(selectedRadioButtonCriterio3.getText());
 
-            RadioButton selectedRadioButtonCriterio4 = (RadioButton) nota4.getSelectedToggle();
+            RadioButton selectedRadioButtonCriterio4 = (RadioButton) criterio4.getSelectedToggle();
             float nota4 = Float.parseFloat(selectedRadioButtonCriterio4.getText());
 
             model.enviarAvaliacao(nota1, nota2, nota3, nota4, fieldComentario.getText(), comboBoxTrabalhosDisponiveis.getValue().getNomeAutor());

@@ -119,12 +119,12 @@ public class Aluno {
         usuario.setCpf(cpf);
     }
 
-    public float getNotaTrabalho(String titluo) {
+    public String getNotaTrabalho(String titluo) {
         for (Trabalho trabalho1 : trabalho) {
             if (trabalho1.getTitulo().equals(titluo)) {
                 return trabalho1.getNota();
             }
         }
-        return 0;
+        return null;
     }
 }

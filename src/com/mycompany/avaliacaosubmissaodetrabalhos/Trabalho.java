@@ -206,8 +206,11 @@ public class Trabalho {
         return new HashMap<>(avaliacoes);
     }
 
-    public float getNota() {
-        return nota;
+    public String getNota() {
+        if(isAvaliado()){
+            return Float.toString(nota);
+        }
+        return "Não Avaliado";
     }
 
     public boolean isAvaliado() {

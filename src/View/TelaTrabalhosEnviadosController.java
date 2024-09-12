@@ -28,7 +28,7 @@ public class TelaTrabalhosEnviadosController implements Observer {
     private TableColumn<Trabalho, String> colunaEvento;
 
     @FXML
-    private TableColumn<Trabalho, Integer> colunaNota;
+    private TableColumn<Trabalho, String> colunaNota;
 
     @FXML
     private TableColumn<Trabalho, String> colunaTitulo;

@@ -76,7 +76,7 @@
             </font>
         </Label>
         <Separator layoutX="544.0" layoutY="110.0" orientation="VERTICAL" prefHeight="603.0" prefWidth="4.0" />
-      <AnchorPane fx:id="criterios" disable="true" layoutX="550.0" layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="540.0">
+      <AnchorPane fx:id="criterios" disable="true" focusTraversable="true" layoutX="550.0" layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="596.0" prefWidth="540.0">
          <children>
             <Button fx:id="buttonEnviarAval" layoutX="219.0" layoutY="510.0" mnemonicParsing="false" onAction="#enviarAvaliacao" prefHeight="40.0" prefWidth="101.0" style="-fx-font-family: Cambria; -fx-background-color: darkblue;" text="Enviar" textFill="WHITE">
                <font>
@@ -98,29 +98,13 @@
             </Label>
             <RadioButton fx:id="c1b1" layoutX="187.0" layoutY="121.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="1">
                <toggleGroup>
-                  <ToggleGroup fx:id="nota1" />
+                  <ToggleGroup fx:id="criterio1" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="c1b2" layoutX="221.0" layoutY="121.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="2">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota1" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="c1b3" layoutX="255.0" layoutY="121.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="3">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota1" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="c1b4" layoutX="289.0" layoutY="121.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="4">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota1" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="c1b5" layoutX="323.0" layoutY="121.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="5">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota1" />
-               </toggleGroup>
-            </RadioButton>
+            <RadioButton fx:id="c1b2" layoutX="221.0" layoutY="121.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="2" toggleGroup="$criterio1" />
+            <RadioButton fx:id="c1b3" layoutX="255.0" layoutY="121.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="3" toggleGroup="$criterio1" />
+            <RadioButton fx:id="c1b4" layoutX="289.0" layoutY="121.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="4" toggleGroup="$criterio1" />
+            <RadioButton fx:id="c1b5" layoutX="323.0" layoutY="121.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="5" toggleGroup="$criterio1" />
             <Label fx:id="labelCriterio2" layoutX="67.0" layoutY="146.0" prefHeight="36.0" prefWidth="405.0" style="-fx-font-family: Cambria; -fx-border-color: black; -fx-border-radius: 2px;" text="Criterio 2">
                <font>
                   <Font size="16.0" />
@@ -128,29 +112,13 @@
             </Label>
             <RadioButton fx:id="c2b1" layoutX="187.0" layoutY="187.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="1">
                <toggleGroup>
-                  <ToggleGroup fx:id="nota2" />
+                  <ToggleGroup fx:id="criterio2" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="c2b2" layoutX="221.0" layoutY="187.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="2">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota2" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="c2b3" layoutX="255.0" layoutY="187.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="3">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota2" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="c2b4" layoutX="289.0" layoutY="187.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="4">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota2" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="c2b5" layoutX="323.0" layoutY="187.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="5">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota2" />
-               </toggleGroup>
-            </RadioButton>
+            <RadioButton fx:id="c2b2" layoutX="221.0" layoutY="187.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="2" toggleGroup="$criterio2" />
+            <RadioButton fx:id="c2b3" layoutX="255.0" layoutY="187.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="3" toggleGroup="$criterio2" />
+            <RadioButton fx:id="c2b4" layoutX="289.0" layoutY="187.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="4" toggleGroup="$criterio2" />
+            <RadioButton fx:id="c2b5" layoutX="323.0" layoutY="187.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="5" toggleGroup="$criterio2" />
             <Label fx:id="labelCriterio3" layoutX="67.0" layoutY="211.0" prefHeight="36.0" prefWidth="405.0" style="-fx-font-family: Cambria; -fx-border-color: black; -fx-border-radius: 2px;" text="Criterio 3">
                <font>
                   <Font size="16.0" />
@@ -158,29 +126,13 @@
             </Label>
             <RadioButton fx:id="c4b1" layoutX="187.0" layoutY="321.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="1">
                <toggleGroup>
-                  <ToggleGroup fx:id="nota4" />
+                  <ToggleGroup fx:id="criterio4" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="c4b2" layoutX="221.0" layoutY="321.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="2">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota4" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="c4b3" layoutX="255.0" layoutY="321.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="3">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota4" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="c4b4" layoutX="289.0" layoutY="321.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="4">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota4" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="c4b5" layoutX="323.0" layoutY="321.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="5">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota4" />
-               </toggleGroup>
-            </RadioButton>
+            <RadioButton fx:id="c4b2" layoutX="221.0" layoutY="321.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="2" toggleGroup="$criterio4" />
+            <RadioButton fx:id="c4b3" layoutX="255.0" layoutY="321.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="3" toggleGroup="$criterio4" />
+            <RadioButton fx:id="c4b4" layoutX="289.0" layoutY="321.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="4" toggleGroup="$criterio4" />
+            <RadioButton fx:id="c4b5" layoutX="323.0" layoutY="321.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="5" toggleGroup="$criterio4" />
             <Label fx:id="labelCriterio4" layoutX="67.0" layoutY="279.0" prefHeight="36.0" prefWidth="405.0" style="-fx-font-family: Cambria; -fx-border-color: black; -fx-border-radius: 2px;" text="Criterio 4">
                <font>
                   <Font size="16.0" />
@@ -188,29 +140,13 @@
             </Label>
             <RadioButton fx:id="c3b1" layoutX="187.0" layoutY="252.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="1">
                <toggleGroup>
-                  <ToggleGroup fx:id="nota3" />
+                  <ToggleGroup fx:id="criterio3" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="c3b2" layoutX="221.0" layoutY="252.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="2">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota3" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="c3b3" layoutX="255.0" layoutY="252.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="3">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota3" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="c3b4" layoutX="289.0" layoutY="252.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="4">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota3" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="c3b5" layoutX="323.0" layoutY="252.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="5">
-               <toggleGroup>
-                  <ToggleGroup fx:id="nota3" />
-               </toggleGroup>
-            </RadioButton>
+            <RadioButton fx:id="c3b2" layoutX="221.0" layoutY="252.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="2" toggleGroup="$criterio3" />
+            <RadioButton fx:id="c3b3" layoutX="255.0" layoutY="252.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="3" toggleGroup="$criterio3" />
+            <RadioButton fx:id="c3b4" layoutX="289.0" layoutY="252.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="4" toggleGroup="$criterio3" />
+            <RadioButton fx:id="c3b5" layoutX="323.0" layoutY="252.0" mnemonicParsing="false" style="-fx-font-family: Cambria;" text="5" toggleGroup="$criterio3" />
             <TextArea fx:id="fieldComentario" layoutX="67.0" layoutY="345.0" prefHeight="145.0" prefWidth="405.0" promptText="Escreva seu comentario aqui . . . " style="-fx-font-family: Cambria; -fx-border-color: black; -fx-border-radius: 2px;" wrapText="true">
                <font>
                   <Font size="16.0" />

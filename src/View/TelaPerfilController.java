@@ -46,6 +46,12 @@ public class TelaPerfilController {
     @FXML
     private Label nomeEvento;
 
+    @FXML
+    private Label cargo;
+
+    @FXML
+    private Label labelCargo;
+
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
@@ -97,15 +103,22 @@ public class TelaPerfilController {
     public void initialize(Model model, Stage stage) {
         this.model = model;
         this.view = stage;
+        String nomeCargo = "";
 
         if (model.verificarAvaliador()) {
             menuAvaliarTrabalho.setDisable(false);
             menuAvaliarTrabalho.setVisible(true);
+            labelCargo.setVisible(true);
+            nomeCargo += "Avaliador";
         }
         if (model.verificarOrientador()) {
             menuTrabalhosOrientados.setDisable(false);
             menuTrabalhosOrientados.setVisible(true);
+            labelCargo.setVisible(true);
+            nomeCargo += "Orientador";
         }
+
+        cargo.setText(nomeCargo);
 
 
         carregarDados();

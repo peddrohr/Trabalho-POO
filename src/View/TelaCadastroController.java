@@ -71,16 +71,17 @@ public class TelaCadastroController implements Observer {
 
         RadioButton usuarioSelecionado = (RadioButton) tipoUsuario.getSelectedToggle();
         String tipoUser = usuarioSelecionado.getText();
-        if(checkAvaliador.isSelected()){
-            if(checkOrientador.isSelected()){
+        if (checkAvaliador.isSelected()) {
+            if (checkOrientador.isSelected()) {
                 tipoUser = "AvaliadorOrientador";
-            }else{
+            } else {
                 tipoUser = "Avaliador";
             }
-        }else {
+        } else {
             if (checkOrientador.isSelected()) {
                 tipoUser = "Orientador";
             }
+        }
 
         try {
             // cadastrando usuário pelo metodo da model
@@ -95,20 +96,22 @@ public class TelaCadastroController implements Observer {
             alert.setHeaderText(null);
             alert.setContentText(e.getMessage());
             alert.showAndWait();
-            }
         }
     }
 
+
     @FXML
-    void roleSet(ActionEvent event){
+    void roleSet(ActionEvent event) {
         checkAvaliador.setVisible(true);
         checkOrientador.setVisible(true);
     }
 
     @FXML
-    void alunoSet(ActionEvent event){
+    void alunoSet(ActionEvent event) {
         checkAvaliador.setVisible(false);
         checkOrientador.setVisible(false);
+        checkAvaliador.setSelected(false);
+        checkOrientador.setSelected(false);
     }
 
     void initialize(Model model, Stage stage) {

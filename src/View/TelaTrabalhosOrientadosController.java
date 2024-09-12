@@ -129,7 +129,7 @@ public class TelaTrabalhosOrientadosController implements Observer {
 
     @FXML
     void AbrirTelaTrabalho() throws IOException {
-        model.trabalhoSelecionado = tabelaTrabalhos.getSelectionModel().getSelectedItem();
+        model.setTrabalhoSelecionado(tabelaTrabalhos.getSelectionModel().getSelectedItem());
         TelaTrabalhoView novaTela = new TelaTrabalhoView();
         novaTela.iniciarTela(model, view);
     }

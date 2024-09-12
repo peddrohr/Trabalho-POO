@@ -98,6 +98,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label fx:id="labelNotaNome" alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="54.0" prefWidth="177.0" text="NOTA:" visible="false" GridPane.rowIndex="4">
@@ -178,7 +179,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" />
                </items>
             </Menu>
-            <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" text="Trabalhos Orientados" visible="false">
+            <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="Trabalhos Orientados" visible="false">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="trabalhosOrientados" />
                </items>

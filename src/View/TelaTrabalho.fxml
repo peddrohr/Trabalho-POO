@@ -9,105 +9,93 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="717.0" prefWidth="1092.0" style="-fx-font-family: Cambria;" xmlns="http://javafx.com/javafx/22"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaTrabalhoController">
+<AnchorPane prefHeight="717.0" prefWidth="1092.0" style="-fx-font-family: Cambria;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaTrabalhoController">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="691.0" layoutY="26.0" stroke="BLACK"
-                   strokeType="INSIDE" width="1092.0"/>
-        <Label fx:id="nomeEvento" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="25.0"
-               prefHeight="79.0" prefWidth="1095.0" style="-fx-background-color: darkblue;" text="Evento"
-               textFill="WHITE">
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="691.0" layoutY="26.0" stroke="BLACK" strokeType="INSIDE" width="1095.0" />
+        <Label fx:id="nomeEvento" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="26.0" prefHeight="79.0" prefWidth="1095.0" style="-fx-background-color: darkblue;" text="Evento" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="34.0"/>
+                <Font name="Arial Black" size="34.0" />
             </font>
         </Label>
-        <Accordion layoutX="351.0" layoutY="96.0"/>
-        <Label fx:id="dataDeAbertura" layoutX="270.0" layoutY="144.0" prefHeight="29.0" prefWidth="170.0"
-               style="-fx-font-family: Cambria;" text="Abertura: ">
+        <Accordion layoutX="351.0" layoutY="96.0" />
+        <Label fx:id="dataDeAbertura" layoutX="270.0" layoutY="144.0" prefHeight="29.0" prefWidth="170.0" style="-fx-font-family: Cambria;" text="Abertura: ">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="dataDeVencimento" layoutX="270.0" layoutY="165.0" prefHeight="23.0" prefWidth="170.0"
-               style="-fx-font-family: Cambria;" text="Prazo:">
+        <Label fx:id="dataDeVencimento" layoutX="270.0" layoutY="165.0" prefHeight="23.0" prefWidth="170.0" style="-fx-font-family: Cambria;" text="Prazo:">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="labelEnvio" alignment="CENTER" layoutX="647.0" layoutY="676.0" prefHeight="27.0" prefWidth="311.0"
-               style="-fx-font-family: Cambria;">
+        <Label fx:id="labelEnvio" alignment="CENTER" layoutX="647.0" layoutY="676.0" prefHeight="27.0" prefWidth="311.0" style="-fx-font-family: Cambria;">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
-        <Label fx:id="labelTrilha" layoutX="270.0" layoutY="334.0" prefHeight="23.0" prefWidth="460.0"
-               style="-fx-font-family: Cambria;" text="Trilha: ">
+        <Label fx:id="labelTrilha" layoutX="270.0" layoutY="334.0" prefHeight="23.0" prefWidth="460.0" style="-fx-font-family: Cambria;" text="Trilha: ">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="labelAutor" layoutX="270.0" layoutY="358.0" prefHeight="27.0" prefWidth="460.0"
-               style="-fx-font-family: Cambria;" text="Nome do autor:  ">
+        <Label fx:id="labelAutor" layoutX="270.0" layoutY="358.0" prefHeight="27.0" prefWidth="460.0" style="-fx-font-family: Cambria;" text="Nome do autor:  ">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="labelOrientador" layoutX="270.0" layoutY="382.0" prefHeight="27.0" prefWidth="460.0"
-               style="-fx-font-family: Cambria;" text="Nome do orientador: ">
+        <Label fx:id="labelOrientador" layoutX="270.0" layoutY="382.0" prefHeight="27.0" prefWidth="390.0" style="-fx-font-family: Cambria;" text="Nome do orientador: ">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="labelChave" layoutX="270.0" layoutY="283.0" prefHeight="27.0" prefWidth="460.0"
-               style="-fx-font-family: Cambria;" text="Palavras chave: ">
+        <Label fx:id="labelChave" layoutX="270.0" layoutY="283.0" prefHeight="27.0" prefWidth="460.0" style="-fx-font-family: Cambria;" text="Palavras chave: ">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="labelResumo" alignment="TOP_LEFT" layoutX="307.0" layoutY="430.0" prefHeight="145.0"
-               prefWidth="439.0" style="-fx-font-family: Cambria; -fx-border-color: black; -fx-border-radius: 2px;"
-               text=" Resumo: " textAlignment="JUSTIFY" wrapText="true">
+        <Label fx:id="labelResumo" alignment="TOP_LEFT" layoutX="307.0" layoutY="430.0" prefHeight="145.0" prefWidth="439.0" style="-fx-font-family: Cambria; -fx-border-color: black; -fx-border-radius: 2px;" text=" Resumo: " textAlignment="JUSTIFY" wrapText="true">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <Label fx:id="labelTitulo" alignment="CENTER" layoutX="441.0" layoutY="236.0" prefHeight="36.0"
-               prefWidth="170.0" style="-fx-font-family: Cambria;" text="Titulo:">
+        <Label fx:id="labelTitulo" alignment="CENTER" layoutX="441.0" layoutY="236.0" prefHeight="36.0" prefWidth="170.0" style="-fx-font-family: Cambria;" text="Titulo:">
             <font>
-                <Font size="25.0"/>
+                <Font size="25.0" />
             </font>
         </Label>
-        <MenuBar fx:id="barraMenu" prefHeight="26.0" prefWidth="1092.0">
-            <menus>
-                <Menu fx:id="menuInicio" mnemonicParsing="false" text="Inicio">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#abrirTelaInicial" text="Inicio"/>
-                    </items>
-                </Menu>
-                <Menu fx:id="menuPerfil" mnemonicParsing="false" onAction="#abrirTelaPerfil" text="Perfil">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Abrir perfil"/>
-                    </items>
-                </Menu>
-                <Menu fx:id="menuEventos" mnemonicParsing="false" text="Eventos">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#abrirTelaEventos" text="Ver eventos"/>
-                    </items>
-                </Menu>
-                <Menu fx:id="menuAvaliarTrabalho" disable="true" mnemonicParsing="false" text="Avaliar trabalhos"
-                      visible="false">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos"/>
-                    </items>
-                </Menu>
-                <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" text="Trabalhos Orientados"
-                      visible="false">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados"
-                                  text="trabalhosOrientados"/>
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
+      <MenuBar fx:id="barraMenu" layoutX="1.0" layoutY="1.0" prefHeight="26.0" prefWidth="1094.0">
+         <menus>
+            <Menu fx:id="menuInicio" mnemonicParsing="false" onAction="#abrirTelaInicial" text="Inicio">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaInicial" text="Inicio" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuPerfil" mnemonicParsing="false" onAction="#abrirTelaPerfil" text="Perfil">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Abrir perfil" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuEventos" mnemonicParsing="false" onAction="#abrirTelaEventos" text="Eventos">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirTelaEventos" text="Ver eventos" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuAvaliarTrabalho" disable="true" mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" visible="false">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#AbrirTelaAvaliacao" text="Avaliar trabalhos" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuTrabalhosOrientados" disable="true" mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="TrabalhosOrientados" visible="false">
+               <items>
+                  <MenuItem disable="true" mnemonicParsing="false" onAction="#abrirTelaTrabalhosOrientados" text="trabalhosOrientados" visible="false" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Label fx:id="nomeNota" contentDisplay="RIGHT" layoutX="670.0" layoutY="378.0" prefHeight="36.0" prefWidth="91.0" text="Nota: " visible="false">
+         <font>
+            <Font name="Cambria" size="16.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

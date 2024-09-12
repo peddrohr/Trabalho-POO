@@ -21,7 +21,7 @@ public class Model {
     private String tipoUsuarioLogado;
     private ArrayList<Trabalho> trabalhosDisponiveis;
     private ArrayList<Trabalho> trabalhosEnviados;
-    public Trabalho trabalhoSelecionado;
+    private Trabalho trabalhoSelecionado;
 
     public Model (){
         trabalhosDisponiveis = new ArrayList<>();
@@ -69,6 +69,7 @@ public class Model {
     }
 
     public void enviarAvaliacao(float nota1,float nota2,float nota3,float nota4, String comentario, String nomeAutor) throws SemTrabalhoDefinidoException, NotaInvalidaException {
+
         Trabalho trabalhoAvaliado = getTrabalho(nomeAutor);
         Avaliacao avaliacao = new Avaliacao(trabalhoAvaliado);
         float[] notas = {nota1, nota2, nota3, nota4};
@@ -316,6 +317,10 @@ public class Model {
         return orientadorValido;
     }
 
-
-
+    public void setTrabalhoSelecionado(Trabalho trabalhoSelecionado) {
+        this.trabalhoSelecionado = trabalhoSelecionado;
+    }
+    public Trabalho getTrabalhoSelecionado() {
+        return trabalhoSelecionado;
+    }
 }

@@ -43,6 +43,14 @@ public class TelaTrabalhoController {
     @FXML
     private Label labelResumo;
 
+    @FXML
+    private Label nomeNota;
+
+    @FXML
+    private Menu menuAvaliarTrabalho;
+
+
+
 
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
@@ -63,6 +71,16 @@ public class TelaTrabalhoController {
     }
 
     @FXML
+    private Menu menuInicio;
+
+    @FXML
+    private Menu menuPerfil;
+
+    @FXML
+    private Menu menuTrabalhosOrientados;
+
+
+    @FXML
     void abrirTelaPerfil() throws IOException {
         TelaPerfilView novaTela = new TelaPerfilView();
         novaTela.iniciarTela(model, view);
@@ -75,9 +93,12 @@ public class TelaTrabalhoController {
     }
 
 
+
+
+
     @FXML
     void adicionarTextoLabel() {
-        Trabalho trabalho = model.trabalhoSelecionado;
+        Trabalho trabalho = model.getTrabalhoSelecionado();
         Evento evento = trabalho.getEvento();
 
         nomeEvento.setText(evento.getNome());
@@ -89,6 +110,11 @@ public class TelaTrabalhoController {
         labelTrilha.setText("Trilha: " + trabalho.getTrilha().getNome());
         labelResumo.setText("Resumo: " + trabalho.getResumo());
         labelChave.setText("Palavras chave: " + trabalho.getPalavrasChave());
+
+        if(trabalho.isAvaliado()){
+            nomeNota.setVisible(true);
+            nomeNota.setText("Nota: "+trabalho.getNota());
+        }
     }
 
 
@@ -97,6 +123,14 @@ public class TelaTrabalhoController {
         this.view = stage;
 
         adicionarTextoLabel();
+        if (model.verificarAvaliador()) {
+            menuAvaliarTrabalho.setDisable(false);
+            menuAvaliarTrabalho.setVisible(true);
+        }
+        if (model.verificarOrientador()) {
+            menuTrabalhosOrientados.setDisable(false);
+            menuTrabalhosOrientados.setVisible(true);
+        }
     }
 }
 

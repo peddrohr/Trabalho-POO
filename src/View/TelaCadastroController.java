@@ -4,10 +4,7 @@ import com.mycompany.avaliacaosubmissaodetrabalhos.Model;
 import com.mycompany.avaliacaosubmissaodetrabalhos.Observer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -69,17 +66,26 @@ public class TelaCadastroController implements Observer {
         String matricula = labelMatricula.getText();
         String senha = labelSenha.getText();
 
-        //pegando valor do radio button da view
+        // guarda o tipo de aluno selecionado
         RadioButton usuarioSelecionado = (RadioButton) tipoUsuario.getSelectedToggle();
         String tipoUser = usuarioSelecionado.getText();
 
-        //cadastrando usuario
-        model.cadastrarUsuario(tipoUser, nome, cpf, email, senha, matricula);
+        try {
+            // cadastrando usuário pelo metodo da model
+            model.cadastrarUsuario(tipoUser, nome, cpf, email, senha, matricula);
 
-        TelaInicialView novaTela = new TelaInicialView();
-        novaTela.iniciarTela(model, view);
-
+            // abre novamente a tela inicial
+            TelaInicialView novaTela = new TelaInicialView();
+            novaTela.iniciarTela(model, view);
+        } catch (IllegalArgumentException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro de Cadastro");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+        }
     }
+
 
     void initialize(Model model, Stage stage){
         this.model = model;

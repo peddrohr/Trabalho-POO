@@ -21,7 +21,7 @@ public final class Usuario {
         if (nome != null && !nome.isEmpty()) {
             this.nome = nome;
         } else {
-            throw new ExceptionInInitializerError("O nome do usuario nao pode ser vazio");
+            throw new IllegalArgumentException("O nome do usuario nao pode ser vazio");
         }
     }
 
@@ -29,32 +29,32 @@ public final class Usuario {
         if (cpf.matches("\\d{11}")) {
             this.cpf = cpf;
         } else {
-            throw new ExceptionInInitializerError("O cpf deve ter apenas 11 digitos");
+            throw new IllegalArgumentException("O cpf deve ter apenas 11 digitos e não pode ser vazio");
         }
     }
+
+    // Regex para validar o formato do email para tratar letras, numeros, dominio, subdominio e sufixo
 
     public void setEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+
         if (email == null || email.isEmpty()) {
-            throw new IllegalArgumentException("O email não pode ser vazio.");
+            throw new IllegalArgumentException("O email nao pode ser vazio.");
         }
-        this.email = email;
-        // Regex para validar o formato do email onde só aceita letras maiusculas, minusculas e numeros
-        // antes do @ e aceita letras minusculas depois do @ além de só aceitar 3 caracteres após o ponto
 
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";;
         if (!email.matches(emailRegex)) {
-            throw new IllegalArgumentException("Formato de email inválido.");
+            throw new IllegalArgumentException("O email deve seguir o formato padrão");
         }
 
-
-
+        this.email = email;
     }
+
 
     public void setSenha(String senha) {
         if (senha != null && !senha.isEmpty()) {
             this.senha = senha;
         } else {
-            throw new ExceptionInInitializerError("A senha nao pode ser vazia");
+            throw new IllegalArgumentException("A senha nao pode ser vazia");
         }
     }
 

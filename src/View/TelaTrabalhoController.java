@@ -1,15 +1,13 @@
 package View;
 
-import com.mycompany.avaliacaosubmissaodetrabalhos.Dados;
-import com.mycompany.avaliacaosubmissaodetrabalhos.Evento;
+import com.mycompany.avaliacaosubmissaodetrabalhos.*;
 
-import com.mycompany.avaliacaosubmissaodetrabalhos.Model;
-import com.mycompany.avaliacaosubmissaodetrabalhos.Trabalho;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class TelaTrabalhoController {
 
@@ -149,7 +147,19 @@ public class TelaTrabalhoController {
         labelCriterio2.setText(Dados.criterios.get(1).getNome() + " " + Dados.criterios.get(1).getDescricao());
         labelCriterio3.setText(Dados.criterios.get(2).getNome() + " " + Dados.criterios.get(2).getDescricao());
         labelCriterio4.setText(Dados.criterios.get(3).getNome() + " " + Dados.criterios.get(3).getDescricao());
-        /*labelNotaC1.setText(trabalho.getAvaliacoes().forEach().getNotasPorCriterio().get());*/
+        float notas[] = new float[4];
+        int i = 0;
+        for(var entry: trabalho.getAvaliacoes().entrySet()){
+            for(var notaCrit: entry.getValue().getNotasPorCriterio().entrySet()){
+                notas[i] = notaCrit.getValue();
+                i++;
+            }
+            i = 0;
+        }
+        labelNotaC1.setText(""+notas[0]);
+        labelNotaC2.setText(""+notas[1]);
+        labelNotaC3.setText(""+notas[2]);
+        labelNotaC4.setText(""+notas[3]);
 
         if(trabalho.getCoAutores() != "") {
             labelCoAutores.setText("Co autores: " + trabalho.getCoAutores());

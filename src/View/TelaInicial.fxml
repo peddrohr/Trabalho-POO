@@ -7,29 +7,31 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="717.0" prefWidth="1092.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaInicialController">
+<AnchorPane prefHeight="717.0" prefWidth="1092.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaInicialController">
     <cursor>
         <Cursor fx:constant="DEFAULT" />
     </cursor>
     <children>
-        <AnchorPane fx:id="anchorPane" layoutY="26.0" prefHeight="691.0" prefWidth="1098.0">
+        <AnchorPane fx:id="anchorPane" layoutY="26.0" prefHeight="691.0" prefWidth="1092.0">
             <children>
-                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="487.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e4476" height="200.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="1098.0" />
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="688.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" visible="false">
                     <image>
                         <Image url="@Livro.png" />
                     </image>
                 </ImageView>
-                <Text layoutX="390.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-Vindo ao Sistema de Eventos" textAlignment="CENTER" wrappingWidth="318.62762451171875">
+                <Text fill="WHITE" layoutX="390.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-Vindo ao Sistema de Eventos" textAlignment="CENTER" wrappingWidth="318.62762451171875">
                     <font>
                         <Font size="33.0" />
                     </font>
                 </Text>
             </children>
         </AnchorPane>
-        <MenuBar fx:id="barraMenu" prefHeight="26.0" prefWidth="1092.0">
+        <MenuBar fx:id="barraMenu" prefHeight="26.0" prefWidth="1098.0">
             <menus>
                 <Menu fx:id="menuInicio" mnemonicParsing="false" text="Inicio">
                     <items>

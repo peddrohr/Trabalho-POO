@@ -15,9 +15,10 @@
 
 <AnchorPane prefHeight="717.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaPerfilController">
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="691.0" layoutY="26.0" stroke="BLACK" strokeType="INSIDE" width="439.0" />
-        <Circle fill="WHITE" layoutX="219.0" layoutY="152.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-        <GridPane layoutX="15.0" layoutY="286.0" prefHeight="117.0" prefWidth="407.0">
+        <Rectangle fill="#7cbfff" height="615.0" layoutX="439.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="659.0" />
+        <Rectangle fill="#0b375e" height="613.0" layoutY="104.0" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" width="439.0" />
+        <Circle fill="WHITE" layoutX="213.0" layoutY="411.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+        <GridPane layoutX="555.0" layoutY="351.0" prefHeight="117.0" prefWidth="407.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.20001220703125" minWidth="10.0" prefWidth="129.8000061035156" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="368.40000915527344" minWidth="10.0" prefWidth="276.9999938964844" />
@@ -30,65 +31,64 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label text="Nome:" textFill="WHITE">
+                <Label text="Nome:">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label text="Email:" textFill="WHITE" GridPane.rowIndex="1">
+                <Label text="Email:" GridPane.rowIndex="1">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label text="CPF:" textFill="WHITE" GridPane.rowIndex="2">
+                <Label text="CPF:" GridPane.rowIndex="2">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label text="Tipo de Usuario:" textFill="WHITE" GridPane.rowIndex="3">
+                <Label text="Tipo de Usuario:" GridPane.rowIndex="3">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label fx:id="labelNome" textFill="WHITE" GridPane.columnIndex="1">
+                <Label fx:id="labelNome" GridPane.columnIndex="1">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label fx:id="labelEmail" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Label fx:id="labelEmail" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label fx:id="labelCpf" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Label fx:id="labelCpf" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-                <Label fx:id="labelTipoUsuario" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <Label fx:id="labelTipoUsuario" GridPane.columnIndex="1" GridPane.rowIndex="3">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </Label>
-            <Label fx:id="labelCargo" layoutX="10.0" layoutY="79.0" text="Cargo:" textFill="WHITE" visible="false" GridPane.rowIndex="4">
+            <Label fx:id="labelCargo" layoutX="10.0" layoutY="79.0" text="Cargo:" visible="false" GridPane.rowIndex="4">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <Label fx:id="cargo" layoutX="10.0" layoutY="102.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Label fx:id="cargo" layoutX="10.0" layoutY="102.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
             </children>
         </GridPane>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7cbfff" height="691.0" layoutX="439.0" layoutY="26.0" stroke="BLACK" strokeType="INSIDE" width="659.0" />
         <Button fx:id="butaoSair" layoutX="73.0" layoutY="632.0" mnemonicParsing="false" onAction="#sair" prefHeight="45.0" prefWidth="292.0" style="-fx-background-color: RED;" text="SAIR / MUDAR USUARIO" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
         </Button>
-      <MenuBar fx:id="barraMenu" prefHeight="26.0" prefWidth="1092.0">
+      <MenuBar fx:id="barraMenu" prefHeight="26.0" prefWidth="1098.4">
          <menus>
             <Menu fx:id="menuInicio" mnemonicParsing="false" text="Inicio">
                <items>
@@ -122,5 +122,10 @@
             </Menu>
          </menus>
       </MenuBar>
+      <Label fx:id="nomeEvento" alignment="CENTER" contentDisplay="CENTER" layoutY="26.0" prefHeight="79.0" prefWidth="1098.4" style="-fx-background-color: #0e4476;" text="Perfil" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="34.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

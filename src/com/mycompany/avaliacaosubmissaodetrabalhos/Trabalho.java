@@ -171,7 +171,10 @@ public class Trabalho {
     }
 
     public String getNomeOrientador() {
-        return orientador.getNome();
+        if(!(orientador == null)) {
+            return orientador.getNome();
+        }
+        return "Sem Orientador";
     }
 
     public String getTitulo() {

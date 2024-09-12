@@ -12,13 +12,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="717.0" prefWidth="1092.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaEnvioTrabalhoController">
+<AnchorPane fx:id="anchorPane" prefHeight="717.0" prefWidth="1092.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TelaEnvioTrabalhoController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="692.0" layoutY="25.0" stroke="BLACK" strokeType="INSIDE" width="1093.0" />
       <TextField id="barra" fx:id="fieldTitulo" layoutX="261.0" layoutY="261.0" prefHeight="29.0" prefWidth="286.0" promptText="Digite o titulo do Trabalho" style="-fx-font-family: Cambria; -fx-border-color: black;" styleClass="textField">
          <cursor>
             <Cursor fx:constant="TEXT" />
@@ -29,7 +27,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button fx:id="buttonEnviarTrab" layoutX="497.0" layoutY="623.0" mnemonicParsing="false" onAction="#enviarTrabalho" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: darkblue; -fx-font-family: Cambria;" text="Enviar" textFill="WHITE">
+      <Button fx:id="buttonEnviarTrab" layoutX="497.0" layoutY="623.0" mnemonicParsing="false" onAction="#enviarTrabalho" prefHeight="40.0" prefWidth="101.0" style="-fx-background-color: #0e4476; -fx-font-family: Cambria;" text="Enviar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -43,7 +41,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button fx:id="buttonEscolhaArquivo" layoutX="700.0" layoutY="628.0" mnemonicParsing="false" onAction="#handleAnexarArquivo" prefHeight="29.0" prefWidth="132.0" style="-fx-background-color: darkblue;" text="Escolha o Arquivo" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="buttonEscolhaArquivo" layoutX="700.0" layoutY="628.0" mnemonicParsing="false" onAction="#handleAnexarArquivo" prefHeight="29.0" prefWidth="132.0" style="-fx-background-color: #0e4476;" text="Escolha o Arquivo" textAlignment="CENTER" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -61,7 +59,7 @@
             <Font size="17.0" />
          </font>
       </Text>
-      <Label fx:id="nomeEvento" alignment="CENTER" contentDisplay="CENTER" layoutY="26.0" prefHeight="75.0" prefWidth="1092.0" style="-fx-background-color: darkblue;" text="Evento" textFill="WHITE">
+      <Label fx:id="nomeEvento" alignment="CENTER" contentDisplay="CENTER" layoutY="26.0" prefHeight="75.0" prefWidth="1092.0" style="-fx-background-color: #0e4476;" text="Evento" textFill="WHITE">
          <font>
             <Font name="Arial Black" size="34.0" />
          </font>

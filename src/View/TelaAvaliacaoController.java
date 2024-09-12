@@ -223,8 +223,8 @@ public class TelaAvaliacaoController {
         Evento evento = comboBoxTrabalhosDisponiveis.getValue().getEvento();
 
         nomeEvento.setText(evento.getNome());
-        dataDeAbertura.setText("Inicio: " + evento.getDataInicio());
-        dataDeVencimento.setText("Vencimento: " + evento.getDataFim());
+        dataDeAbertura.setText("Abertura: " + evento.getDataInicio());
+        dataDeVencimento.setText("Prazo: " + evento.getDataFim());
         labelAutor.setText("Autor: " + trabalho.getNomeAutor());
         labelTitulo.setText("Titulo: " + trabalho.getTitulo());
         labelOrientador.setText("Orientador: " + trabalho.getNomeOrientador());

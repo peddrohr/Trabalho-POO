@@ -55,48 +55,56 @@ public class TelaPerfilController {
     @FXML
     private Menu menuTrabalhosEnviados;
 
+    //metodo para abrir tela de trabalhos enviados
     @FXML
     void abrirTelaTrabalhosEnviados() throws IOException {
         TelaTrabalhosEnviadosView novaTela = new TelaTrabalhosEnviadosView();
         novaTela.iniciarTela(model, view);
     }
 
+    //metodo para abrir tela de avaliacao
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
         TelaAvaliacaoView novaTela = new TelaAvaliacaoView();
         novaTela.iniciarTela(model, view);
     }
 
+    //metodo para abrir tela de eventos
     @FXML
     void abrirTelaEventos() throws IOException {
         TelaEventosView novaTela = new TelaEventosView();
         novaTela.iniciarTela(model, view);
     }
 
+    //abrir tela de envio de trabalho
     @FXML
     void abrirTelaEnvioTrabalho() throws IOException {
         TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
         novaTela.iniciarTela(model, view);
     }
 
+    //metodo para abrir tela de perfil
     @FXML
     void abrirTelaPerfil() throws IOException {
         TelaPerfilView novaTela = new TelaPerfilView();
         novaTela.iniciarTela(model, view);
     }
 
+    //metodo para abrir tela de trabalho orientados
     @FXML
     void abrirTelaTrabalhosOrientados() throws IOException {
         TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
         novaTela.iniciarTela(model, view);
     }
 
+    //metodo para abrir tela inicial
     @FXML
     void abrirTelaInicial() throws IOException {
         TelaInicialView novaTela = new TelaInicialView();
         novaTela.iniciarTela(model, view);
     }
 
+    //metodo para desconectar o usuario 
     @FXML
     public void sair() throws IOException {
         model.desconectarUsuario();
@@ -105,6 +113,7 @@ public class TelaPerfilController {
         novaTela.iniciarTela(model, view);
     }
 
+    //metodo que carrega os dados do usuario e exibe na tela
     @FXML
     void carregarDados() {
         labelNome.setText(((Usuario) model.getUsuarioLogado()).getNome());

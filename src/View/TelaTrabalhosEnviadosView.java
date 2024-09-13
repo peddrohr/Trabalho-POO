@@ -10,9 +10,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class TelaTrabalhosEnviadosView implements Observer {
+    
+    //atributos
     Model model;
     Stage stage;
 
+    
+    //inicia a tela trabalhos enviados
     public void iniciarTela(Model model, Stage stage) throws IOException {
         this.model = model;
         this.stage = stage;

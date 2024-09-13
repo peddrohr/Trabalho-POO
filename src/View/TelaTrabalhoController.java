@@ -86,49 +86,56 @@ public class TelaTrabalhoController {
     @FXML
     private Menu menuTrabalhosEnviados;
 
+    //metodo para abrir tela de trabalhos enviados
     @FXML
     void abrirTelaTrabalhosEnviados() throws IOException {
         TelaTrabalhosEnviadosView novaTela = new TelaTrabalhosEnviadosView();
         novaTela.iniciarTela(model, view);
     }
 
+    //metodo para abrir tela de avaliacao
     @FXML
     void AbrirTelaAvaliacao() throws IOException {
         TelaAvaliacaoView novaTela = new TelaAvaliacaoView();
         novaTela.iniciarTela(model, view);
     }
 
+    //metodo para abrir tela de eventos
     @FXML
     void abrirTelaEventos() throws IOException {
         TelaEventosView novaTela = new TelaEventosView();
         novaTela.iniciarTela(model, view);
     }
 
+    //metodo para abrir tela de envio de trabalhos
     @FXML
     void abrirTelaEnvioTrabalho() throws IOException {
         TelaEnvioTrabalhoView novaTela = new TelaEnvioTrabalhoView();
         novaTela.iniciarTela(model, view);
     }
 
+    //metodo para abrir tela de perfil
     @FXML
     void abrirTelaPerfil() throws IOException {
         TelaPerfilView novaTela = new TelaPerfilView();
         novaTela.iniciarTela(model, view);
     }
 
+    //metodo para abrir tela de trabalho orientados
     @FXML
     void abrirTelaTrabalhosOrientados() throws IOException {
         TelaTrabalhosOrientadosView novaTela = new TelaTrabalhosOrientadosView();
         novaTela.iniciarTela(model, view);
     }
 
+    //metodo para abrir tela inicial
     @FXML
     void abrirTelaInicial() throws IOException {
         TelaInicialView novaTela = new TelaInicialView();
         novaTela.iniciarTela(model, view);
     }
 
-
+    //metodo para preencher o metodos labels com os dados do trabalho
     @FXML
     void adicionarTextoLabel() {
         Trabalho trabalho = model.getTrabalhoSelecionado();
@@ -171,7 +178,7 @@ public class TelaTrabalhoController {
         }
     }
 
-
+    //inicializacao do controlador e janela
     public void initialize(Model model, Stage stage) {
         this.model = model;
         this.view = stage;
